@@ -1,0 +1,317 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+
+\title{CSE 215 Homework III}
+\author{David S. Li (SBU ID: 110328771)}
+\date{November 09, 2016}
+
+\begin{document}
+
+\maketitle
+
+\section{Proofs by Mathematical Induction}
+
+\subsection{1}
+
+P(n) = $\sum_{x=1}^{n}$ x$\textsuperscript{3}$ = ($\frac{n(n + 1)}{2}$)$\textsuperscript{2}$ \vspace{0.5cm}
+
+\noindent BASE CASE: Show P(1) is true \vspace{0.5cm}
+
+\noindent 1$\textsuperscript{3}$ = ($\frac{1}{1 + 1}$)$\textsuperscript{2}$ $\rightarrow$ 1 = ($\frac{1(2)}{2}$)$\textsuperscript{2}$  $\rightarrow$ 1 = (1)$\textsuperscript{2}$ $\rightarrow$ 1 = 1 \vspace{0.5cm}
+
+\noindent Therefore, having proven our base case, we can assume that $\sum_{x=1}^{n}$ x$\textsuperscript{3}$ = ($\frac{n(n + 1)}{2}$)$\textsuperscript{2}$ \vspace{0.5cm}
+
+\noindent INDUCTION STEP: Now show that $\sum_{x=1}^{n + 1}$ x$\textsuperscript{3}$ = ($\frac{(n + 1)[(n + 1) + 1]}{2}$)$\textsuperscript{2}$ \vspace{0.5cm}
+
+\noindent $\sum_{x=1}^{n + 1}$ x$\textsuperscript{3}$ = (1)$\textsuperscript{3}$ + ... + (n)$\textsuperscript{3}$ + (n + 1)$\textsuperscript{3}$ \vspace{0.5cm}
+
+\noindent And we know that $\sum_{x=1}^{n}$ x$\textsuperscript{3}$ = (1)$\textsuperscript{3}$ + ... + (n)$\textsuperscript{3}$, so let's substitute that in \vspace{0.5cm}
+
+\noindent  $\sum_{x=1}^{n + 1}$ x$\textsuperscript{3}$ = $\sum_{x=1}^{n}$ x$\textsuperscript{3}$ + (n + 1)$\textsuperscript{3}$ = ($\frac{n(n + 1)}{2}$)$\textsuperscript{2}$ + (n + 1)$\textsuperscript{3}$ \vspace{0.5cm}
+
+\noindent  $\sum_{x=1}^{n + 1}$ x$\textsuperscript{3}$  + (n + 1)$\textsuperscript{3}$ = (n + 1)(n + 1)(n + 1) + $\frac{n^2 (n + 1)(n + 1)}{4}$ \vspace{0.5cm}
+
+%\noindent $\sum_{x=1}^{n + 1}$ x$\textsuperscript{3}$  + (n + 1)$\textsuperscript{3}$ = (n^2 + 2n + 1)(n + 1) + $\frac{n^2 (n^2 + 2n + 1)}{4}$ \vspace{0.5cm}\break
+
+\noindent
+$\sum_{x=1}^{n + 1} x^3 + (n+1)^3 = (n^2 + 2n + 1)(n+1) + \frac{n^2(n^2 + 2n + 1)}{4}$
+
+%\begin{align*}
+%    a &= b \\
+%    \therefore\;\;a^2 &= b^2
+%\end{align*}
+
+\noindent 
+$\sum_{x=1}^{n + 1} x^3  + (n + 1)^3 = (n^3 + n2 + 2n^2 + 2n + n + 1) + \frac{n^4 + 2n^3 + n^2}{4} $ \vspace{0.5cm}
+
+\noindent $\sum_{x=1}^{n + 1} x^3  + (n + 1)^3 = (n^3 + 3n^2 + 3n + 1) + \frac{n^4 + 2n^3 + n^2}{4}$ \vspace{0.5cm}
+
+\noindent $\sum_{x=1}^{n + 1} x^3 + (n + 1)^3 = \frac{4n^3 + 12n^2 + 12n + 4}{4} + \frac{n^4 + 2n^3 + n^2}{4}$\vspace{0.5cm}
+
+\noindent $\sum_{x=1}^{n + 1} x^3 + (n + 1)^3 = \frac{4n^3 + 12n^2 + 12n + 4 + n^4 + 2n^3 + n^2}{4}$ \vspace{0.5cm}
+
+\noindent $\sum_{x=1}^{n + 1} x^3 + (n + 1)^3 = \frac{n^4 + 6n^3 + 13n^2 + 12n + 4}{4} = [\frac{n^2 + 3n + 2}{2}]^2 = [\frac{(n + 1)[(n + 1) + 1]}{2}]^2$ \vspace{0.5cm}
+
+\noindent Therefore, P(n + 1) is TRUE, and $\sum_{x=1}^{n} x^3 = (\frac{n(n + 1)}{2})^2$
+
+\subsection{2}
+
+\noindent P(n) = (n + 1)$\textsuperscript{2}$ + (n + 2)$\textsuperscript{2}$ + ... + (2n)$\textsuperscript{2}$  = $\frac{n(2n + 1)(7n + 1)}{6}$ \vspace{0.5cm}
+
+\noindent BASE CASE (n = 1): (1 + 1)$\textsuperscript{2}$ = (2)$\textsuperscript{2}$ = 4 \vspace{0.5cm}
+
+\noindent $\frac{(1)(2 * 1 + 1)(7 * 1 + 1)}{6}$ = $\frac{(1)(3)(8)}{6}$ = 4 \vspace{0.5cm}
+
+\noindent Given our base case is true, assume (n + 1)$\textsuperscript{2}$ + (n + 2)$\textsuperscript{2}$ + ... + (2n)$\textsuperscript{2}$ = $\frac{n(2n + 1)(7n + 1)}{6}$ \vspace{0.5cm}
+
+\noindent So for our induction step, assume we have (n + 1) as our new n \vspace{0.5cm}
+
+\noindent Show (n + 2)$\textsuperscript{2}$ + (n + 3)$\textsuperscript{2}$ + ... + (2n)$\textsuperscript{2}$ + (2n + 1)$\textsuperscript{2}$ + (2n + 2)$\textsuperscript{2}$ = $\frac{(n + 1)[2(n + 1) + 1][7(n + 1) + 7]}{6}$ \vspace{0.5cm}
+
+\noindent But if you notice something about the left hand side of the above equation, the portion from (n + 2)$\textsuperscript{2}$ to (2n)$\textsuperscript{2}$ is the same as the left hand side of the ORIGINAL equation, but WITHOUT (n + 1)$\textsuperscript{2}$ \vspace{0.5cm}
+
+\noindent So SUBSTITUTE in the right hand side of the original equation for that, MINUS (n + 1)$\textsuperscript{2}$ \vspace{0.5cm}
+
+\noindent So we have $\frac{n(2n + 1)(7n + 1)}{6}$ + (2n + 1)$\textsuperscript{2}$ + (2n + 2)$\textsuperscript{2}$ - (n + 1)$\textsuperscript{2}$ = \vspace{0.5cm}
+
+\noindent $\frac{n(14n^2 + 9n + 1)}{6}$ + 4n$\textsuperscript{2}$ + 4n + 1 + 4n$\textsuperscript{2}$ + 8n + 4 - n$\textsuperscript{2}$ - 2n - 1 \vspace{0.5cm}
+
+\noindent $\frac{14n^3 + 9n^2 + n}{6}$ + 4n$\textsuperscript{2}$ + 4n + 1 + 4n$\textsuperscript{2}$ + 8n + 4 - n$\textsuperscript{2}$ - 2n - 1 \vspace{0.5cm}
+
+\noindent $\frac{14n^3 + 9n^3 + n}{6}$ + 7n$\textsuperscript{2}$ + 10n + 4 = $\frac{14n^3 + 9n^2 + n}{6}$ + $\frac{42n^2 + 60n + 24}{6}$ = $\frac{14n^3 + 51n^2 + 61n + 24}{6}$ \vspace{0.5cm}
+
+\noindent $\frac{14n^3 + 51n^2 + 61n + 24}{6}$ can be factored as $\frac{(n + 1)(2n + 3)(7n + 8)}{6}$  = $\frac{(n + 1)[2(n + 1) + 1][7(n + 1) + 1]}{6}$\vspace{0.5cm}
+
+
+\subsection{3}
+
+\noindent P(n) = $\forall$ n $\geq$ 2, 5$\textsuperscript{n}$ = xxxxx....25 (the ten's digit is 2, the one's digit is 5) \vspace{0.5cm}\break
+\noindent BASE CASE: n = 2 $\rightarrow$ 5$\textsuperscript{n}$ = 25  \vspace{0.5cm}\break
+\noindent Given we have successfully proven our base case, we can assume $\forall$ n $\geq$ 2, \par\noindent 5$\textsuperscript{n}$ = xxxxx....25 \vspace{0.5cm}
+
+\noindent So assuming the above is true... \vspace{0.5cm}
+
+\noindent INDUCTION STEP: Show 5$\textsuperscript{n + 1}$ = xx...25 \vspace{0.5cm}
+
+\noindent Multiply both sides of the original equation by 5 \vspace{0.5cm}
+
+\noindent 5(5$\textsuperscript{n}$) = 5$\textsuperscript{n + 1}$ = 5(xx...25) \vspace{0.5cm}
+
+\noindent Now a little elementary school math, 5 * 5 = 25, so a five would go in the one's place, and the 2 from that would be carried over to be added to the (2 in the ten's place of xx...25) * 5 \par\noindent
+
+\noindent 2 + (2 * 5) = 12 $\rightarrow$ The 1 would carry over, but this is irrelevant for this problem since the 2 would be in the ten's place \vspace{0.5cm}
+
+\noindent Therefore, we have proven $\forall$ n $\geq$ 2, the last 2-digit sequence is 25 \vspace{0.5cm}
+
+\subsection{4}
+
+\noindent a$\textsubscript{1}$ = 1, a$\textsubscript{2}$ = 2 \par
+
+\noindent a$\textsubscript{n + 1}$ = a$\textsubscript{n}$ + 2a$\textsubscript{n - 1}$ $\forall$ n $\in$ Z \vspace{0.5cm}
+
+\noindent If we plug in 3, 4, and 5 for n, we get a$\textsubscript{3}$ = 2 + 2(1) = 4, a$\textsubscript{4}$ = 4 + 2(2) = 8, and a$\textsubscript{5}$ = 8 + 2(4) = 16 \vspace{0.5cm}
+
+\noindent We can make an observation that the terms are POWERS OF TWO, so \vspace{0.5cm}
+
+\noindent CONJECTURE: a$\textsubscript{n}$ = 2$\textsuperscript{n - 1}$ $\forall$ n $\geq$ 1 n$\in$ Z \vspace{0.5cm}
+
+\noindent BASE CASE (n = 2), PROVING THE ORIGINAL STATEMENT: \vspace{0.5cm}
+
+\noindent a$\textsubscript{2 + 1}$ = a$\textsubscript{2}$ + 2a$\textsubscript{2 - 1}$ $\rightarrow$ a$\textsubscript{3}$ = a$\textsubscript{2}$ + 2a$\textsubscript{1}$ $\rightarrow$ a$\textsubscript{3}$ = 2 + 2(1) = 4 \vspace{0.5cm}
+
+\noindent INDUCTIVE STEP (USING CONJECTURE, SUBSTITUTING FROM ORIGINAL EQUATION): Show a$\textsubscript{n + 1}$ = 2$\textsuperscript{n}$ \vspace{0.5cm}
+
+\noindent a$\textsubscript{n + 1}$ = a$\textsubscript{n}$ + 2a$\textsubscript{n - 1}$ = 2$\textsubscript{n - 1}$ + 2[2$\textsuperscript{(n - 1) - 1}$] = 2$\textsuperscript{n - 1}$ + 2$\textsuperscript{1}$ * 2$\textsuperscript{(n - 1) - 1}$ = \par
+
+\noindent 2$\textsuperscript{n - 1}$ + 2$\textsuperscript{(n - 1) + 1}$ = 2$\textsuperscript{n - 1}$ + 2$\textsuperscript{n - 1}$ = 2[2$\textsuperscript{n - 1}$] = 2$\textsuperscript{1}$ * 2$\textsuperscript{n - 1}$ = 2$\textsuperscript{(n - 1) + 1}$ = 2$\textsuperscript{n}$ \vspace{0.5cm}
+
+\noindent Therefore, a$\textsubscript{n + 1}$ = 2$\textsuperscript{n}$, a$\textsubscript{n}$ = 2$\textsuperscript{n - 1}$, and a$\textsubscript{n + 1}$ = a$\textsubscript{n}$ + 2a$\textsubscript{n - 1}$ \vspace{0.5cm}
+
+\subsection{5}
+
+x $\in$ R such that x + $\frac{1}{x}$ $\in$ Z \par
+\noindent Show for n $\in$ Z, x$\textsuperscript{n}$ + $\frac{1}{x^n}$ $\in$ Z also \vspace{0.5cm}
+
+\noindent BASE CASE (n = 1): x$\textsuperscript{1}$ + $\frac{1}{x^1}$ = x + $\frac{1}{x}$ $\in$ Z \vspace{0.5cm}
+
+\noindent So assume x$\textsuperscript{n}$ + $\frac{1}{x^n}$ $\in$ Z for x $\in$ R and n $\in$ Z \vspace{0.5cm}
+
+\noindent INDUCTION STEP: Show x$\textsuperscript{n + 1}$ + $\frac{1}{x^(n+1)}$ $\in$ Z \vspace{0.5cm}
+
+\noindent Multiply (x$\textsuperscript{n}$ + $\frac{1}{x^n}$)(x + $\frac{1}{x}$) = x$\textsuperscript{n + 1}$ + x$\textsuperscript{n - 1}$ + x$\textsuperscript{1 - n}$ + $\frac{1}{x^(n + 1)}$ \vspace{0.5cm}
+
+\noindent Now let's say we had an integer y = x$\textsuperscript{n + 1}$ + x$\textsuperscript{n - 1}$ + x$\textsuperscript{1 - n}$ + $\frac{1}{x^(n + 1)}$  \vspace{0.5cm}
+
+\noindent x$\textsuperscript{n + 1}$ + $\frac{1}{x^(n + 1)}$ = y - (x$\textsuperscript{n - 1}$ + x$\textsuperscript{1 - n}$) \vspace{0.5cm}
+
+\noindent And BOTH of the above terms must be integers, since the set Z is CLOSED under addition, multiplication, and subtraction \vspace{0.5cm}
+
+\noindent Therefore, for every n x$\textsuperscript{n}$ + $\frac{1}{x^n}$ $\in$ Z
+
+\subsection{6}
+
+\noindent $\forall$ n $\geq$ 4, 2 $\|$ n OR 2 $\|$ (n - 5) \vspace{0.5cm}
+
+\noindent By definition of divisiblity, n = 2d and n - 5 = 2e respectively where d and e are integers \vspace{0.5cm}
+
+\noindent BASE CASE (n = 4): 2 | 4 $\rightarrow$ 4 = 2d, d = 2 \vspace{0.5cm}
+
+\noindent Assume $\forall$ n $\geq$ 4 n $\in$ Z, 2$\|$n OR 2$\|$(n - 5) \vspace{0.5cm}
+
+\noindent INDUCTION STEP: Show 2 $\|$ (n + 1) OR 2 $\|$ [(n + 1) - 5] \vspace{0.5cm}
+
+\noindent Break into subcases, starting with n is even, thus (n + 1) is odd \vspace{0.5cm}
+\subsubsection{Subcase 1}
+\noindent (n + 1) = 2k + 1 by def of an odd number, n = 2j by def of an even (k and j $\in$ Z) \vspace{0.5cm}
+
+\noindent While 2$\not{|}$(n + 1), (n + 1) - 5 = n - 4 \vspace{0.5cm}
+
+\noindent n = 2k so substitute in $\rightarrow$ 2k - 4 = 2(k - 2) $\rightarrow$ Given (k - 2) is an integer and by definition of divisibility, that expression is divisible by 2 so 2 $\|$ (n - 5) \vspace{0.5cm}
+
+\noindent So 2 $\|$ n and 2 $\|$[(n + 1) - 5] \vspace{0.5cm}
+\subsubsection{Subcase 2}
+\noindent Now if n is odd, meaning (n + 1) is even \vspace{0.5cm}
+
+\noindent n = 2k + 1 and (n + 1) = 2j (k and j $\in$ Z) \vspace{0.5cm}
+
+\noindent 5 $\|$ (n - 5) as (2k + 1) - 5 = 2k - 4, which factors to 2(k - 2), where (k - 2) is an integer \vspace{0.5cm}
+
+\noindent For (n + 1), if we plug in the odd (2k + 1) + 1 = 2j, we get 2k + 2 = 2j \par
+
+\noindent Factoring the left hand side, we get 2(k + 1) = 2j, which is divisible by 2 so 2$\|$(n + 1) \vspace{0.5cm}
+
+\noindent Therefore, since both subcases work, $\forall$ n $\geq$ 4 where n $\in$ Z, you will not need change with just 2 and 5 dollar bills.  In mathematical terms, n2 $\|$ n and \par\noindent 2 $\|$ (n-5) \vspace{0.5cm}
+
+\section{Set Theory}
+
+\subsection{1}
+
+\subsubsection{1a}
+
+\noindent C $\subseteq$ D $\rightarrow$ an integer n = 6r - 5 and n = 3s + 1 \vspace{0.5cm}
+
+\noindent So 6r - 5 = 3s + 1 $\rightarrow$ BREAK THIS INTO CASES \vspace{0.5cm}
+
+\noindent r IS EVEN, r = 2k \vspace{0.5cm}
+
+\noindent 6(2k) - 5 = 3s + 1 \par
+
+\noindent 12k - 5 = 3s + 1 \par
+\noindent 12k - 6 = 3s \par
+\noindent 3s = 3(4k - 2) $\rightarrow$ s = 4k - 2 \vspace{0.5cm}
+
+\noindent r IS ODD, r = 2k  + 1 \vspace{0.5cm}
+
+\noindent 6(2k + 1) - 5 = 3s + 1 \par
+\noindent 12k + 6 - 5 = 3s + 1 \par
+\noindent 12k + 1 = 3s + 1 $\rightarrow$ 12k = 3s \par
+\noindent s = 4k \vspace{0.5cm}
+
+\noindent Since both subcases work C $\subseteq$ D
+
+\subsubsection{1b}
+
+\noindent CASE BY CASE AGAIN
+
+\noindent If s is odd, s = 2k + 1 \vspace{0.5cm}
+
+\noindent 3(2k + 1) + 1 = 6r - 5 $\rightarrow$ 6k + 3 + 1 = 6r - 5\par
+\noindent 6k + 9 = 6r $\rightarrow$ CONTRADICTION: There is no value we can divide both sides by to get 1r, therefore D $\not\subseteq$ C
+
+\subsection{2}
+
+\subsubsection{2a}
+
+Suppose an element x $\in$ A $\cap$ B$\textsuperscript{C}$, by definition of an intersection x $\in$ A and \par\noindent x $\in$ B$\textsuperscript{C}$ (or by complement law, we can rewrite the latter as x $\not\in$ B) \vspace{0.5cm}
+
+\noindent From the subset law, if A $\subseteq$ B, then by definition if x $\in$ A then x $\in$ B \vspace{0.5cm}
+
+\noindent BUT WE GET A CONTRADICTION: We are saying x $\not\in$ B from our definition of x $\in$ A $\cap$ B$\textsuperscript{C}$ but at the same time we are saying if x $\in$ A then x $\in$ B per definition of a subset.  x cannot be in B and not in B, so therefore \par
+
+\noindent A $\subseteq$ B $\rightarrow$ B$\textsuperscript{C}$ $\subseteq$ A$\textsuperscript{C}$
+
+\subsubsection{2b}
+
+(A - B) $\cup$ (B - A) $\cup$ (A $\cap$ B) = A $\cup$ B \vspace{0.5cm}
+
+\noindent By the set difference law, for an element x: \par
+\noindent (A - B) = x $\in$ A and x $\not\in$ B \par
+\noindent (B - A) = x $\in$ B and x $\not\in$ A \par
+\noindent (A $\cap$ B) = x $\in$ A and x $\in$ B \par
+\noindent x being in either one of these three sets will satisfy the condition on the right side of the equation, as x $\in$ A, x $\in$ B, or x $\in$ A AND x $\in$ B, by definition of union, so rewriting the left side as a set X and (A $\cup$ B) as a set Y, X $\subseteq$ Y
+\vspace{0.5cm}
+
+\noindent So for evaluating the right side of the equation, go by the definition of union \par
+\noindent x $\in$ A only, x $\in$ (A - B) and x $\in$ (A - B) $\cup$ (B - A) $\cup$ (A $\cap$ B)\par
+\noindent x $\in$ B only, x $\in$ (B - A) and x $\in$ (A - B) $\cup$ (B - A) $\cup$ (A $\cap$ B)\par
+\noindent x $\in$ A and x $\in$ B, x $\in$ (A $\cap$ B) and x $\in$ (A - B) $\cup$ (B - A) $\cup$ (A $\cap$ B)\par
+\noindent NOTE: On each line, x $\in$ (A - B) $\cup$ (B - A) $\cup$ (A $\cap$ B) because of definition of union \vspace{0.5cm}
+
+\noindent So if x $\in$ A AND/OR x $\in$ B, x will be in any one of the subsets in the union on the left side.  So going by our set naming for the above case, Y $\subseteq$ X \vspace{0.5cm}
+
+\noindent Therefore, since X $\subseteq$ Y and Y $\subseteq$ X, X = Y and \par
+\noindent (A - B) $\cup$ (B - A) $\cup$ (A $\cap$ B) = A $\cup$ B
+
+\subsection{3}
+
+\subsubsection{3a}
+
+A $\Delta$ (B $\Delta$ C) = (A $\Delta$ B) $\Delta$ C \vspace{0.5cm}
+
+\noindent Break it down by each side, starting with the left \vspace{0.5cm}
+
+\noindent First do the parentheses: B $\Delta$ C: Means x $\in$ B and x $\not\in$ C, OR x $\not\in$ B and x $\in$ C  \vspace{0.5cm}
+
+\noindent Say x $\in$ B, so x $\not\in$ C $\rightarrow$ A $\Delta$ [(B - C) $\cup$ (C - B)] \par
+\noindent Given where we supposed x is, (B - C) is true \vspace{0.5cm}
+
+\noindent So B $\Delta$ C is true, so let's rewrite it as a single set X \vspace{0.5cm}
+
+\noindent So A $\Delta$ X = (A - X) $\cup$ (X - A) \vspace{0.5cm}
+
+\noindent From above, we already have established x $\in$ X, so (X - A) is true.  Therefore, by the definition of symmetric difference, given x $\in$ X, x $\not\in$ A \vspace{0.5cm}
+
+\noindent In set notation, we have x $\in$ (B $\cap$ C$\textsuperscript{C}$) $\cup$ A$\textsuperscript{C}$ \vspace{0.5cm}
+
+\noindent Now let's do the right side, still supposing x $\in$ B.  By definition of symmetric definition, we can break down (A $\Delta$ B) \vspace{0.5cm}
+
+\noindent (A $\Delta$ B) = (A - B) U (B - A) \vspace{0.5cm}
+
+\noindent x $\in$ B so (B - A) must be true, from above this means x $\not\in$ A \vspace{0.5cm}
+
+\noindent So x $\in$ (A $\Delta$ B), let's rewrite (A $\Delta$ B) as another set Y \vspace{0.5cm}
+
+\noindent So evaluate (Y $\Delta$ C) = (Y - C) $\cup$ (C - Y) \vspace{0.5cm}
+
+\noindent x $\in$ Y, so x $\in$ (Y - C), therefore x $\not\in$ C by definition of the symmetric difference \vspace{0.5cm}
+
+\noindent So in set notation, given our supposition we can say x $\in$ (B $\cap$ A$\textsuperscript{C}$) $\cap$ C $\textsuperscript{C}$ \vspace{0.5cm}
+
+\noindent We can rewrite it first to x $\in$ C$\textsuperscript{C}$ $\cap$ (B $\cap$ A$\textsuperscript{C}$), and then by associative property to x $\in$ (B $\cap$ C$\textsuperscript{C}$) $\cap$ A$\textsuperscript{C}$ \vspace{0.5cm} 
+
+\noindent Given the final set x would be in for the first case where we evaluated the left side, and the final set for the above case where we evaluated the right side, we can see that both sets are the same, therefore A $\Delta$ (B $\Delta$ C) = (A $\Delta$ B) $\Delta$ C
+
+\subsubsection{3b}
+
+Let's suppose again x $\in$ B.  Evaluate the right side: \vspace{0.5cm}
+
+\noindent By definition of union (B $\cup$ C) $\rightarrow$ X $\in$ B or x $\in$ C \vspace{0.5cm}
+
+\noindent x $\in$ (B $\cup$ C) since x $\in$ B \vspace{0.5cm}, so A $\Delta$ (B $\cup$ C) = ((B $\cup$ C) - A) $\cup$ (A - (B $\cup$ C)) \vspace{0.5cm}
+
+\noindent x $\in$ (B $\cup$ C) so x $\in$ ((B $\cup$ C) - A), by definition of difference of a set this means x $\not\in$ A \vspace{0.5cm}
+
+\noindent So we establish that x $\in$ (B $\cup$ C) $\cap$ A$\textsuperscript{C}$ \vspace{0.5cm}
+
+\noindent Now evaluate the right side, still assuming x $\in$ B \vspace{0.5cm}
+
+\noindent We have in the parentheses this time: (A $\Delta$ B), so let's evaluate that first \vspace{0.5cm}
+
+\noindent (A $\Delta$ B) = (A - B) $\cup$ (B - A) \vspace{0.5cm}
+
+\noindent x $\in$ B, so x $\in$ (B - A), therefore x $\not\in$ A \vspace{0.5cm}
+
+\noindent So given x $\in$ (A $\Delta$ B), we can relabel that set as a set Z \vspace{0.5cm}
+
+\end{document}

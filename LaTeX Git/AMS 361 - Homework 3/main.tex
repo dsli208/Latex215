@@ -1,0 +1,133 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\geometry{legalpaper, portrait, margin = 0.5in}
+
+\title{AMS 361 - Homework 3}
+\author{David S. Li (SBUID 110328771)}
+\date{February 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem 3.1}
+
+\noindent Given $P(0) = 10,000$, $P(17) = 188$, $\beta = 0$, and $\delta = \frac{K}{\sqrt{P}}$ \par\vspace{0.25cm}
+
+\noindent Using the population modeling equation: $\frac{dP}{dt} = (\beta - \delta)P = (0 - \frac{K}{\sqrt{P}})P = (-\frac{K}{\sqrt{P}})P = -K\sqrt{P}$ \par
+\noindent So we have $\frac{dP}{dt} = -K\sqrt{P}$, a $\textbf{separable equation}$ \par\vspace{0.25cm}
+
+\noindent Separating, we have $P^{-\frac{1}{2}}dP = -Kdt$, and integrating: $\int P^{-\frac{1}{2}}dP = -\int Kdt$ \par
+\noindent The left hand side equates to $\int P^{-\frac{1}{2}}dP = 2\sqrt{P}$, the right hand side equates to $-\int Kdt = -Kt + C$, where $C$ is an arbitrary constant \par
+\noindent So we have $2\sqrt{P} = -Kt + C$ \par\vspace{0.25cm}
+
+\noindent Now plug in the given initial condition $P(0) = 10,000$: $2\sqrt{10,000} = 0 + C$, and solving for $C$ we get $C = 2\sqrt{10,000}$ \par
+\noindent Plugging in the other condition $P(17) = 188$ and our value of $C$: $2\sqrt{188} = -17K + 2\sqrt{10,000}$ \par
+\noindent Solving for $K$, we get $17K = 2\sqrt{10,000} - 2\sqrt{188} = 2(\sqrt{10,000} - \sqrt{188})$, so $K = \frac{2}{17}(\sqrt{10,000} - \sqrt{188})$ \par\vspace{0.25cm}
+
+\noindent So this makes our equation $2\sqrt{P} = -\frac{2}{17}(\sqrt{10,000} - \sqrt{188})t + 2\sqrt{10,000}$ \par\vspace{0.25cm}
+
+\noindent Now we want to find the value of $t$ when $P = 0$ (that is, when all the fish have died) \par
+\noindent $2\sqrt{0} = 0 = -\frac{2}{17}(\sqrt{10,000} - \sqrt{188})t + 2\sqrt{10,000}$ \par
+\noindent $\frac{2}{17}(\sqrt{10,000} - \sqrt{188})t = 2\sqrt{10,000}$ \par
+\noindent $t = \frac{2\sqrt{10,000}}{\frac{2}{17}(\sqrt{10,000} - \sqrt{188})} = 17 \frac{\sqrt{10,000}}{(\sqrt{10,000} - \sqrt{188})} \simeq 19.7$ weeks \par\vspace{0.25cm}
+
+\noindent To make the population such that it never changes with time, we need to set the "$t$" term equal to 0.  So $2\sqrt{P} = 2\sqrt{10,000}$, meaning $P = 10,000$ \par
+
+\section{Problem 3.2}
+
+\noindent $\frac{dP}{dt} = -\alpha P(M - P)$, $\textbf{separable equation}$ so $\frac{dP}{P(M - P)} = -\alpha dt$.  Integrating both sides, $\int_{P_{0}}^{P} \frac{dP}{P(M - P)} = -\int_{0}^{t} \alpha dt$ \par
+\noindent Left hand side integral:  $\int_{P_{0}}^{P} \frac{dP}{P(M - P)} =  \int_{P_{0}}^{P} -\frac{1}{M} (\frac{1}{P - M} - \frac{1}{P}) dP = -\frac{1}{M} \int_{P_{0}}^{P} (\frac{1}{P - M} - \frac{1}{P}) dP = -\frac{1}{M} [\int_{P_{0}}^{P} \frac{1}{P - M} dP - \int_{P_{0}}^{P} \frac{1}{P} dP] = -\frac{1}{M} [[ln(P - M)]_{P_0}^{P} - [ln(P)]_{P_0}^{P}] = -\frac{1}{M}[ln \frac{P - M}{P_{0} - M} - ln \frac{P}{P_0}] = -\frac{1}{M} [ln \frac{P - M}{P_{0} - M} * \frac{P_{0}}{P}] = -\frac{1}{M} [ln \frac{P - M}{P} * \frac{P_{0}}{P_{0} - M}]$ \par
+\noindent Right hand side integral: $-\int_{0}^{t}\alpha dt  = -\alpha t$ \par\vspace{0.25cm}
+
+\noindent Set the left hand side and the right hand side equal to each other: $-\frac{1}{M}[ln \frac{P - M}{P} * \frac{P_{0}}{P_{0} - M}] = -\alpha t$ \par
+\noindent $ln \frac{P - M}{P} * \frac{P_{0}}{P_{0} - M} = \alpha Mt$.  Exponentiating both sides, this becomes $\frac{P - M}{P} * \frac{P_{0}}{P_{0} - M} = e^{\alpha Mt}$ \par
+\noindent Rearranging the newly formed equation, $\frac{P - M}{P} = \frac{P_{0} - M}{P_{0}}e^{\alpha Mt}$ and $1 - \frac{M}{P} = (1 - \frac{M}{P_{0}})e^{\alpha Mt}$ \par
+\noindent $\frac{M}{P} = 1 - (1 - \frac{M}{P_{0}})e^{\alpha Mt}$, so we get $P = \frac{M}{1 - (1 - \frac{M}{P_{0}})e^{\alpha Mt}}$ \par\vspace{0.25cm}
+
+\noindent This is a \textbf{doomsday problem}, meaning we are looking for $P$ to reach infinity.  As such the denominator would approach 0. \par
+\noindent So set $1 - (1 - \frac{M}{P_{0}})e^{\alpha Mt} = 0$, we get $1 = (1 - \frac{M}{P_{0}})e^{\alpha Mt}$ and $e^{\alpha Mt} = \frac{1}{1 - \frac{M}{P_{0}}} = \frac{1}{\frac{P_{0} - M}{P_{0}}} = \frac{P_{0}}{P_{0} - M}$ \par
+\noindent Taking the $ln$ of both sides, $\alpha Mt = ln \frac{P_{0}}{P_{0} - M}$, and we can see that $t = \frac{ln \frac{P_{0}}{P_{0} - M}}{\alpha M}$
+
+\section{Problem 3.3}
+
+Phase 1 (free fall): Our initial conditions: \par\vspace{0.25cm}
+
+$\begin{cases}
+    m \frac{dv}{dy} v = mg - kv \\
+    v(y = 0) = 0 \\
+    v (y = h_{1}) = v_{1} \\
+    \end{cases}$
+    
+\par\vspace{0.25cm}
+
+\noindent The first equation can rearranged as a separable equation into two integrals: $\int_{0}^{v_1} m \frac{dv}{mg - kv}v = \int_{0}^{h_1} dy$ \par
+\noindent We can rearrange the left hand side integral to get the following: $\int_{0}^{v_1} m \frac{dv}{mg - kv}v = -\frac{m}{k} \int_{0}^{v_{1}} \frac{v dv}{v - \frac{mg}{k}} = -\frac{m}{k}$ \par
+\noindent Now let $v_{T} = \frac{mg}{k}$.  Our left hand integral now becomes $-\frac{v_{T}}{g} \int_{0}^{v_{1}} \frac{vdv}{v - v_{T}} = -\frac{v_{T}}{g} \int_{0}^{v_{1}} \frac{v + v_{T} - v_{T}}{v - v_{T}} dv = -\frac{v_{T}}{g} \int_{0}^{v_{1}} (1 + \frac{v_{T}}{v - v_{T}}) dv$ \par
+\noindent Integrating, we get $[v + v_{T}$ $ln\mid v - v_{T} \mid ]_{0}^{v_{T}}$.  So we end up with $v_{1} + v_{T} ln \mid \frac{v_{1}}{v_{T}} - 1 \mid = -\frac{gh_{1}}{v_{T}}$ \par\vspace{0.25cm}
+
+\noindent For Phase 2 (parachute): Initial conditions \par\vspace{0.25cm}
+
+$\begin{cases}
+    m \frac{dv}{dy}v = mc - \beta kv \\
+    v(y = h_{1}) = v_{1} \\
+    v(y = H) = v_{F}
+    \end{cases}$
+    
+\par\vspace{0.25cm}
+
+\noindent As in Phase 1, we can convert the first equation to two integrals: $\int_{v_{1}}^{v_{F}} m \frac{dv}{mg - \beta kv}v = \int_{h_{1}}^{H} dy$ \par\vspace{0.25cm}
+
+\noindent For this phase, our constant $v_{T}' = \frac{mg}{\beta k}$, as our air drag coefficient is now $\beta k$ \par\vspace{0.25cm}
+
+\noindent So integrating, we eventually get $-\frac{v_{T}'}{g}[v_{F} - v_{1} + v_{T}ln \mid v_{F} - v_{T} \mid - v_{T}ln \mid v_{1} - v_{T} \mid ]$.  Rearranging the $ln$ portion of the equation and setting it equal to our right hand side, we get $(v_{F} - v_{1}) + v_{T}' ln \mid \frac{v_{F} - v_{T}'}{v_{1} - v_{T}'} = \frac{g(H - h_{1})}{v_{T}'}$ \par\vspace{0.25cm}
+
+\noindent So at the moment the jumper opens their arms, we have \textbf{two} equations for the height he is at at that moment: \par
+\noindent $(v_{F} - v_{1} + v_{T}' ln \mid \frac{v_{F} - v_{T}'}{v_{1} - v_{T}'} = \frac{g(H - h_{1})}{v_{T}'}$ - \textbf{(parachute equation)} \par
+\noindent $v_{1} + v_{T} ln \mid \frac{v_{1}}{v_{T}} - 1 \mid = -\frac{gh_{1}}{v_{T}}$ - \textbf{(free fall equation)} \par
+\noindent Solve these two equations to get $h_{1}$, the optimal height for the guy to open his arms \par\vspace{0.25cm}
+
+\noindent Now to get the total travel time \par\vspace{0.25cm}
+
+\noindent Phase 1 (free fall):
+
+$\begin{cases}
+    m\frac{dv}{dt} = mg - kv \\
+    v(t = 0) = 0 \\
+    v(t = t_{1}) = v_{1} \\
+    \end{cases}$
+    
+\par\vspace{0.25cm}
+
+\noindent Simply separate the first equation and integrate it on both sides, as was done previously: $-\frac{v_{T}}{g} \int_{0}^{v_{1}} \frac{dv}{v - v_{T}} = \int_{0}^{t_{1}} dt$ \par
+\noindent The equation becomes $t_{1} = -v_{T} ln \mid \frac{v_{1}}{v_{T}} - 1 \mid$ and we have our value of $t_{1}$ \par\vspace{0.25cm}
+
+\noindent Phase 2 (open arms): \par\vspace{0.25cm}
+
+\noindent $\begin{cases}
+    m\frac{dv}{dt} = mg - \beta kv \\
+    v(t = 0) = v_{1} \\
+    v(t = t_{2}) = v_{2}
+    \end{cases}$
+    
+\par\vspace{0.25cm}
+
+\noindent Again, convert the first equation to integral form: $\int_{v_{1}}^{v_{F}} \frac{m}{mg - \beta kv} dv = \int_{0}^{t_{2}} dt$ \par
+\noindent Integrating, we can solve for $t_{2}$: $t_{2} = (v_{F} - v_{1}) + v_{T}' ln \mid \frac{v_{F} - v_{T}'}{v_{1} - v_{T}'} \mid$ \par
+\noindent Assuming $t_{1}$ to be the time spent in the free-fall stage and $t_{2}$ to be the time spent in the open arms stage, let $T = t_{1} + t_{2}$. \par
+\noindent Therefore, $T = -v_{T} ln \mid \frac{v_{1}}{v_{T}} - 1 \mid + (v_{F} - v_{1}) + v_{T}' ln \mid \frac{v_{F} - v_{T}'}{v_{1} - v_{T}'} \mid$
+\section{Problem 3.4}
+
+Using Newton's 2\textsuperscript{nd} law, $\Sigma F = ma = m\frac{dv}{dt} = m\frac{dv}{dx} * \frac{dx}{dt} = mv\frac{dv}{dx}$.  There is one resistant force in this problem, for whose magnitude is $kv^{\alpha}$, where $\alpha$ is dependent on which block the person is shooting at.  Assuming the direction towards the block to be positive, we can say $mv\frac{dv}{dx} = -kv^{\alpha}$.  This is a \textbf{separable equation}, so $v^{1 - \alpha} dv = -\frac{k}{m}dx$.  Integrating both sides, \par \noindent $\int_{v}^{0} v^{1 - \alpha}dv = \int_{0}^{x} -\frac{k}{m}dx$.  The left hand side equates to $\int_{v}^{0} v^{1 - \alpha}dv = [\frac{v^{2 - \alpha}}{2 - \alpha}]_{v}^{0} = 0 - \frac{v^{2 - \alpha}}{2 - \alpha} = -\frac{v^{2 - \alpha}}{2 - \alpha}$.  The right hand side equates to $\int_{0}^{x} -\frac{k}{m}dx = -\frac{k}{m} \int_{0}^{x}dx = -\frac{k}{m}[x]_{0}^{x} = -\frac{k}{m}x$.  So setting the left and right hand sides equal to each other, we get $-\frac{v^{2 - \alpha}}{2 - \alpha} = -\frac{k}{m}x$, or $\frac{v^{2 - \alpha}}{2 - \alpha} = \frac{k}{m}x$.  Multiplying both sides by $\frac{m}{k}$ to isolate $x$ on one side, we get $\frac{m}{k} \frac{v^{2 - \alpha}}{2 - \alpha} = x$ \par\vspace{0.25cm}
+
+\noindent Now, simply plug in for $\alpha$ to find the distance the bullet travels through each block \par\vspace{0.25cm}
+
+\noindent For the first block, $\alpha = 1$, therefore $x = \frac{m}{k}v$ \par
+\noindent For the second block $\alpha = \frac{3}{2}$, so $x = 2\frac{m}{k}\sqrt{v}$ \par
+\noindent For the third block $\alpha = 2$, so $x$ is actually undefined as the denominator of the second function reaches $0$ when plugging in $2$ for $\alpha$ \par\vspace{0.25cm}
+
+\noindent \textbf{The distance is greatest at the first block}
+
+\end{document}
