@@ -1,0 +1,170 @@
+%-------------------------
+% Resume in Latex
+% Author : David S. Li
+%------------------------
+
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{{\Large David S. Li}} & Email : \href{mailto:dsli@outlook.com}{ds.li@outlook.com}\\
+  \href{https://www.github.com/dsli208}{GitHub: dsli208} & Mobile : (914) 374-8097 \\
+\end{tabular*}
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Stony Brook University, State University of New York}{Stony Brook, NY}
+      {Bachelor of Science in Computer Science}{Expected May 2020}
+      \resumeItemListStart
+        
+          \item{University Scholar, Presidential Scholarship Recepient}
+          \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Stony Brook University}{Stony Brook, NY}
+      {Undergraduate Teaching Assistant}{January 2017 - December 2017}
+      \resumeItemListStart
+        
+          \item{Conducted a laboratory/recitation session in a 30 student classroom section, held open office hours, and monitored an open discussion forum for introductory Computer Science courses in Java, where I assisted students by answering questions that pertained to their coursework}
+        
+          \item{Met with other TA's once a week to discuss upcoming course-related events, including review sessions for upcoming exams and designing material for upcoming recitations}
+          
+          \item{Courses Assisted: Introduction to Procedural and Object Oriented Programing (Spring 2017 under Mr. Ahmad Esmaili and Summer 2017 under Dr. Paul Fodor) and Data Structures (Fall 2017 under Mr. Ahmad Esmaili)}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Town of Yorktown Planning Department}{Yorktown Heights, NY}
+      {Intern}{September 2014 - June 2015}
+      \resumeItemListStart
+        \item{}
+          {Assisted Town Planner and Director of Planning with reorganizing and digitizing property information and site plans; this included filing documents and entering information into spreadsheets}
+      \resumeItemListEnd
+
+%    \resumeSubheading
+%      {Lucena Research}{Atlanta, GA}
+%      {Data Scientist}{Summer 2012 and 2013}
+%      \resumeItemListStart
+%        \resumeItem{Portfolio Management}
+%          {Created models for portfolio hedging,  portfolio optimization and price forecasting. Also creating a strategy backtesting engine used for simulating and backtesting strategies.}
+%        \resumeItem{QuantDesk}
+%          {Python backend for a web application used by hedge fund managers for portfolio management.}
+%      \resumeItemListEnd
+
+%    \resumeSubheading
+%      {Georgia Institute of Technology}{Atlanta, CA}
+%      {Research and Teaching Assistant}{Jan 2012 - Dec 2013}
+%      \resumeItemListStart
+%        \resumeItem{Research Assistant - Machine Learning}
+%          {Research on machine learning for portfolio hedging and replication algorithms. Modeling low-risk \& continuous-return strategies. Developed the python library QSTK.}
+%        \resumeItem{Teaching Assistant - Computational Investing}
+%          {The online course on Coursera, had more than 100,000 students enrolled. It was featured on the 11 Alive News and the Atlanta Journal Constitution. Involved in creating assignment, exams and conducting recitation sessions. Also taught the on-campus version of the course.}
+%      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeSubItem{QuickBiz}
+    {Application designed to help prospective entrepreneurs built with TypeScript and Node.js on the front end, and Python, Google Cloud, and AWS for market research.}
+    \resumeSubItem{MindMusic}
+      {A web app designed to schedule stress-relieving music study breaks.  Used HTML/CSS/JS on the front end; Flask, Google Calendar, and Spotify APIs on the back end.  Winner of Most Innovative Prize, HackHealth 2018.}
+    \resumeSubItem{Stock Analysis}
+      {Developed in R to predict future stock log returns from Microsoft and Amazon.  Created a linear model and one-step prediction using stock data from the previous year.}
+    \resumeSubItem{Course Site Generator}
+      {JavaFX application for assisting instructors in creating easy-to-use course websites.  JavaScript and CSS front end with JSON objects utilized to store data.}
+    \resumeSubItem{Mental Health Web App}
+      {Web application that gives users feedback and professional help that they may need based off their input.  Used JS and the Google Maps API.}
+  \resumeSubHeadingListEnd
+
+
+%--------PROGRAMMING SKILLS------------
+\section{Programming Skills}
+  \resumeSubHeadingListStart
+    \resumeSubItem{Languages}
+      {Python, JavaScript, C, SQL, Java, MIPS Assembly, OCAML}
+    \resumeSubItem{Operating Systems}
+    {Linux, Windows}
+    \resumeSubItem{Tools}
+    {Atom, Sublime, Vim, NetBeans, IntelliJ, PyCharm}
+  \resumeSubHeadingListEnd
+
+
+%-------------------------------------------
+\end{document}
