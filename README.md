@@ -3,7 +3,7 @@ This repository contains my LaTeX files.  Originally discovered through extra cr
 
 My current resume is in the folder titled **Software Developer Resume**.  Feel free to take a look. :smiley:
 
-Contains coursework from the following classes:
+Contains coursework from the following classes (not necessarily solutions, it's not my fault if you fail from copying my things):
 * CSE 215 - Foundations of Computer Science
 * AMS 361 - Applied Calculus IV/Differential Equations
 * AMS 261 - Applied Calculus III/Multivariable Calculus
