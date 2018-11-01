@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{physics}
+\geometry{legalpaper, portrait, margin = 0.5in}
+\rmfamily
+
+\title{AMS 261 HW5 (Hard)}
+\author{David S. Li (SBUID: 110328771)}
+\date{September 27, 2018}
+
+\begin{document}
+
+\maketitle
+
+\section{12.4.2 - In what direction does the principal unit normal vector point?}
+\par\noindent\large The principal unit normal vector $N(t)$ is based on what the unit tangent vector $U(t)$ is at $t$; the unit normal vector is \textbf{orthogonal} to $U(t)$ at the provided value of $t$, with the \textbf{principal unit vector's direction pointing based on the general direction of the curve (towards the inside of the curve)}.
+\section{12.4.46 - The figure shows a particle moving along a path modeled by $r(t) = <cos(\pi t) + \pi tsin(\pi t), sin(\pi t) - \pi tcos(\pi t)>$.  The figure also shows the vectors $v(t)$ and $a(t)$ for $t = 1$ and $t = 2$}
+
+\subsection{Find $a_{T}$ and $a_{N}$ at $t = 1$ and $t = 2$}
+\par\noindent\large First, derive twice to get the acceleration vector: $r(t) = [cos(\pi t) + \pi tsin(\pi t)]\textbf{i} + [sin(\pi t) - \pi tcos(\pi t)]\textbf{j}$\vspace{0.10cm}
+\par\noindent\large $r'(t) = [-\pi sin(\pi t) + \pi sin(\pi t) + \pi^{2}tcos(\pi t)]\textbf{i} + [\pi cos(\pi t) - \pi cos(\pi t) + \pi^{2}tsin(\pi t)]\textbf{j} $.\vspace{0.10cm}
+\par\noindent Simplifying, $r'(t) = \pi^{2}tcos(\pi t)\textbf{i} + \pi^{2}tsin(\pi t)\textbf{j}$\vspace{0.10cm}
+\par\noindent $r''(t) = [\pi^{2}cos(\pi t) - \pi^{3}tsin(\pi t)]\textbf{i} + [\pi^{2}sin(\pi t) + \pi^{3}tcos(\pi t)]\textbf{j}$\vspace{0.25cm}
+
+\par\noindent To get what we need to find $a_{T}$ and $a_{N}$, find $\norm{v}$ and $\norm{a}$ \vspace{0.10cm}
+
+\par\noindent $\norm{v} = \norm{r'(t)} = \sqrt{(\pi^{2}tcos(\pi t))^{2} + (\pi^{2}tsin(\pi t))^{2}} = \sqrt{\pi^{4}t^{2}cos^{2}(\pi t) + \pi^{4}t^{2}sin^{2}(\pi t)} = \linebreak\sqrt{\pi^{4}t^{2}}\sqrt{cos^{2}(\pi t) + sin^{2}(\pi t)} = \pi^{2}t$ \vspace{0.10cm}
+\par\noindent $\norm{a} = \norm{r''(t)} = \sqrt{(\pi^{2}cos(\pi t) - \pi^{3}tsin(\pi t))^{2} + (\pi^{2}sin(\pi t) + \pi^{3}tcos(\pi t))^{2}}$\vspace{0.10cm}
+\par\noindent $(\pi^{2}cos(\pi t) - \pi^{3}tsin(\pi t))^{2} = \pi^{4}cos^{2}(\pi t) - 2\pi^{5}tsin(\pi t)cos(\pi t) + \pi^{6}t^{2}sin^{2}(\pi t)$\vspace{0.10cm}
+\par\noindent $(\pi^{2}sin(\pi t) + \pi^{3}tcos(\pi t))^{2} = \pi^{4}sin^{2}(\pi t) + \pi^{5}tsin(\pi t)cos(\pi t) + \pi^{6}t^{2}cos^{2}(\pi t)$\vspace{0.10cm}
+\par\noindent By adding the resulting system of equations above and factoring, we get $\norm{a} = \sqrt{\pi^{4} - \pi^{5}tsin(\pi t)cos(\pi t) + \pi^{6}t^{2}}$\vspace{0.25cm}
+\par\noindent\large To get $a_{T}$, find the dot product between the velocity and acceleration vectors.
+\par\noindent $r'(t) \cdot r''(t) = \pi^{2}tcos(\pi t)[\pi^{2}cos(\pi t) - \pi^{3}tsin(\pi t)] + \pi^{2}tsin(\pi t)[\pi^{2}sin(\pi t) + \pi^{3}tcos(\pi t)] = \linebreak\pi^{4}tcos^{2}(\pi t) - \pi^{5}t^{2}sin(\pi t)cos(\pi t) + \pi^{4}tsin^{2}(\pi t) + \pi^{5}t^{2}sin(\pi t)cos(\pi t) = \pi^{4}t(cos^{2}(\pi t) + sin^{2}(\pi t)) = \pi^{4}t$\vspace{0.10cm}
+
+\par\noindent\Large $a_{T} = \frac{r'(t) \cdot r''(t)}{\norm{v}} = \frac{\pi^{4}t}{\pi^{2}t} = \pi^{2}$ \vspace{0.25cm}
+
+\par\noindent $a_{N} = \sqrt{\norm{a}^{2} - a_{T}^{2}} = \sqrt{\pi^{4} - \pi^{5}tsin(\pi t)cos(\pi t) + \pi^{6}t^{2} - (\pi^{2})^{2}} = \linebreak\sqrt{\pi^{4} - \pi^{5}tsin(\pi t)cos(\pi t) + \pi^{6}t^{2} - \pi^{4}} = \sqrt{\pi^{6}t^{2} - \pi^{5}tsin(\pi t)cos(\pi t)}$ \vspace{0.25cm}
+
+\par\noindent At $t = 1$, $a_{T} = \frac{\pi^{4}}{\pi^{2}} = \pi^{2}$ and $a_{N} = \sqrt{\pi^{6} - \pi^{5}sin(\pi)cos(\pi)} = \sqrt{\pi^{6}} = \pi^{3}$\vspace{0.10cm}
+\par\noindent At $t = 2$, $a_{T} = \frac{\pi^{4}}{\pi^{2}} = \pi^{2}$ and $a_{N} = \sqrt{\pi^{6}(2)^{2} - \pi^{5}(2)sin(2\pi)cos(2\pi)} = \sqrt{4\pi^{6}} = 2\pi^{3}$
+
+\subsection{Determine whether the speed of the particle is increasing or decreasing at each of the indicated values of $t$.  Give reasons for your answers.}
+
+\par\noindent\large At $t = 1$: $r'(1) = -\pi^{2}cos(\pi)\textbf{i} + \pi^{2}sin(\pi)\textbf{j} = \pi^{2}\textbf{i}$%, so $\norm{r'(1)} = \pi^{2}$.
+\par\noindent\large $r''(1) = [\pi^{2}cos(\pi) - \pi^{3}sin(\pi)]\textbf{i} + [\pi^{2}sin(\pi) + \pi^{3}cos(\pi)]\textbf{j} = -\pi^{2}\textbf{i} - \pi^{3}\textbf{j}$\vspace{0.25cm}
+%\par\noindent\large $\norm{r''(1)} = \sqrt{(-\pi^{2})^{2} + (-\pi^{3})^{2}} = \sqrt{\pi^{4} + \pi^{6}} = \sqrt{\pi^{4}}\sqrt{1 + \pi^{2}} = \pi^{2}\sqrt{1 + \pi^{2}}$ \vspace{0.25cm}
+
+\par\noindent At $t = 2$: $r'(2) = -2\pi^{2}cos(2\pi)\textbf{i} + 2\pi^{2}sin(2\pi)\textbf{j} = -2\pi^{2}\textbf{i}$ %and $\norm{r'(2)} = \sqrt{(-2\pi^{2})^{2}} = 2\pi^{2}$
+\par\noindent $r''(2) = [\pi^{2}cos(2\pi) - 2\pi^{3}sin(2\pi)]\textbf{i} + [\pi^{2}sin(2\pi) + 2\pi^{3}cos(2\pi)]\textbf{j} = \pi^{2}\textbf{i} + 2\pi^{3}\textbf{j}$\vspace{0.25cm}
+%\par\noindent $\norm{r''(2)} = \sqrt{(\pi^{2})^{2} + (2\pi^{3})^{2}} = \sqrt{\pi^{4} + 4\pi^{6}} = \sqrt{\pi^{4}}\sqrt{1 + 4\pi^{2}} = \pi^{2}\sqrt{1 + 4\pi^{2}}$\vspace{0.25cm}
+
+\par\noindent Based on our values of $r'(1)$, $r''(1)$, $r'(2)$ and $r''(2)$, we can say that at $t = 1$, with a positive velocity vector but negative acceleration, our speed is \textbf{decreasing}.  Similarly, at $t = 2$, our vectors are pointing in opposite directions so speed is also \textbf{decreasing} at that time.
+
+\section{13.1.94 - Determine if this statement is true or false, and explain why if false: Two different level curves of the graph of $z = f(x, y)$ can intersect.}
+
+\par\noindent \textbf{False} - a level curve is defined as one where all $f(x, y) = c$ where $c$ is the level of the curve, an example being a contour line on a mountain.  Such curves cannot intersect, because if they did, at least one would have to be tilted, not meeting the definition of a level curve anymore.
+
+\section{13.2.38 - If $\lim_{(x, y)\rightarrow (2, 3)}f(x, y) = 4$, can you conclude anything about $f(2, 3)$?  Explain.}
+
+%\par\noindent By the definition of continuity of a function of two variables specified in the textbook, 
+%\begin{center}$\lim_{(x, y)\rightarrow (x_{0}, y_{0})}f(x, y) = f(x_{0}, y_{0})$\end{center}
+%By simply replacing $(x_{0}, y_{0})$ with $(2, 3)$, we can arrive at the conclusion that $f(2, 3) = 4$
+\par\noindent It is known that the limit exists for the function $f$, at the specified point.  This means that either $f(2, 3) = 4$ or that there is an asymptotic line that goes through $(2, 3)$, which would mean that the function is discontinuous closest to that asymptotic line.
+\end{document}

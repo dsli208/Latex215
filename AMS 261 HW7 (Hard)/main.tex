@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{physics}
+\geometry{legalpaper, portrait, margin = 0.5in}
+\rmfamily
+
+\title{AMS 261 HW7 (Hard)}
+\author{David S. Li (SBUID: 110328771)}
+\date{October 13, 2018}
+
+\begin{document}
+
+\maketitle
+
+\section{13.6.62 - Determine whether the statement is true or false.  If it is false, explain why or give an example that shows it is false: If $f(x, y) = x + y$, then $-1 \leq D_{u}f(x, y) \leq 1$.}
+
+\par\noindent\large $D_{u}f(x, y) = \norm{\nabla f(x, y)} = \norm{\textbf{i} + \textbf{j}} = \sqrt{(1)^{2} + (1)^{2}} = \sqrt{2} \approx 1.41421356237$ 
+\par\noindent\large Therefore, the given statement \textbf{cannot} be true, so it is \textbf{false}.
+
+\section{13.7.48 - For some surfaces, the normal lines at any point pass through the same geometric object.}
+\subsection{What is the common geometric object for a sphere?  Explain.}
+\par\noindent\large The common geometric object in a sphere is a \textbf{circle}.  From any viewpoint on the normal line, the view will be a circle.  Based on how far down we go along the sphere, we will always get a circle of variable radius.
+
+\subsection{What is the common geometric object for a right circular cylinder?  Explain.}
+\par\noindent\large The common geometric object in a right circular cylinder is also a \textbf{circle}.  Unlike the sphere, however, the circle will be of constant radius no matter how far we go down along the cylinder.
+
+\section{13.8.50 - A function $f$ has continuous second partial derivatives on an open region containing the critical point $(a, b)$.  If $f_{xx}(a, b)$ and $f_{yy}(a, b)$ have opposite signs, what is implied?  Explain.}
+\par\noindent\large Given $d = f_{xx}(a, b)f_{yy}(a, b) - [f_{xy}(a, b)]^{2}$, if $f_{xx}(a, b)$ and $f_{yy}(a, b)$ have opposite signs, this means $f_{xx}(a, b)f_{yy}(a, b)$.  This, combined with the subtraction of $[f_{xy}(a, b)]^{2}$ will produce a \textbf{negative} value for $d$, implying that $(a, b, f(a, b))$ will be a \textbf{saddle point}.
+
+\section{13.9.31 - Find a system of equations whose solution yields the coefficients $a$, $b$, and $c$ for the least square regression quadratic $y = ax^{2} + bx + c$ for the points $(x_{1}, y_{1}), (x_{2}, y_{2}), ... (x_{n}, y_{n})$ by minimizing the sum \\$S(a, b, c) = \Sigma_{i = 1}^{n}(y_{i} - ax_{i}^{2} - bx_{i} - c^{2})$.  SHOW WORK.}
+
+% Wrong answer, ask reuter about it to get the solution or something
+\par\noindent\large Given our sum equation $S$, to get $a$, $b$, and $c$ we are going to want to differentiate the \textbf{square} of the original $S$ function with respect to each of the individual variables $a$, $b$, and $c$.  (For the least square regression quadratic, we want to minimize distance between each of the actual points $(x_{i}, y_{i})$ and the best fit curve, and we would have to use absolute value if we used the original function to avoid "negative" distance for points below the curve, which wouldn't work if we were to use that in the later steps below.)\vspace{0.25cm}
+\par\noindent So we get $S_{2}(a, b, c) = \Sigma_{i = 1}^{n}(y_{i} - ax_{i}^{2} - bx_{i} - c^{2})^{2}$.  To get our system of equations, we can simply differentiate in terms of $a$, $b$, and $c$.
+
+\begin{itemize}
+    \Large
+  \item\Large $\frac{\partial}{\partial a} = -2\Sigma_{i = 1}^{n} x_{i}^{2}(y_{i} - ax_{i}^{2} - bx_{i} - c^{2})$
+  \item\Large $\frac{\partial}{\partial b} = -2\Sigma_{i = 1}^{n} x_{i}(y_{i} - ax_{i}^{2} - bx_{i} - c^{2})$
+  \item $\frac{\partial}{\partial c} = -2\Sigma_{i = 1}^{n} (y_{i} - ax_{i}^{2} - bx_{i} - c^{2})(-2c) = 4\Sigma_{i = 1}^{n} (y_{i} - ax_{i}^{2} - bx_{i} - c^{2})(c)$
+\end{itemize}
+
+\par\noindent\large Setting the above equations equal to 0, we get:
+\begin{itemize}
+    \Large
+  \item\Large $\Sigma_{i = 1}^{n} x_{i}^{2}(y_{i} - ax_{i}^{2} - bx_{i} - c^{2}) = 0$
+  \item\Large $\Sigma_{i = 1}^{n} x_{i}(y_{i} - ax_{i}^{2} - bx_{i} - c^{2}) = 0$
+  \item $\Sigma_{i = 1}^{n} (y_{i} - ax_{i}^{2} - bx_{i} - c^{2})(c) = 0$
+\end{itemize}
+
+\par\noindent\large We can simplify this set of equations by multiplying terms and rearranging terms to get our system of equations that will get $a$, $b$, and $c$.
+
+\section{PDF Problem - Describe, in your own words, the solution strategy for optimization problems (i.e., finding maxima and minima).}
+
+\par\noindent\large For a one-dimensional equation, simply derive and set the derivative of the equation equal to zero.  For a two or multi-dimensional equation, the problem is only a little more complicated, as we now have to set the \textbf{gradient} equal to zero.  For each of the variables in the equation, set the partial of that variable equal to zero.  In other words, this means taking each component of the gradient and setting it equal to zero to get any critical points.  In accordance with Theorem 13.17 in Chapter 13.8 of the Larson-Edwards textbook, we need to do the second derivatives test, which involves further deriving the components of our gradient in terms of each of the original variables.  Using the formula $d = f_{xx}(a, b)f_{yy}(a, b) - [f_{xy}(a, b)]^{2}$, we can get our equation to find $d$.  Plug each $(x, y)$ from the critical points that we got into that equation, and evaluate $d$ and $f_{xx}$.  As said in the textbook theorem, we have the following scenarios:
+
+\begin{itemize}
+  \item If $d > 0$, determine whether $f_{xx} > 0$.  If so, we have found a relative minimum.  If $f_{xx} < 0$, we have found a relative maximum.
+  \item If $d < 0$, we are at a saddle point.
+  \item If $d = 0$, we do not get a conclusion ("nonsense" answer)
+\end{itemize}
+
+\end{document}

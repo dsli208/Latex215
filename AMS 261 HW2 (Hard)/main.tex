@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\geometry{legalpaper, portrait, margin = 0.5in}
+
+\title{AMS 261 - Homework 2 (Hard Version)}
+\author{David S. Li (SBUID: 110328771)}
+\date{September 5, 2018}
+
+\begin{document}
+
+\maketitle
+
+\section{11.3.45 - Explain why $u + v \cdot w$ is not defined, where $u$, $v$, and $w$ are vectors}
+
+\par\noindent \Large{$v \cdot w$ represents getting the dot product of two vectors, which will produce a scalar as a result.  But then, by order of operations, we do $u + (v \cdot w)$, which is adding a scalar to a vector.  This is nonsense, since we cannot do this, so the result would not be defined.}
+
+\par\vspace{0.25cm}
+
+\section{11.3.49 - The vector $u = <3240, 1450, 2235>$ gives the number of hamburgers, chicken sandwiches, and cheeseburgers, respectively, sold at a fast-food restaurant in one week.  The vector $v = <2.25, 2.95, 2.65>$ gives the prices (in dollars) per unit for the three food items.  Find the dot product $u \cdot v$ and explain what information it gives}
+
+\par\noindent $u \cdot v = u_1v_1 + u_2v_2 + u_3v_3 = (3240)(2.25) + (1450)(2.95) + (2235)(2.65) = 7290 + 4277.50 + 5922.75 = 17,490.25$
+
+\par\vspace{0.25cm}\noindent This dot product determines the total profit made from selling those three items in the time period of that week.  In addition, if we break the dot product down into its individual parts (i.e. $u_1v_1 + u_2v_2 + u_3v_3$), then we can see the weekly profit for each individual item.
+
+\section{11.4.40 - When $u \times v = 0$ and $u \cdot v = 0$, what can you conclude about $u$ and $v$?}
+
+\par\noindent Given the above information, $u \times v = 0$ means that either the two vectors are parallel or are the same vector.  $u \cdot v = 0$ means that either the sum of the product of each vector components in the $x$, $y$, and $z$ direction adds to 0 or that $x$, $y$, and $z$ is 0.  Since both are true, at least one of the vectors has to be the zero vector.
+
+\section{11.5.103 - Do two distinct, intersecting lines in space determine a unique plane?  Explain.}
+
+\par\noindent When known, two distinct, intersecting lines can determine a unique plane.  If we are given a point on each lines, as well as where they intersect, that gives us the three points necessary to determine the plane.
+
+\end{document}
