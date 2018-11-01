@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\geometry{legalpaper, portrait, margin = 0.5in}
+\rmfamily
+
+\title{CSE 390 HW 1}
+\author{David S. Li (SBUID: 110328771)}
+\date{September 22, 2018}
+
+\begin{document}
+
+\maketitle
+
+\section{Suppose that you enter into a short futures contract to sell July silver for \$17.20 per ounce. The size of the contract is 5,000 ounces. The initial margin is \$4,000, and the maintenance margin is \$3,000. What change in the futures price will lead to a margin call? What happens if you do not meet the margin call?}
+
+\par\noindent\large A margin call will occur if the margin of the contract falls below the maintenance margin, \$3,000.  Those who fail to meet the margin call will go bankrupt and will be forced to liquidate.
+
+\section{A bank quotes an interest rate of 7\% per annum with quarterly compounding.}
+
+\par\noindent\Large Quarterly compounding $\rightarrow m = 4$ 
+
+\subsection{What is the equivalent rate with continuous compounding?}
+\par\noindent\Large Using the equation $e^{r_{c}} = (1 + \frac{r_{m}}{m})^{m}$, where $r_{c}$ is the continuous rate and $r_{m}$ is the per annum rate, we simply have to take the natural log of both sides to get $r_{c}$.\vspace{0.25cm}
+\par\noindent Therefore, $r_{c} = \ln{(1 + \frac{r_{m}}{m})}^{m} = m\ln{(1 + \frac{r_{m}}{m})}$.  By substituting in $m = 4$ and $r_{m} = 0.07$ we get $r_{c} =4\ln{(1 + \frac{0.07}{4})} = 0.0694 = 6.94\%$
+\subsection{What is the equivalent rate with annual compounding?}
+\par\noindent\Large To get the equivalent rate for annual compounding for the same terminal value $V_{T}$, we get two equations: $V_{T} = v_{0}(1 + \frac{r_{q}}{4})^{4}$, representing the rate from quarterly compounding denoted by $r_{q}$, and $V_{T} = v_{0}(1 + r_{a})$ where $r_{a}$ is the annual compounding rate.\vspace{0.25cm}
+
+\par\noindent\Large Since we are determining the equivalent rate for getting the same terminal value, we set the two equations equal to each other and get $v_{0}(1 + r_{a}) = v_{0}(1 + \frac{r_{q}}{4})^{4}$, which becomes $1 + r_{a} = (1 + \frac{0.07}{4})^{4} = 1.072$ after dividing both sides by $v_{0}$ and plugging in $r_{q} = 0.07$.\vspace{0.25cm}
+
+\par\noindent\Large This simplifies to $r_{a} = 0.072 = 7.2\%$
+
+\section{A 3-year bond provides a coupon of 8\% semi-annually and has a cash price of \$104. What is the bonds yield?}
+
+\par\noindent\Large Given cash price \$104, and assuming a principal value of \$100, we get a coupon value of \$4.  Thus: $4e^{-y \times 0.5} + 4e^{-y \times 1.0} + 4e^{-y \times 1.5} + 4e^{-y \times 2.0} + 4e^{-y \times 2.5} + 104e^{-y \times 3.0} = \$104$.  Solving, we get $y \approx 0.0641 \approx 6.41\%$
+
+\section{Suppose that the 6-month, 12-month, 18-month, and 24-month zero rates are 5\%, 6\%, 6.5\%, and 7\%, respectively. What is the 2-year par yield?}
+\par\noindent\Large Assuming principal/par value \$100, we can formulate the equation for the 2-year par yield $\frac{c}{2}e^{-0.05 \times 0.5} + \frac{c}{2}e^{-0.06 \times 1.0} + \frac{c}{2}e^{-0.065 \times 1.5} + (100 + \frac{c}{2})e^{-0.07 \times 2.0} = 100$.  Solving this equation, we get $~3.97\frac{c}{2} + ~24.66 = 100 \rightarrow ~3.97\frac{c}{2} = ~75.34 \rightarrow c = 37.95$
+
+\section{Calculate the forward interest rates for the second, third, fourth, and fifth years based on the information in the given table.}
+\par\noindent\Large $R_{F2} = \frac{R_{2}T_{2} - R_{1}T_{1}}{T_{2} - T_{1}} = \frac{(0.03)(2) - (0.02)(1)}{2 - 1} = \frac{0.04}{1} = 0.04 = 4\%$
+\par\noindent\Large $R_{F3} = \frac{R_{3}T_{3} - R_{2}T_{2}}{T_{3} - T_{2}} = \frac{(0.037)(3) - (0.03)(2)}{3 - 2} = \frac{0.111 - 0.06}{1} = 0.051 = 5.1\%$
+\par\noindent\Large $R_{F4} = \frac{R_{4}T_{4} - R_{3}T_{3}}{T_{4} - T_{3}} = \frac{(0.042)(4) - (0.037)(3)}{4 - 3} = \frac{0.168 - 0.111}{1} = 0.057 = 5.7\%$
+\par\noindent\Large $R_{F5} = \frac{R_{5}T_{5} - R_{4}T_{4}}{T_{5} - T_{4}} = \frac{(0.045)(5) - (0.042)(4)}{5 - 4} = \frac{0.225 - 0.168}{1} = 0.057 = 5.7\%$
+
+\section{A 5-year bond with a yield of 7\% (continuously compounded) pays an 8\% coupon at the end of each year.}
+\subsection{What is the bond's price?}
+%\par\noindent\Large Coupon price assuming principal \$100 $c = \frac{100}{5} * 0.08 = 20 * 0.08 = \$1.60$ (for all $1 \leq i < 5$)
+\par\noindent\Large Bond price $B = \Sigma_{i = 1}^{n} = c_{i}e^{-yt_{i}} = \Sigma_{i = 1}^{5}c_{i}e^{-yt_{i}}$, where $c_{1} = c_{2} = c_{3} = c_{4} = \$8$ and $c_{5} = \$108$, so $B = 8e^{-0.07 \times 1} + 8e^{-0.07 \times 2} + 8e^{-0.07 \times 3} + 8e^{-0.07 \times 4} + 108e^{-0.07 \times 5} = \$103.05$
+
+\subsection{What is the bond's duration?}
+\par\noindent\Large $D = \frac{\Sigma^{n}_{i = 1}t_{i}c_{i}e^{-yt_{i}}}{B} = \frac{(1)(8)e^{-0.07 \times 1} + (2)(8)e^{-0.07 \times 2} + (3)(8)e^{-0.07 \times 3} + (4)(8)e^{-0.07 \times 4} + (5)(108)e^{-0.07 \times 5}}{103.05} = 4.32$ years
+
+\section{The 2-month interest rates in Switzerland and the United States are, respectively, 1\% and 2\% per annum with continuous compounding. The spot price of the Swiss franc is \$1.05. The futures price for a contract deliverable in 2 months is also \$1.05. What arbitrage opportunities, if any, does this create?}
+%\par\noindent\Large Because the futures price $F$ is \textbf{equal to} the spot price, there is no discrepancy and nothing needs to be done?
+\par\noindent\Large Future price $F_{0} = S_{0}e^{(r_{2} - r_{1})t} = (1.05)e^{(0.02 - 0.01) \times \frac{2}{12}} = \$1.05175$, slightly higher than the actual future price that was given.  To maximize our money, we should short/sell the francs and buy them back later when the price decreases.
+
+\section{Suppose that you enter into a 6-month forward contract on a non-dividend-paying stock when the stock price is \$30 and the risk-free interest rate (with continuous compounding) is 5\% per annum. What is the forward price?}
+\par\noindent\Large Forward price $F_{0} = S_{0}e^{rt} = (30)e^{0.05*0.5} = \$30.76$
+
+\section{A company enters into a forward contract with a bank to sell a foreign currency for $K_{1}$ at time $T_{1}$. The exchange rate at time $T_{1}$ proves to be ($S_{1}> K_{1}$). The company asks the bank if it can roll the contract forward until time ($T_{2}> T_{1}$) rather than settle at time $T_{1}$. The bank agrees to a new delivery price, $K_{2}$. Explain how $K_{2}$ should be calculated.}
+\par\noindent\Large We want to make sure that the payoff is the same at the new time as the old time.  Because we are selling, we will get the equation $S_{2} - K_{2} = K_{1} - S_{1}$, since at $T = 1$ we would be taking the short position but we would be taking the long position at $T = 2$.  Solving this equation, $K_{2} = S_{2} - K_{1} + S_{1}$?
+
+\section{Suppose that a European put option to sell a share for \$60 costs \$8 and is held until maturity.  Under what circumstances will the seller of the option (the party with the short position) make a profit? Under what circumstances will the option be exercised? Draw a graph illustrating how the profit from a short position in the option depends on the stock price at maturity of the option.}
+
+\par\noindent\Large \begin{itemize}
+\item The selling party makes a profit if the value of the share \textbf{decreases}, while the buying party makes a profit if the value \textbf{increases}.
+
+\item The put option would be exercised by the selling party if the value of the share on the expiration date is \textbf{over} \$60.
+\item \textbf{The graph is on the other attachment in the Blackboard submission.}
+\end{itemize}
+\end{document}
