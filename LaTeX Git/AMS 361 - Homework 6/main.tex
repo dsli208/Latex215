@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\geometry{legalpaper, portrait, margin = 0.5in}
+
+\title{AMS 361 - Homework 6}
+\author{David S. Li, SBU ID: 110328771}
+\date{March 29, 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem 6.1}
+
+\noindent Initial DE: $y''' + y'' + y' + y = 1 + e^{-x} + 2e^{2x}$.  First get our "c-equation": $r^{3} + r^{2} + r + 1 = 0$ \par %Solution y = y_{c} + y_{p}
+\noindent By grouping, we get $r^{2}(r + 1) + 1(r + 1) = (r^{2} + 1)(r + 1) = 0$.  Our roots are $r_{1} = -i$, $r_{2} = i$, and $r_{3} = -1$ \par %Euler's rule comes into effect here...
+\noindent We get for our "c-equation" $y_{c} = C_{1}sinx + C_{2}cosx + C_{3}e^{-x}$ \par\vspace{0.25cm}
+
+\noindent Now let's get our "p-equation", or "trial solution".  Because $f(x) = 1 + e^{-x} + 2e^{2x}$, let's propose $y_{p} = x^{s}(Ae^{2x} + Be^{-x} + C)$ \par
+\noindent $s = 1$, $y_{p} = Axe^{2x} + Bxe^{-x} + Cx$,
+\noindent $y'_{p} = Ae^{2x} + 2xAe^{2x} - Bxe^{-x} + Be^{-x} + C$, $y''_{p} = 4Ae^{2x} + 4xAe^{2x} + Bxe^{-x} - 2Be^{-x}$, $y'''_{p} = 12Ae^{2x} + 8xAe^{2x} + 3Be^{-x} - Bxe^{-x}$ $\leftarrow$ Plug each of there terms into the DE \par
+\noindent $12Ae^{2x} + 8xAe^{2x} + 3Be^{-x} - Bxe^{-x} + 4Ae^{2x} + 4xAe^{2x} + Bxe^{-x} - 2Be^{-x} + Ae^{2x} + 2xAe^{2x} - Bxe^{-x} + Be^{-x} + C + Axe^{2x} + Bxe^{-x} + Cx = 1 + e^{-x} + 2e^{2x}$ \par\vspace{0.25cm}
+
+\noindent Let's equate the $A$, $B$, and $C$ terms together by variable: \par
+\noindent $A$: $Ax + A + 2Ax + 4A + 4Ax + 8Ax + 12A = 17A + 15Ax = 2$, so $A = \frac{2}{17 + 15x}$, $B$: $B - 2B + 3B = 2B = 1$, so $B = \frac{1}{2} $ \par
+\noindent $C$: $C + Cx = 1$, so $C = \frac{1}{1 + x}$ \par\vspace{0.25cm}
+
+\noindent $y = y_{c} + y_{p} = C_{1}sinx + C_{2}cosx + C_{3}e^{-x} + \frac{1}{1 + x} + \frac{1}{2}e^{-x} + \frac{2}{17 + 15x}e^{2x}$ \par
+
+
+%NOT DONE
+
+\section{Problem 6.2}
+
+\noindent Initial DE: $y^{(4)} - y''' - y'' - y - 2y = 4 + 3x + 2x^{2} + x^{3}$ \par
+\noindent First get the "c-equation": $r^{4} - r^{3} - r^{2} - r - 2 = 0$ \par
+\noindent Factoring, we get $(r^{2} - 2r - 2)(r^{2} + 1) = (r + 1)(r - 2)(r^{2} + 1) = 0$, $r_{1} = -1$, $r_{2} = 2$, $r_{3} = -i$, $r_{4} = i$ \par
+\noindent $y_{c} = C_{1}e^{-x} + C_{2}e^{2x} + C_{3}sinx + C_{4}cosx$ \par\vspace{0.25cm}
+
+\noindent $y_{p} = A_{0} + A_{1}x + A_{2}x^{2} + A_{3}x^{3}$, $y'_{p} = A_{1} + 2A_{2}x + 3A_{3}x^{2}$, $y''_{p} = 2A_{2} + 6A_{3}x$, $y'''_{p} = 6A_{3}$, and $y^{(4)} = 0$ \par\vspace{0.25cm}
+\noindent $-A_{0} - A_{1} - 2A_{2} - 6A_{3} = 4$, $-A_{1} - 2A_{2} - 6A_{3} = 3$, $-A_{2} - 3A_{3} = 2$, and $-A_{3} = 1$
+
+\noindent That means $A_{3} = -1$, $A_{2} = A_{1} = 1, A_{0} = -1$ \par
+\noindent $y_{p} = -1 + x + x^{2} - x^{3}$ \par
+
+\noindent $y = y_{c} + y_{p} = C_{1}e^{-x} + C_{2}e^{2x} + C_{3}sinx + C_{4}cosx -1 + x + x^{2} - x^{3}$
+
+\section{Problem 6.3}
+
+\noindent Initial DE: $x^{3}y''' + 6x^{2}y'' + 4xy' - 4y = 1 + 2x + 3x^{2}$ \par
+\noindent $t = lnx$, $xy' = y^{.}$, $x^{2}y'' = y^{..} - y^{.}$, $x^{3}y''' = 2y^{.} - 3y^{..} + y^{...}$ \par\vspace{0.25cm}
+
+\noindent Plugging the above expressions to the DE, we get the following equation: $r^{3} + 3r^{2} - 4 = r^{2}(r + 3) - 4 = 0$ \par
+\noindent $r_{1} = 1$ and $r_{2} = -2$, so $y_{c} = C_{1}e^{t} + c_{2}e^{-2t}$ \par\vspace{0.25cm}
+
+\noindent For getting $y_{p}$, assume it has the form $e^{t} = x$ \par
+\noindent $y_{p} = A_{1} + A_{2}te^{t} + A_{3}e^{2t}$, $y_{p}^{.} = A_{2}(t + 1)e^{t} + 2A_{3}e^{2t}$, $y_{p}^{..} = A_{2}(t + 2)e^{t} + 4A_{3}e^{2t}$, $y_{p}^{...} = A_{2}(t + 3)e^{t} + 8A_{3}e^{2t}$ \par\vspace{0.25cm}
+
+\noindent Plugging those into our DE, we get $9A_{2}e^{t} + 8A_{3}e^{2t} - 4A_{1} = 1 + A_{2}e^{t} + 3e^{2t}$, $A_{1} = -\frac{1}{4}$, $A_{2} = \frac{1}{9}$ and $A_{3} = \frac{3}{8}$ \par\vspace{0.25cm}
+
+\noindent $y = y_{c} + y_{p} = C_{1}e^{t} + c_{2}e^{-2t} + -\frac{1}{4} + \frac{1}{9}te^{t} + \frac{3}{8}e^{2t}$
+
+\section{Problem 6.4}
+
+\noindent DE: $y''' - y'' + y' - y = e^{x} + sin(2x) + sin(3x) + e^{-4x}$ \par
+
+\noindent $r^{3} - r^{2} + r -1 = 0$, so $r^{2}(r - 1) + (r - 1) = 0$, so $(r^{2} + 1)(r - 1) = 0$, $r_{1} = 1, r_{2} = i, r_{3} = -1$ \par
+\noindent $y_{c} = C_{1}e^{x} + C_{2}sin(x) + C_{3}cos(x)$ \par\vspace{0.25cm}
+
+\noindent 
+
+\noindent $y = y_{c} + y_{p}$
+
+\section{Problem 6.5}
+
+\noindent Initial DE: $x^{2}y'' - x(x + 2)y' + (x + 2)y = 0$ \par
+\noindent $x^{2}(x^{\alpha})'' - x(x + 2)(x^{\alpha})' + (x + 2)x^{\alpha} = 0$ \par
+\noindent $x^{2}[\alpha (\alpha - 1)x^{\alpha - 2}] - (x + 2)\alpha x^{\alpha} = 0$ \par
+\noindent $\alpha (\alpha - 1) - (x + 2)(1 - \alpha) = 0$ \par
+\noindent $\alpha ^{2} + \alpha - x\alpha + x - 2 = (\alpha - 2)(\alpha + 1) = 0$ \par
+\noindent $\alpha_{1} = 2$ and $\alpha_{2} = -1$ \par
+\noindent So $y = C_{1}x^{2} + C_{2}x^{-1}$
+
+\end{document}

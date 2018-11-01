@@ -1,0 +1,677 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\geometry{legalpaper, portrait, margin = 0.5in}
+
+\title{AMS 361 - Homework 7}
+\author{David Li (SBUID: 110328771)}
+\date{April 16, 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Homework 7.1}
+
+\noindent $$
+\begin{cases}
+x' = x - 2y\\
+y' = 3x - 4y\\
+x(0) = 6 \\
+y(0) = 1
+\end{cases}
+$$ \par\vspace{0.25cm}
+
+\subsection{7.1, Using Substitution Method}
+\noindent First, solve for $y$ in the $x'$ equation, and conversely $x$ in the $y'$ equation: \par
+\noindent We get $2y = x - x'$, and thus $y = \frac{1}{2}(x - x')$ and $y' = \frac{1}{2}(x' - x'')$ \par
+\noindent We also get $3x = y' + 4y$, thus $x = \frac{1}{3}(y' + 4y)$ and $x' = \frac{1}{3}(y'' + 4y')$ \par\vspace{0.25cm}
+
+\noindent Now, substitute back for their respective variables into the initial equations: \noindent $$
+\begin{cases}
+\frac{1}{3}(y'' + 4y') = \frac{1}{3}(y' + 4y) - 2y\\
+\frac{1}{2}(x' - x'') = 3x - 4(\frac{1}{2})(x - x')\\
+\end{cases}
+$$ \par
+\noindent After manipulating the equations: \par
+\noindent $$
+\begin{cases}
+\frac{1}{3}y'' + y' + \frac{2}{3}y = 0\\
+-\frac{3}{2}x' - \frac{1}{2}x'' - x = 0
+\end{cases}
+$$ \par\vspace{0.25cm}
+
+\noindent Pick one of the equations to solve for the roots.  Let's choose the first one, the $y$ equation \par
+\noindent So we have $\frac{1}{3}r^{2} + r + \frac{2}{3} = 0$.  Multiplying both sides by 3, we get $r^{2} + 3r + 2 = 0$ \par
+\noindent Solving this, we get $(r + 2)(r + 1) = 0$, and thus $r_{1} = -2$ and $r_{2} = -1$ \par
+\noindent So we have a solution for $y$: $y(t) = C_{1}e^{-2t} + C_{2}e^{-t}$ \par
+\noindent Plugging in our initial condition for $y(t)$: $1 = C_{1} + C_{2}$ and $C_{2} = 1 - C_{1}$
+\par\vspace{0.25cm}
+
+\noindent Given our solution for $y$, plug that into the equation we got for $x$:\par
+\noindent $x(t) = \frac{1}{3}(y' + 4y) = \frac{1}{3}[(-2C_{1}e^{-2t} - C_{2}e^{-t}) + 4(C_{1}e^{-2t} + C_{2}e^{-t})] = \frac{1}{3}[2C_{1}e^{-2t} + 3C_{2}e^{-t}]$ \par
+\noindent Now plug in our initial condition for $x(t)$: $6 = \frac{1}{3}[2C_{1} + 3C_{2}] = \frac{1}{3}[2C_{1} + 3(1 - C_{1})] = \frac{1}{3}[2C_{1} + 3 - 3C_{1}]$ \par
+\noindent We eventually get $5 = -\frac{1}{3}C_{1}$, meaning $C_{1} = -15$.  Plugging into our equation for $C_{2}$: $C_{2} = 1 - C_{1} = 1 - (-15) = 16$ \par\vspace{0.25cm}
+
+\noindent Therefore, our P.S. is:\par
+\noindent $$
+\begin{cases}
+x(t) = \frac{1}{3}[-30e^{2t} + 48e^{-t}] \\
+y(t) = -15e^{-2t} + 16e^{-t}
+\end{cases}
+$$ 
+\par\vspace{0.25cm}
+
+\subsection{7.1, Using Operator Method}
+Rewrite the initial equation system using the operator $D$: \par\vspace{0.25cm}
+
+\noindent $$
+\begin{cases}
+Dx = x - 2y \\
+Dy = 3x - 4y
+\end{cases}
+$$ \par\vspace{0.25cm}
+
+\noindent We can rewrite the equations in the system above as: \par\vspace{0.25cm}
+
+\noindent $$
+\begin{cases}
+(D - 1)x + 2y = 0 (A)\\
+-3x + (D + 4)y = 0 (B)
+\end{cases}
+$$ \par\vspace{0.25cm}
+
+\noindent Solve DE's (A) and (B) using the following method: $3(A) + (D - 1)(B)$: \par\vspace{0.25cm}
+
+\noindent $$
+\begin{cases}
+3(D - 1)x + 6y = 0 (A)\\
+-3(D - 1)x + (D - 1)(D + 4)y = 0 (B)
+\end{cases}
+$$ \par\vspace{0.25cm}
+
+\noindent The two equations above cancel with regards to the $x$ term, giving us $((D - 1)(D + 4) + 6)y = 0$ \par
+\noindent Dividing both sides by $y$, we essentially have the following equation: $(r - 1)(r + 4) + 6 = 0$ \par
+\noindent We get $r^{2} + 3r + 2 = (r + 2)(r + 1) = 0$, so $r_{1} = -2$ and $r_{2} = -1$ \par
+\noindent So we get $y(t) = C_{1}e^{-2t} + c_{2}e^{-t}$ \par
+\noindent Using the same methodology from the above method, we get \par
+\noindent $x(t) = \frac{1}{3}(y' + 4y) = \frac{1}{3}[(-2C_{1}e^{-2t} - C_{2}e^{-t}) + 4(C_{1}e^{-2t} + C_{2}e^{-t})] = \frac{1}{3}[2C_{1}e^{-2t} + 3C_{2}e^{-t}]$ \par
+\noindent Solving the two equations, $C_{1} = -15$ and $C_{2} = 16$ so our P.S. is: \par
+
+\noindent $$
+\begin{cases}
+x(t) = \frac{1}{3}[-30e^{2t} + 48e^{-t}] \\
+y(t) = -15e^{-2t} + 16e^{-t}
+\end{cases}
+$$ 
+\par\vspace{0.50cm}
+
+\subsection{7.1, Using Eigen Method}
+$
+\begin{bmatrix}
+    x\\
+    y
+\end{bmatrix}' 
+ = 
+\begin{bmatrix}
+    1 & -2 \\
+    3 & -4
+\end{bmatrix}
+\begin{bmatrix}
+    x \\
+    y
+\end{bmatrix}
+$, let $A = 
+\begin{bmatrix}
+    1 & -2 \\
+    3 & -4
+\end{bmatrix}$
+\par\vspace{0.25cm}
+
+\noindent $det(A - \lambda I) = det(\begin{bmatrix}
+    1 & -2 \\
+    3 & -4
+\end{bmatrix} - \begin{bmatrix}
+    \lambda & 0 \\
+    0 & \lambda
+    \end{bmatrix})$, where $I\lambda = \lambda \begin{bmatrix}
+    1 & 0 \\
+    0 & 1
+    \end{bmatrix}
+    =
+    det(\begin{bmatrix}
+   1 -  \lambda & -2 \\
+    3 & -4 - \lambda
+    \end{bmatrix})
+    = 0$ \par
+\noindent We get $(1 - \lambda)(-4 - \lambda) - (3)(-2) = 0$, which equates to $-4 + 3\lambda + \lambda ^{2} + 6 = 0$.  This simplifies to $\lambda ^{2} + 3\lambda + 2 = 0$, giving us the roots $\lambda_{1} = -2$ and $\lambda_{2} = -1$, as with the previous methods \par\vspace{0.25cm}
+
+\noindent For each "lambda-root", calculate $A - \lambda I$ with the given value of $\lambda$: \par
+\noindent $\lambda_{1} = -2$: 
+$\begin{bmatrix}
+    3 & -2 \\
+    3 & -2
+\end{bmatrix}
+\begin{bmatrix}
+    x_{1} \\
+    y_{1}
+\end{bmatrix}
+=
+\begin{bmatrix}
+    0 \\
+    0
+\end{bmatrix}
+$ \par
+\noindent Multiplying the matrices out, we get only one equation: $3x_{1} - 2y_{1} = 0$, or $3x = 2y$.  Where $\begin{bmatrix}
+    x_{1} \\
+    y_{1}
+\end{bmatrix} = v_{1}$, the result matrix for this root, we get $v_{1} = \begin{bmatrix}
+    2 \\
+    3
+\end{bmatrix}$ \par\vspace{0.25cm}
+
+\noindent $\lambda_{2} = -1$: 
+$\begin{bmatrix}
+    2 & -2 \\
+    3 & -3
+\end{bmatrix}
+\begin{bmatrix}
+    x_{2} \\
+    y_{2}
+\end{bmatrix}
+=
+\begin{bmatrix}
+    0 \\
+    0
+\end{bmatrix}
+$ \par
+\noindent Our equations are $2x_{2} - 2y_{2} = 0$ and $3x_{2} - 3y_{2} = 0$.  If factored out, they both simplify to one equation: $x_{2} - y_{2} = 0$, or $x_{2} = y_{2}$.  Therefore, our result matrix $v_{2} = \begin{bmatrix}
+    1 \\
+    1
+\end{bmatrix}$ \par\vspace{0.25cm}
+
+\noindent The general equation therefore is $\begin{bmatrix}
+    x \\
+    y
+\end{bmatrix}
+=
+C_{1}\begin{bmatrix}
+    2 \\
+    3
+\end{bmatrix}
+e^{-2t} +
+C_{2}\begin{bmatrix}
+    1 \\
+    1
+\end{bmatrix}
+e^{-t}
+$
+
+\section{Problem 7.2}
+
+\subsection{7.2, using Substitution Method}
+\noindent $$
+\begin{cases}
+x' = 4x - 3y\\
+y' = 3x + 4y\\
+x(0) = 6 \\
+y(0) = 1
+\end{cases}
+$$Rearranging the above cases, this becomes $$
+\begin{cases}
+3y = 4x - x'\\
+3x = y' - 4y
+\end{cases}
+$$ We finally get $$
+\begin{cases}
+y = \frac{1}{3}(4x - x')\\
+x = \frac{1}{3}(y' - 4y)
+\end{cases}
+$$
+
+\noindent Deriving, we get $$
+\begin{cases}
+y' = \frac{1}{3}(4x' - x'')\\
+x' = \frac{1}{3}(y'' - 4y')
+\end{cases}
+$$ \par
+
+\noindent Substituting back into the original equations, we get \par
+$$
+\begin{cases}
+\frac{1}{3}(y'' - 4y') = 4(\frac{1}{3}(y' - 4y)) - 3y\\
+\frac{1}{3}(4x' - x'') = 3x + 4(\frac{1}{3}(4x - x'))
+\end{cases}
+$$ \par
+
+\noindent Picking one equation to solve, we choose the top ($y$) equation: \par
+\noindent $\frac{1}{3}y'' - \frac{4}{3}y' = \frac{4}{3}y' - \frac{16}{3}y - 3y$, this becomes $\frac{1}{3}y'' - \frac{8}{3}y' + \frac{25}{3}y = 0$.  Multiply the equation by 3, we get something similar to this: \par
+\noindent $r^{2} - 8r + 25 = 0$.  We cannot get roots by factoring, so we must use quadratic formula \par\vspace{0.25cm}
+
+\noindent $r = \frac{8 \pm \sqrt{64 - 100}}{2} = \frac{8 \pm \sqrt{-36}}{2} = \frac{8 \pm 6i}{2} = 4 \pm 3i$, so $r_{1} = e^{4 + 3i}$ and $r_{2} = e^{4 - 3i}$ \par
+\noindent Solution for $y$: $y(t) = c_{1}e^{(4 + 3i)t} + c_{2}e^{(4 - 3i)t}$.  By Euler's Formula, this becomes $y(t) = e^{4t}(C_{1}sin(3t) + C_{2}cos(3t))$ \par
+\noindent Plugging in I.C. $y(0) = 1$: $1 = C_{2}$
+\par\vspace{0.25cm}
+
+\noindent Substitute this back for $x(t)$: $x(t) = \frac{1}{3}[4e^{4t}(C_{1}sin(3t) + C_{2}cos(3t)) + e^{4t}(3C_{1}cos(3t) - 3C_{2}sin(3t))]$ \par
+\noindent Now plug in I.C. for $x(0) = 6$: $6 = \frac{1}{3}(4C_{2} + 3C_{1})$, we get $18 = 4(1) + 3C_{1}$, $14 = 3C_{1}$ so $C_{1} = \frac{14}{3}$ \par\vspace{0.25cm}
+\noindent Our final P.S.:
+$$
+\begin{cases}
+x(t) = \frac{1}{3}[4e^{4t}(\frac{13}{4}sin(3t) + cos(3t)) + e^{4t}(\frac{14}{3}cos(3t) - 3sin(3t))]\\
+y(t) = e^{4t}(\frac{14}{3}sin(3t) + cos(3t))
+\end{cases}
+$$ \par
+\subsection{7.2, using Operator Method}
+
+Using Operator Method, set the two initial equations as the following:
+$$
+\begin{cases}
+Dx = 4x - 3y\\
+Dy = 3x + 4y
+\end{cases}
+$$ 
+\par
+\noindent We can rearrange these equations as follows: \par
+$$
+\begin{cases}
+Dx - 4x + 3y = 0\\
+-3x + Dy - 4y = 0
+\end{cases}
+$$
+\par\vspace{0.60cm}
+
+\noindent We can further rearrange these equations as the following: \par
+$$
+\begin{cases}
+(D - 4)x + 3y = 0 (A)\\
+-3x + (D - 4)y = 0 (B)
+\end{cases}
+$$ \par\vspace{0.25cm}
+
+\noindent Let's cancel out the $x$ terms, adding the equations as follows: $3A + (D - 4)B$ \par
+\noindent $$
+\begin{cases}
+3(D - 4)x + 9y = 0 (A)\\
+-3(D - 4)x + (D - 4)(D - 4)y = 0 (B)
+\end{cases}
+$$ \par
+\noindent We eventually get $(D - 4)^{2}y + 9y = 0$, which equates to something similar to this: $r^{2} - 8r + 16 + 9 = 0$ \par\vspace{0.25cm}
+
+\noindent Using the same methodology as in the Substitution Method, we eventually get $r_{1} = e^{4 + 3i}$, $r_{2} = e^{4 + 3i}$, and \par 
+\noindent $y(t) = e^{4t}(C_{1}sin(3t) + C_{2}cos(3t))$.  Through the same back-substitution, $C_{1} = \frac{14}{3}$ and $C_{2} = 1$ so our final P.S. is: \par\vspace{0.25cm}
+
+\noindent $$
+\begin{cases}
+x(t) = \frac{1}{3}[4e^{4t}(\frac{13}{4}sin(3t) + cos(3t)) + e^{4t}(\frac{14}{3}cos(3t) - 3sin(3t))]\\
+y(t) = e^{4t}(\frac{14}{3}sin(3t) + cos(3t))
+\end{cases}
+$$ \par
+
+\section{Problem 7.3}
+\subsection{7.3, Using Eigen Analysis Method}
+$\begin{bmatrix}
+    x\\
+    y
+\end{bmatrix}'
+=
+\begin{bmatrix}
+    1 & -3 \\
+    3 & 7
+\end{bmatrix}
+\begin{bmatrix}
+    x\\
+    y
+\end{bmatrix}$, where
+$\begin{bmatrix}
+    1 & -3 \\
+    3 & 7
+\end{bmatrix} = A$ \par\vspace{0.25cm}
+
+\noindent $det(\begin{bmatrix}
+    1 - \lambda & -3 \\
+    3 & 7 - \lambda
+\end{bmatrix}) = 0$, $(1 - \lambda)(7 - \lambda) + 9 = 0$, we get $\lambda^{2} - 8\lambda + 16 = 0$, so $\lambda_{1} = \lambda_{2} = 4$ \par\vspace{0.25cm}
+
+\noindent For $\lambda_{1} = 4$: $\begin{bmatrix}
+    -3 & -3 \\
+    3 & 3
+\end{bmatrix}
+\begin{bmatrix}
+    x_{1} \\
+    y_{1}
+\end{bmatrix} = 
+\begin{bmatrix}
+    0 \\
+    0
+\end{bmatrix}$, we get the equations $-3x_{1} - 3y_{1} = 0$ and $3x_{2} + 3y_{2} = 0$ \par
+\noindent This eventually gets us $-3x_{1} = 3y_{1}$, and $\begin{bmatrix}
+    x_{1} \\
+    y_{1}
+\end{bmatrix} = \begin{bmatrix}
+    -1 \\
+    1
+\end{bmatrix}$
+\par\vspace{0.25cm}
+\noindent For $\lambda_{2} = 4$: $\begin{bmatrix}
+    -3 & -3 \\
+    3 & 3
+\end{bmatrix}\begin{bmatrix}
+    x_{2} \\
+    y_{2}
+\end{bmatrix}
+=
+\begin{bmatrix}
+    -1 \\
+    1
+\end{bmatrix}$, we get the equations $-3x_{2} - 3y_{2} = -1$ and $3x_{2} + 3y_{2} = 1$ \par
+\noindent We get $\begin{bmatrix}
+    x_{2} \\
+    y_{2}
+\end{bmatrix}
+=
+\begin{bmatrix}
+    x_{2} \\
+    \frac{1}{3} - x_{2}
+\end{bmatrix}
+=
+\begin{bmatrix}
+    0 \\
+    \frac{1}{3}
+\end{bmatrix}$ \par\vspace{0.25cm}
+
+\noindent Our G.S. takes the following equation form $X = X_{1} + X_{2}$, where $X_{1} = C_{1}\begin{bmatrix}
+    -1 \\
+    1
+\end{bmatrix}e^{4t}$ and 
+$X_{2} = C_{2}(\begin{bmatrix}
+    -1 \\
+    1
+\end{bmatrix}t + \begin{bmatrix}
+    0 \\
+    \frac{1}{3}
+\end{bmatrix})e^{4t}$ \par
+\noindent Therefore, G.S. $X = C_{1}\begin{bmatrix}
+    -1 \\
+    1
+\end{bmatrix}e^{4t} + C_{2}(\begin{bmatrix}
+    -1 \\
+    1
+\end{bmatrix}t + \begin{bmatrix}
+    0 \\
+    \frac{1}{3}
+\end{bmatrix})e^{4t}$
+
+\subsection{7.3, Using Substitution Method}
+\noindent Converting the matrix to system of equations form, we get:
+$$
+\begin{cases}
+x' = x - 3y\\
+y' = 3x + 7y
+\end{cases}
+$$
+\noindent Rearranging these equations, we get:
+$$
+\begin{cases}
+y = \frac{1}{3}(x - x')\\
+x = \frac{1}{3}(y' - 7y)
+\end{cases}
+$$ 
+\noindent And therefore:
+$$
+\begin{cases}
+y' = \frac{1}{3}(x' - x'')\\
+x' = \frac{1}{3}(y'' = 7y')
+\end{cases}
+$$ 
+
+\noindent Substituting accordingly into the $y$ equation, we get: $\frac{1}{3}y'' - \frac{7}{3}y' = \frac{1}{3}y' - \frac{7}{3}y - \frac{9}{3}y$.  Eventually this becomes $\frac{1}{3}y'' - \frac{8}{3}y' + \frac{16}{3}y = 0$ \par
+\noindent We get an equation similar to this: $r^{2} - 8r + 16 = 0$.  Again we get equal roots: $r_{1} = r_{2} = 4$ \par\vspace{0.25cm}
+
+\noindent So our equation for $y(t)$: $y(t) = C_{1}e^{4t} + C_{2}te^{4t}$ and $y'(t) = 4C_{1}e^{4t} + 4C_{2}te^{4t} + C_{2}e^{4t}$ \par\vspace{0.25cm}
+
+\noindent To get $x(t)$, substitute into the equation for $x$, for $y(t)$ and $y'(t)$: \par 
+\noindent $x(t) = \frac{1}{3}(y' - 7y) = \frac{1}{3}[4C_{1}e^{4t} + 4C_{2}te^{4t} + C_{2}e^{4t} - 7(C_{1}e^{4t} + C_{2}te^{4t})] = \frac{1}{3}(-3C_{1}e^{4t} - 3C_{2}te^{4t} + C_{2}e^{4t})$ \par\vspace{0.25cm}
+
+\noindent Therefore, we have the following G.S.:
+$$
+\begin{cases}
+y(t) = C_{1}e^{4t} + C_{2}te^{4t}\\
+x(t) = -C_{1}e^{4t} - C_{2}te^{4t} + \frac{1}{3}C_{2}e^{4t}
+\end{cases}
+$$ 
+
+\section{Problem 7.4}
+\subsection{7.4, Using Eigen Analysis Method}
+\noindent $X'(t) = \begin{bmatrix}
+    2 & 4 \\
+    1 & -1
+\end{bmatrix}
+\begin{bmatrix}
+    x\\
+    y
+\end{bmatrix} +
+\begin{bmatrix}
+    e^{-t}\\
+    -t^{2}
+\end{bmatrix}$.
+First solve for the homogeneous component of the G.S.: \par
+\noindent $det(A - I\lambda) = det(\begin{bmatrix}
+    2 - \lambda & 4 \\
+    1 & -1 - \lambda
+\end{bmatrix}) = 0$, where $A = \begin{bmatrix}
+    2 & 4 \\
+    1 & -1
+\end{bmatrix}$.  Thus, $det(A - I\lambda) = (2 - \lambda)(-1 - \lambda) - 4 = 0$ \par
+\noindent We get $\lambda^{2} - \lambda - 6 = (\lambda + 2)(\lambda - 3) = 0$, obtaining roots $\lambda_{1} = -2$ and $\lambda_{2} = 3$ \par\vspace{0.25cm}
+
+\noindent Plug to $A - I\lambda$, where $\lambda_{1} = -2$: $\begin{bmatrix}
+    4 & 4 \\
+    1 & 1
+\end{bmatrix}\begin{bmatrix}
+    x_{1}\\
+    y_{1}
+\end{bmatrix} = 
+\begin{bmatrix}
+    0\\
+    0
+\end{bmatrix}$.  From this, we get equations $4x_{1} + 4y_{1} = 0$ and $x_{1} + y_{1} = 0$.  Clearly, $x_{1} = -y_{1}$ \par
+\noindent Now do the same with $lambda_{2} = 3$: $A = \begin{bmatrix}
+    -1 & 4 \\
+    1 & -4
+\end{bmatrix}\begin{bmatrix}
+    x_{2}\\
+    y_{2}
+\end{bmatrix} = 
+\begin{bmatrix}
+    0\\
+    0
+\end{bmatrix}$.  From this, we get equations $-x_{2} + 4y_{2} = 0$ and $x_{2} - 4y_{2} = 0$, so we get $x_{2} = 4y_{2}$ \par\vspace{0.25cm}
+
+\noindent Let $v_{1}$ and $v_{2}$ be eigenvectors for $\lambda_{1}$ and $\lambda_{2}$ respectively.  $v_{1} = \begin{bmatrix}
+    -1\\
+    1
+\end{bmatrix}$ and $v_{2} = \begin{bmatrix}
+    4\\
+    \frac{1}{4}
+\end{bmatrix}$ \par
+
+\noindent So $X_{C} = C_{1}\begin{bmatrix}
+    -1\\
+    1
+\end{bmatrix}e^{-2t} + C_{2}\begin{bmatrix}
+    4\\
+    \frac{1}{4}
+\end{bmatrix}e^{3t}$ \par\vspace{0.25cm}
+
+\noindent To solve for the inhomogeneous portion, let $F(t) = \begin{bmatrix}
+    1\\
+    0
+\end{bmatrix}e^{-t} + \begin{bmatrix}
+    0\\
+    -1
+\end{bmatrix}t^{2}$ and let the trial solution $X_{P} = Ee^{-t} + B_{0} + B_{1}t + B_{2}t^{2}$ \par
+\noindent Deriving $X_{P}$, $X'_{P} = -Ee^{-t} + B_{1} + 2B_{2}t$ and substitute in the equation $X'_{P} = AX_{P} + F(t)$ accordingly: \par
+\noindent $-Ee^{-t} + B_{1} + 2B_{2}t = A(Ee^{-t} + B_{0} + B_{1}t + B_{2}t^{2}) + \begin{bmatrix}
+    1\\
+    0
+\end{bmatrix}e^{-t} + \begin{bmatrix}
+    0\\
+    -1
+\end{bmatrix}t^{2}$ \par
+
+\noindent Now matching terms, we get: $$
+\begin{cases}
+-E_{1} = AE_{1} + \begin{bmatrix}
+    1\\
+    0
+\end{bmatrix} \\
+2B_{2} = AB_{1} \\
+B_{1} = AB_{0} \\
+\begin{bmatrix}
+    0\\
+    1
+\end{bmatrix} = AB_{2} 
+\end{cases}
+$$ 
+
+\noindent Working backwards, we get $AB_{2} = \frac{1}{2}A^{2}B_{1} = \frac{1}{2}A^{2}(AB_{0}) = \frac{1}{2}A^{3}B_{0} = \begin{bmatrix}
+    0\\
+    1
+\end{bmatrix}$.  We can thus deduce $A^{3}B_{0} = 2\begin{bmatrix}
+    0\\
+    1
+\end{bmatrix} = \begin{bmatrix}
+    0\\
+    2
+\end{bmatrix}$ \par
+\noindent $B_{0} = A^{-3}\begin{bmatrix}
+    0\\
+    2
+\end{bmatrix} = A^{-1}A^{-1}A^{-1}\begin{bmatrix}
+    0\\
+    2
+\end{bmatrix}$ \par
+
+\noindent We get $A^{-1} = \begin{bmatrix}
+    \frac{1}{6} & \frac{2}{3}\\
+    \frac{1}{6} & -\frac{1}{3}
+\end{bmatrix}$, and that $A^{-3}\begin{bmatrix}
+    0\\
+    2
+\end{bmatrix} = \begin{bmatrix}
+    \frac{14}{27}\\
+    -\frac{5}{27}
+\end{bmatrix} = B_{0}$ \par
+
+\noindent Backtracking, we get $B_{1} = AB_{0} = \begin{bmatrix}
+    \frac{8}{27} \\
+    \frac{19}{27}
+\end{bmatrix}$, $B_{2} = \begin{bmatrix}
+    \frac{1}{2}\\
+    -\frac{11}{54}
+\end{bmatrix}$ \par
+    
+\noindent Now solve for $E_{1}$: $-E_{1} = AE_{1} + \begin{bmatrix}
+    1\\
+    0
+\end{bmatrix}$.  By subtracting $AE_{1}$ from both sides, we get $-E_{1} - AE_{1} = \begin{bmatrix}
+    1\\
+    0
+\end{bmatrix}$ \par
+
+\noindent $-(E_{1} + AE_{1}) = -E_{1}(1 + A) = \begin{bmatrix}
+    1\\
+    0
+\end{bmatrix}$.  Therefore, $(\begin{bmatrix}
+    1 & 1\\
+    1 & 1
+\end{bmatrix} + \begin{bmatrix}
+    2 & 4 \\
+    1 & -1
+\end{bmatrix})E_{1} = \begin{bmatrix}
+    -1\\
+    0
+\end{bmatrix}$.  We thus have $\begin{bmatrix}
+    3 & 5\\
+    2 & 0
+\end{bmatrix}E_{1} = \begin{bmatrix}
+    -1\\
+    0
+\end{bmatrix}$ \par
+
+\noindent This gives us equations $3E_{x} + 5E_{y} = -1$ and $2E_{x} = 0$, where $E_{1} = \begin{bmatrix}
+    E_{x}\\
+    E_{y}
+\end{bmatrix}$.  Solving these equations, $E_{x} = 0$ and $E_{y} = -\frac{1}{5}$ \par\vspace{0.25cm}
+
+\noindent Given our values of $B_{0}$, $B_{1}$, $B_{2}$, and $E_{1}$, $X_{P} = \begin{bmatrix}
+    0\\
+    -\frac{1}{5}
+\end{bmatrix}e^{-t} + \begin{bmatrix}
+    \frac{14}{27}\\
+    -\frac{5}{27}
+\end{bmatrix} + \begin{bmatrix}
+    \frac{8}{27} \\
+    \frac{19}{27}
+\end{bmatrix}t + \begin{bmatrix}
+    \frac{1}{2}\\
+    -\frac{11}{54}
+\end{bmatrix}t^{2}$ \par\vspace{0.25cm}
+
+\noindent G.S. $X = X_{C} + X_{P} = C_{1}\begin{bmatrix}
+    -1\\
+    1
+\end{bmatrix}e^{-2t} + C_{2}\begin{bmatrix}
+    4\\
+    \frac{1}{4}
+\end{bmatrix}e^{3t} + \begin{bmatrix}
+    0\\
+    -\frac{1}{5}
+\end{bmatrix}e^{-t} + \begin{bmatrix}
+    \frac{14}{27}\\
+    -\frac{5}{27}
+\end{bmatrix} + \begin{bmatrix}
+    \frac{8}{27} \\
+    \frac{19}{27}
+\end{bmatrix}t + \begin{bmatrix}
+    \frac{1}{2}\\
+    -\frac{11}{54}
+\end{bmatrix}t^{2}$
+
+\subsection{7.4, Using Substitution Method}
+
+\noindent $x' = 2x + 4y = e^{-t}$ and $y' = x - y - t^{2}$.  Rearranging the first equation, $x = y' + y + t^{2}$ and $x' = y'' + y' + 2t$.  Substituting this back, $y'' + y' + 2t = 2(y' + y + t^{2}) + 4y + e^{-t}$.  Rearranging this, we get $y'' - y' - 6y = 2t^{2} - 2t + e^{-t}$. \par
+
+\noindent Now let's solve the homogeneous portion - we have something similar to this: $r^{2} - r - 6 = (r - 3)(r + 2) = 0$.  $r_{1} = 3$ and $r_{2} = -2$ \par\vspace{0.25cm}
+
+\noindent Therefore, our homogeneous solution is $y_{C} = C_{1}e^{3t} + C_{2}e^{-2t}$ \par\vspace{0.25cm}
+
+\noindent To get our inhomogeneous solution, trial solution $y_{P} = A_{2}t^{2} + A_{1}t + A_{0} + Be^{-t}$, $y'_{P} = 2A_{2}t + A_{1} - Be^{t}$, $y''_{P} = 2A_{2} + Be^{-t}$ \par
+
+\noindent Substituting back in, we get $2A_{2} + Be^{-t} - 2A_{2}t - A_{1} + Be^{-t} - 6A_{2}t^{2} - 6A_{1}t - 6A_{0} - 6Be^{-t} = 2t^{2} - 2t + e^{-t}$ \par\vspace{0.25cm}
+
+\noindent By matching the coefficients, we get $2A_{2} - A_{1} - 6A_{0} = 0$, $-4B = 1$, $-2A_{2} - 6A_{1} = -2$, and $-6A_{2} = 2$ \par
+
+\noindent Thereby, we get: $$
+\begin{cases}
+A_{0} = -\frac{5}{29}\\
+A_{1} = \frac{4}{9} \\
+A_{2} = -\frac{1}{3}\\
+B = -\frac{1}{4}
+\end{cases}
+$$ \par
+\noindent Substituting into the equation, we get $y_{P} = -\frac{1}{3}t^{2} + \frac{4}{9}t - \frac{5}{27} - \frac{1}{4}e^{-t}$.  Therefore, $y(t) = y_{C} + y_{P} = C_{1}e^{3t} + C_{2}e^{-2t} - \frac{1}{3}t^{2} + \frac{4}{9}t - \frac{5}{27} - \frac{1}{4}e^{-t}$ \par\vspace{0.25cm}
+
+\noindent Now let's get $x(t)$: $x(t) = y' + y + t^{2}$.  Deriving $y(t)$, we get $y'(t) = 3C_{1}e^{3t} - 2C_{2}e^{-2t} - \frac{2}{3}t + \frac{4}{9} + \frac{1}{4}e^{-t}$ \par
+
+\noindent Plugging into the equation for $x(t)$: $x(t) = 4C_{1}e^{3t} - C_{2}e^{-2t} + \frac{2}{3}t^{2} - \frac{2}{9}t + \frac{7}{27}$ \par\vspace{0.25cm}
+
+\noindent Our general solution: $$
+\begin{cases}
+x(t) = 4C_{1}e^{3t} - C_{2}e^{-2t} + \frac{2}{3}t^{2} - \frac{2}{9}t + \frac{7}{27} \\
+y(t) = C_{1}e^{3t} + C_{2}e^{-2t} - \frac{1}{3}t^{2} + \frac{4}{9}t - \frac{5}{27} - \frac{1}{4}e^{-t}
+\end{cases}
+$$ \par
+\end{document}

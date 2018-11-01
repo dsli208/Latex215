@@ -1,0 +1,237 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{CSE 215 HW 2}
+\author{David S. Li (110328771)}
+\date{October 9, 2016}
+
+\begin{document}
+
+\maketitle
+
+\section{(Problem 1) Proof:}
+
+Let a be some arbitrarily chosen integer.  It is consecutive with three other integers, (a + 1), (a + 2), and (a + 3)
+
+\par\vspace{0.5cm}\noindent
+So the product of a(a + 1)(a + 2)(a + 3) = (a$\textsuperscript{2}$ + a)(a$\textsuperscript{2}$ + 5a + 6)
+\par\vspace{0.5cm}\noindent
+This product = (a$\textsuperscript{4}$ + 6a$\textsuperscript{3}$ + 11a$\textsuperscript{2}$ + 6a)
+\par\vspace{0.5cm}\noindent
+By the given definition of a predecessor, the above term is a predecessor to \par\noindent(a$\textsuperscript{4}$ + 6a$\textsuperscript{3}$ + 11a$\textsuperscript{2}$ + 6a + 1), and that expression can be factored into \par\noindent
+(a$\textsuperscript{2}$ + 3a + 1)(a$\textsuperscript{2}$ + 3a + 1)
+\par\vspace{0.5cm}\noindent
+Substituting our original product of the four consecutive integers \par\noindent (a$\textsuperscript{4}$ + 6a$\textsuperscript{3}$ + 11a$\textsuperscript{2}$ + 6a) \par\noindent as an integer m, and substituting m + 1, equivalent to \par\noindent
+(a$\textsuperscript{4}$ + 6a$\textsuperscript{3}$ + 11a$\textsuperscript{2}$ + 6a + 1) as an integer n, and substituting its factor \par\noindent (a$\textsuperscript{2}$ + 3a + 1) as an integer k, we get the following: \par\vspace{0.5cm}\noindent
+n = m + 1 and n = k * k = k$\textsuperscript{2}$ \par\vspace{0.5cm}\noindent
+Thereby, we can say that m, the product of four consecutive integers, is a predecessor of n, which in turn is a perfect square
+
+\section{(Problem 2) Proof:}
+
+Given integers a and b, by the Quotient-Remainder Theorem (Theorem 7.1), we get that
+a = 7x + 5 and b = 7y + 6, where x and y are integer quotients
+\par\vspace{0.5cm}\noindent
+The product a * b = (7x + 5)(7y + 6) = 49xy + 42x + 35y + 30
+\par\vspace{0.5cm}\noindent
+First we can break the above expression into 49xy + 42x + 35y + 28 + 2
+\par\vspace{0.5cm}\noindent
+And then we can factor the first four terms by a common factor, 7, and we get:
+\par\vspace{0.5cm}\noindent
+7(7xy + 6x + 5y + 4) + 2
+\par\vspace{0.5cm}\noindent
+If we rewrite (7xy + 6x + 5y + 4) as an integer q, we get 7q + 2\par\noindent
+Our 'r' in this case ((a * b) mod 7) is equal to 2, therefore (ab mod 7 = 2)
+
+\section{(Problem 3) Proof by contradiction}
+
+First, assume that $\exists$ n $\in$ Z such that 4 $\mid$ n$\textsuperscript{2}$ + 5
+\par\vspace{0.5cm}\noindent
+By the quotient-remainder theorem (Theorem 7.1), n$\textsuperscript{2}$ + 5 = 4q where q is an integer quotient
+\par\noindent (REMEMBER: The 'r' in this case is 0, as we are assuming n$\textsuperscript{2}$ + 5 divides evenly with no remainder!)
+\par\vspace{0.5cm}\noindent
+So divide both sides of the equation by 4.  This will produce $\frac{n^{2}}{4}$ + $\frac{5}{4}$
+\par\vspace{0.5cm}\noindent
+There are values of n such that n$\textsuperscript{2}$ will divide evenly by 4 to produce an integer result, such as when n = 4.  However, this is not always the case (e.g. n = 5), and we also have $\frac{5}{4}$ on the right side of the addition expression.  This does not divide evenly with 4 and will not produce an integer result, contradicting what we said above where q must be an integer.
+\par\vspace{0.5cm}\noindent
+Therefore, $\nexists$ n $\in$ Z such that 4 $\mid$ n$\textsuperscript{2}$ + 5
+
+\section{(Problem 4: Two way proofs, by contraposition and contradiction)}
+
+\subsection{(Problem 4a)}
+\subsubsection{Proof by contradiction: }
+
+We are trying to prove by contradiction the assumption that $\forall$ (m, n) $\in$ Z, if (m + n) is even, then m and n are NOT both even or both odd (meaning one is even and one is odd)
+
+\par\vspace{0.5cm}\noindent
+So let (m + n) = 2k, where k is an integer value, and m be an odd number and n be an even number \par\noindent
+By their respective definitions, m = 2x + 1 and n = 2y
+\par\vspace{0.5cm}\noindent
+So set up (m + n) = m + n
+\par\vspace{0.5cm}\noindent
+We get 2k = 2x + 1 + 2y
+\par\vspace{0.5cm}\noindent
+Rearrange the equation, and we get 2k = 2x + 2y + 1
+\par\vspace{0.5cm}\noindent The first two terms on the right-hand side of the equation both have a common factor of 2, we we can factor out to get 2k = 2(x + y) + 1
+\par\vspace{0.5cm}\noindent As x + y is the sum of two integers, it is an integer so we can simply rewrite this as an integer z
+\par\vspace{0.5cm}\noindent Therefore, we get 2k = 2z + 1.  BUT, we get a CONTRADICTION here, as we have an even integer set equal to an odd integer, and no integer can be both even and odd (Theorem 7.3).
+\par\vspace{0.5cm}\noindent Therefore, the supposition that $\forall$ (m, n) $\in$ Z, if (m + n) is even, then m and n are NOT both even or both odd (meaning one is even and one is odd) is FALSE.
+\par\vspace{0.5cm}\noindent THEREFORE, $\forall$ (m, n) $\in$ $\Z$, if (m + n) is even, then m and n are both even or both odd
+
+\subsubsection{Proof by contraposition}
+
+We are trying to prove here that $\forall$ (m, n) $\in$ Z, if m and n are not both even or both odd, then (m + n) is not even (or (m + n) is odd)
+\par\vspace{0.5cm}\noindent
+So let m be an odd integer and n be an even integer, so m = 2x + 1 and n = 2y by their respective definitions, where x and y are both integers
+\par\vspace{0.5cm}\noindent
+So simply set up m + n as we did in the last problem: (m + n) = m + n
+\par\vspace{0.5cm}\noindent
+So m + n = 2x + 1 + 2y = 2x + 2y + 1
+\par\noindent
+As the first two terms both have a common factor of two, we can factor out those to get 2(x + y) + 1, where (x + y) is an integer sum created by the sum of two integers.  Furthermore, we can rewrite the integer sum (x + y) as a single integer k to get m + n = 2(x + y) = 1 = 2k + 1
+\par\vspace{0.5cm}\noindent
+\par\vspace{0.5cm}\noindent Therefore, the contraposition $\forall$ (m, n) $\in$ Z, if m and n are not both even or both odd, then (m + n) is not even (or (m + n) is odd) is a true statement, and THEREFORE
+\par\vspace{0.5cm}\noindent$\forall$ (m, n) $\in$ Z, if (m + n) is even, then m and n are both even or both odd
+
+\subsection{(Problem 4b)}
+\subsubsection{Proof by contradiction: }
+
+To prove by contradiction, we want to prove the NEGATION of the original statement.  That is, $\forall$ (a, b, c) $\in$ Z, if a $\mid$ b and a $\not{|}$ c, then a $\mid$ (b + c)
+\par\vspace{0.5cm}\noindent
+Following our assumption, b + c = aq by the quotient-remainder theorem where q is an integer quotient
+
+\par\vspace{0.5cm}\noindent Divide both sides of the above equation by a to get the integer quotient q.  Since a $\mid$ b, $\frac{b}{a}$ will produce an integer result.  But since we also know that a $\not{|}$ c, $\frac{c}{a}$ will produce a remainder, and thus will not have an integer result.  This contradicts our supposition that a $\mid$ (b + c), as dividing both sides of the equation above by a will not produce an integer sum for q, THEREFORE:
+
+\par\vspace{0.5cm}\noindent $\forall$ (a, b, c) $\in$ Z, if a $\mid$ b and a $\not{|}$ c, then a $\not{|}$ (b + c)
+
+\subsubsection{Proof by contraposition:}
+
+To prove by contraposition, we need to prove that $\forall$ (a, b, c) $\in$ Z, if a $\mid$ (b + c), then a $\not{|}$ b or a $\mid$\ c
+
+\par\vspace{0.5cm}\noindent So we can start by expressing a $\mid$ (b + c) as b + c = ax by the quotient-remainder theorem, where x is an integer quotient.  Then we can divide both sides of this equation by a to get $\frac{b + c}{a}$ = x.  We can further rewrite that as $\frac{b}{a}$ + $\frac{c}{a}$ = x
+
+\par\vspace{0.5cm}\noindent Remember that x is an integer quotient.  It thus must be the sum of two integers, meaning that $\frac{b}{a}$ and $\frac{c}{a}$ are both integer values.  This means a $\not{|}$ b is false, but a $\mid$ c is true.  As the "then" part of the statement at the beginning of the proof has an "or" operator, only one of the conditions needs to be satisfied for it to be true (in this case, a $\mid$\ c).
+\par\vspace{0.5cm}\noindent Therefore, $\forall$ (a, b, c) $\in$ Z, if a $\mid$ b and a $\not{|}$ c, then a $\not{|}$ (b + c)
+
+\section{(Problem 5)}
+\subsection{(Problem 5a)}
+Let n be an integer such that n \textgreater 1
+
+\par\vspace{0.5cm}\noindent We are going to try and prove that the statement $\forall$ n $\in$ Z, if n is a perfect square, then the cube root of n is irrational by contradiction by disproving this statement's NEGATION
+
+\par\vspace{0.5cm}\noindent Therefore, we have to prove that $\exists$ n $\in$ Z, if n is a perfect square, it's cube root is a rational number
+
+\par\vspace{0.5cm}\noindent First, suppose n is an even number, therefore n = 2k where k is an integer in accordance with the definition of an even number
+
+\par\vspace{0.5cm}\noindent Second, we have to prove that $\sqrt[3]{n}$ is a RATIONAL number, so $\sqrt[3]{n}$ = $\frac{x}{y}$, in accordance with the definition of a rational number, where x and y are integers.  Additionally, these numbers must be in simplest terms.
+
+\par\vspace{0.5cm}\noindent We can cube both sides of the equation to get n = $\frac{x^3}{y^3}$, then rearrange the equation by multiplying both sides by y$\textsuperscript{3}$ to get y$\textsuperscript{3}$n = x$\textsuperscript{3}$
+
+\par\vspace{0.5cm}\noindent Now assume y is an even integer.  Therefore y = 2k per definition of an even integer where k is an integer.  So (2k)$\textsuperscript{3}$n = x$\textsuperscript{3}$.  Since cubing a number is the product of even numbers, (2k)$\textsuperscript{3}$ is an even number, and multiplying an even number by another number will produce an even number, so (2k)$\textsuperscript{3}$n is an even number.  We also know (2k)$\textsuperscript{3}$  = x$\textsuperscript{3}$, so since that term is an even number, x must be even in order to get x$\textsuperscript{3}$ as an even number.  But this creates a contradiction here, as it was previously stated that x and y must be in simplest terms of each other.  As both of then are denoted as even numbers, they will have a common factor of 2, and thus they are not in simplest terms.
+
+\par\vspace{0.5cm}\noindent So assume y is odd then.  We can write y then as 2k + 1 as per definition of an odd number.  This gives us (2k + 1)$\textsuperscript{3}$n = x$\textsuperscript{3}$
+
+\par\vspace{0.5cm}\noindent We can write the rest of the proof in two different ways.  First, assume x is odd, meaning x = 2a + 1 where a is an integer by the definition of odd:
+\par\vspace{0.5cm}\noindent n(8k$\textsuperscript{3}$ + 12k$\textsuperscript{12}$ + 6k + 1) = (2a + 1)$\textsuperscript{3}$ = 8a$\textsuperscript{3}$ + 12a$\textsuperscript{2}$ + 6a + 1
+
+\par\vspace{0.5cm}\noindent If we rewrite the rightmost side of the above equation (8a$\textsuperscript{3}$ + 12a$\textsuperscript{2}$ + 6l) as \par\noindent [2(4a$\textsuperscript{3}$ + 6a$\textsuperscript{2}$ + 3a)] + 1, and write (4a$\textsuperscript{3}$ + 6a$\textsuperscript{2}$ + 3a) as a single integer b, we get 2b + 1, an odd integer by the definition of odd
+
+\par\vspace{0.5cm}\noindent So (2k + 1)$\textsuperscript{3}$n = 2b + 1
+
+\par\vspace{0.5cm}\noindent There is a POTENTIAL for contradiction here.  We don't know that n is an even or odd number.  If n is even, that would make the left side of the equation even and the right side of the equation odd, and create a contradiction there.  HOWEVER, if n is odd, given y is odd, the product of n and y$\textsuperscript{3}$ will create an odd number, with an odd number on the right side of the equation
+
+\par\vspace{0.5cm}\noindent Thereby, we have proven the NEGATION of $\forall$ n $\in$ Z, if n is a perfect square, then the cube root of n is irrational.  While we meant to prove the original statement, we instead proved its negation to be true, thereby disproving the original statement.
+
+\subsection{(Problem 5b)}
+
+We are going to prove that $\forall$ (a, b, c) $\in$ Z, that if a$\textsuperscript{2}$ + b$\textsuperscript{2}$ = c$\textsuperscript{2}$, then at least one of a and b must be even (meaning a must be even or b must be even).  We will do this by proof by contradiction.
+
+\par\vspace{0.5cm}\noindent So therefore the statement we must prove is $\exists$ (a, b, c) $\in$ Z, such that if a$\textsuperscript{2}$ + b$\textsuperscript{2}$ = c$\textsuperscript{2}$, neither a or b are even (meaning a and b are both odd)
+
+\par\vspace{0.5cm}\noindent So write a and b as two odd integers, a = 2x + 1 and b = 2y + 1 by definition of odd, where x and y are both integers
+
+\par\vspace{0.5cm}\noindent So substitute in, and: (2x + 1)$\textsuperscript{2}$ + (2y + 1)$\textsuperscript{2}$ = c$\textsuperscript{2}$ and by squaring the terms above, we will get (4x$\textsuperscript{2}$ + 4x + 1) + (4y$\textsuperscript{2}$ + 4y + 1) = c$\textsuperscript{2}$
+
+\par\vspace{0.5cm}\noindent We can add the two terms together to get 4x$\textsuperscript{2}$ + 4y$\textsuperscript{2}$ + 4x + 4y + 2 = c$\textsuperscript{2}$.  Then, we can factor the left side by a factor of 2, to get
+\par\noindent 2(2x$\textsuperscript{2}$ + 2y$\textsuperscript{2}$ + 2x + 2y + 1) = c$\textsuperscript{2}$
+
+\par\vspace{0.5cm}\noindent While we could substitute the term in parentheses as an integer value to show the left hand side as an integer q (giving us 2q = c$\textsuperscript{2}$), to get c, we still have to take the square root.  This would give us $\sqrt[]{2}$ $\sqrt[]{2q}$.  While $\sqrt[]{2q}$ may be rational depending on what the value of q comes out to be, since 2 is not a perfect square, this will produce an irrational number, and an irrational value of c, a CONTRADICTION since c is supposed to be a rational integer.
+
+\par\vspace{0.5cm}\noindent Therefore, $\forall$ (a, b, c) $\in$ Z, that if a$\textsuperscript{2}$ + b$\textsuperscript{2}$ = c$\textsuperscript{2}$, then at least one of a and b must be even
+
+\subsection{(Problem 5c)}
+
+Since this is a biconditional (if and only-if) statement, we need to prove both directions
+
+\subsubsection{(n is even) $\rightarrow$ (3n$\textsuperscript{2}$ + 8 is even)}
+
+As n is an even number, we can write it as n = 2k, by definition of even where k is an integer
+
+\par\vspace{0.5cm}\noindent So substitute 2k in for n in 3n$\textsuperscript{2}$ + 8, and we get:
+
+\par\vspace{0.5cm}\noindent 3(2k)$\textsuperscript{2}$ + 8 = 3(4k$\textsuperscript{2}$) + 8 = 12k$\textsuperscript{2}$ + 8 = 2 (6k$\textsuperscript{2}$ + 4).  If we rewrite the \par\noindent(6k$\textsuperscript{2}$ + 4) as an integer x, we simply get 2x, which is an even number
+\par\vspace{0.5cm}\noindent Thus, this portion of the biconditional is TRUE
+
+\subsubsection{(3n$\textsuperscript{2}$ + 8 is even) $\rightarrow$ (n is even)}
+
+Prove this by CONTRAPOSITION, so prove if (n is odd) $\rightarrow$ (3n$\textsuperscript{2}$ + 8 is odd)
+
+\par\vspace{0.5cm}\noindent Since n is odd, express it as n = 2k + 1, by definition of odd where k is an integer
+\par\vspace{0.5cm}\noindent So substitute the above expression in for n: 3(2k + 1)$\textsuperscript{2}$ + 8 = \par\noindent We get 3(4k$\textsuperscript{2}$ + 4k + 1) + 8 = 12k$\textsuperscript{2}$ + 12k + 3 + 8 = \par\noindent
+12k$\textsuperscript{2}$ + 12k + 10 + 1 = 2(6k$\textsuperscript{2}$ + 6k + 5) + 1
+
+\par\vspace{0.5cm}\noindent Rewriting (6k$\textsuperscript{2}$ + 6k + 5) as an integer x, we get 2x + 1, an odd number by the definition of odd
+
+\par\vspace{0.5cm}\noindent Thus, this part of the biconditional, and thus the whole biconditional, is TRUE
+
+\section{(Problem 6)}
+
+\subsection{(Problem 6a)}
+Statement: $\forall$ (m, p) $\in$ Z, p is prime and p $\mid$ m$\textsuperscript{3}$ $\rightarrow$ p $\mid$ m
+
+\par\vspace{0.5cm}\noindent Let's try to prove this by contraposition ... that is, prove that $\forall$ (m, p) $\in$ Z, if p $\not{|}$ m, then p$\not{|}$ m$\textsuperscript{3}$
+
+\par\vspace{0.5cm}\noindent So by the quotient-remainder theorem, m = pq + r, where q and r are an integer quotient and integer remainder respecitvely
+
+\par\vspace{0.5cm}\noindent To get m$\textsuperscript{3}$, we can cube the equation on both sides: m$\textsuperscript{3}$ = (pq + r)$\textsuperscript{3}$
+
+\par\vspace{0.5cm}\noindent m$\textsuperscript{3}$ = p$\textsuperscript{3}$q$\textsuperscript{3}$ + 3p$\textsuperscript{2}$q$\textsuperscript{2}$r + 3pqr$\textsuperscript{2}$ + r$\textsuperscript{3}$
+
+\par\vspace{0.5cm}\noindent By factoring out p from the first three terms of that expression, we get: \par\noindent
+m$\textsuperscript{3}$ = p (p$\textsuperscript{2}$q$\textsuperscript{3}$ + 3pq$\textsuperscript{2}$r + 3qr$\textsuperscript{2}$) + r$\textsuperscript{3}$
+
+\par\vspace{0.5cm}\noindent Now let's do some substituting: \par\noindent
+We can rewrite (p$\textsuperscript{2}$q$\textsuperscript{3}$ + 3pq$\textsuperscript{2}$r + 3qr$\textsuperscript{2}$) as an integer q$\textsubscript{n}$ and r$\textsuperscript{3}$ as a new integer remainder r$\textsubscript{n}$, therefore we can get m$\textsuperscript{3}$ in quotient-remainder notation: \par\noindent m$\textsuperscript{3}$ = pq$\textsubscript{n}$ + r$\textsuperscript{n}$
+
+\par\vspace{0.5cm}\noindent Therefore, we have proven by contraposition, that the original statement, \par\noindent $\forall$ (m, p) $\in$ Z, p is prime and p $\mid$ m$\textsubscript{3}$ $\rightarrow$ p $\mid$ m, is TRUE
+
+\subsection{(Problem 6b)}
+
+Statement we are trying to prove: $\forall$ x $\in$ Z, $\sqrt[3]{x}$ $\in$ R $\rightarrow$ (x is a composite number)
+
+\par\vspace{0.5cm}\noindent Let's prove this by contradiction: $\forall$ x $\in$ Z, $\sqrt[3]{x}$ $\in$ R $\rightarrow$ (x is prime)
+
+\par\vspace{0.5cm}\noindent Given $\sqrt[3]{x}$ $\in$ R, $\sqrt[3]{x}$ = $\frac{n}{m}$ where n and m are integers and m $\neq$ 0
+
+\par\vspace{0.5cm}\noindent Cube both sides of the above equation: x = $\frac{n^3}{m^3}$
+
+\par\vspace{0.5cm}\noindent NOTE: The above fraction on the right hand side of the equation must be simplest terms
+
+\par\vspace{0.5cm}\noindent We can rearrange the above equation to get m$\textsuperscript{3}$ = $\frac{n^3}{x}$
+
+\par\vspace{0.5cm}\noindent As per what we proved in part 6a, $\forall$ (m, p) $\in$ Z, p is prime and p $\mid$ m$\textsuperscript{3}$ $\rightarrow$ p $\mid$ m
+
+\par\vspace{0.5cm}\noindent So we can say that x $\mid$ n$\textsuperscript{3}$ AND x $\mid$ n
+
+\par\vspace{0.5cm}\noindent BUT, we have a problem.  It was initially stated that the fraction in the original equation had to be in SIMPLEST TERMS.  So if x $\mid$ n$\textsuperscript{3}$ and x $\mid$ n that is definitely not the case.  This means we have a contradiction, so our supposition is false, therefore $\forall$ x $\in$ Z, $\sqrt[3]{x}$ $\in$ R $\rightarrow$ (x is a composite number)
+
+\section{Appendix}
+\subsection{Quotient-Remainder Theorem}
+Given a positive integer n, it has a integer divisor d, a quotient integer q, and a remainder integer r such that \par\noindent n = dq + r, where 0 $\leq$ r \textless d
+\subsection{Sum of Rationals Must Be A Rational}
+Let r and s be two rational numbers.  By definition, $\exists$ (a, b, c, d) $\in$ Z such that r = $\frac{a}{b}$ and s = $\frac{c}{d}$.  After getting a lowest common denominator of bd, we get \par\noindent r = $\frac{ad}{bd}$ and s = $\frac{cb}{bd}$.  Adding r + s, we get $\frac{ad + cb}{bd}$.  
+Since Z, the set of integers, is closed under addition, subtraction, and multiplication, we get (ad + cb) on the top as an integer we can express as an integer p, and bd on the bottom that we can express as an integer q, so we can express the whole thing as $\frac{p}{q}$
+\subsection{No Integer Can Be Even AND Odd}
+If we have an even integer a = 2x and an odd integer a = 2y + 1 by their respective definitions, then 2x = 2y + 1
+\par\noindent 2x - 2y = 1, then factor out 2 on the left side to get 2(x - y) = 1, and x - y = $\frac{1}{2}$
+\par\noindent But since x - y is just a rational numbers, and the sum/difference of integers must be an integer, this contradicts that the difference of two integers must be an integer and $\frac{1}{2}$ is only a rational number
+\end{document}

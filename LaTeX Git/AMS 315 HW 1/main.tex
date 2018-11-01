@@ -1,0 +1,53 @@
+\documentclass[16pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin = 0.5in]{geometry}
+
+\title{AMS 315 HW 1}
+\author{David S. Li (SBU ID: 110328771)}
+\date{July 17, 2017}
+
+\begin{document}
+
+\maketitle
+
+\section*{4.89 n = 10, p = 0.5}
+
+\subsection*{4.89a}
+$P(4 \leq y \leq 6) = P(y \leq 6) - P(y \leq 4) = \sum^{6}_{i = 4}P(y = i) + \sum^{4}_{i = 1}P(y = i) - \sum^{4}_{i = 1}P(y = i) = \sum^{6}_{i = 4}P(y = i) =$ \par\vspace{0.25cm}\noindent
+${{10}\choose{4}}(0.5)^{4}(0.5)^{6} + {{10}\choose{5}}(0.5)^{5}(0.5)^{5} + {{10}\choose{6}}(0.5)^{6}(0.5)^{4} = 0.656$
+
+\subsection*{4.89b (Using Normal Approximation)}
+$\mu = np = (10)(0.5) = 5$, $\sigma = \sqrt{np(1 - p)} = \sqrt{(10(0.5)(0.5)} = \sqrt{2.5} = 1.58$ \par\vspace{0.25cm}
+
+\noindent $P(4 \leq Y \leq 6) = P(\frac{4 - 5}{1.58} \leq Z \leq \frac{6 - 5}{1.58}) = P(-0.63 \leq Z \leq 0.63) = \phi(0.63) - \phi(-0.63) = 0.7357 - 0.2643 = 0.4714$ \par\noindent
+\textbf{This is a very different result as opposed to that obtained in part (a)}
+
+\section*{4.90 (4.89b with Continuity Correction)}
+$P(4 \leq y \leq 6) = P(3.5 < Y < 5.5) = P(\frac{3.5 - 5}{1.58} \leq Z \leq \frac{5.5 - 5}{1.58}) = P(-0.94 < Z < 0.32) = \phi(0.32) - \phi(-0.94) = 0.6255 - 0.1736 = 0.452 \rightarrow$
+\textbf{The continuity correction helps support the notion that the result is similar to that of 4.89b}
+
+\section*{5.14 $\alpha = 0.05$, $\frac{\alpha}{2} = 0.025$, $z_{0.025} = 1.96$}
+Use $n = [\frac{z_{\frac{\alpha}{2}}\sigma}{E}]^{2}$ \par\vspace{0.25cm}
+\noindent $E = 100$, to find $\sigma$ use $\sigma = \frac{h - l}{4}$, where $h$ and $l$ are the high and low values of the given range. \par
+\noindent $\sigma = \frac{3500 - 1000}{4} = \frac{2500}{4} = 625$ \par
+\noindent $n = [\frac{(1.96)(625)}{100}]^{2} = 151$ renters approx.
+
+\section*{5.21 $\mu = 2$ minutes, $n = 90$, $\bar{y} = 2.17$, $s = 1.05$}
+Based on the given information, we have two hypotheses: $H_{0}: \mu = 2$ and $H_{1}: \mu > 2$
+\subsection*{5.21a $\alpha = 0.05$}
+$Z = \frac{\mu_{a} - \mu_{0}}{\frac{s}{\sqrt{n}}} = \frac{2.17 - 2}{\frac{1.05}{\sqrt{90}}}$
+
+\subsection*{5.21b $\mu_{a} = 2.1$}
+$\beta$ - probability of Type II error \par\vspace{0.25cm}
+
+\noindent $\beta(2.1) = P(z \leq 1.645 - \frac{|2 - 2.1|}{\frac{1.05}{\sqrt{90}}}) = P(z \leq 0.74) = 0.7704$
+
+\section*{5.35a $n = 17$, $\bar{x} = 10.1$, $s = 3.1$, $\mu_{0} = 9$, $\alpha = 0.05$}
+
+We have two hypotheses: $H_{0}: \mu \leq 9$ and $H_{1}: \mu > 9$ \par\noindent
+Calculate $t$: $t = \frac{|10.1 - 9|}{\frac{3.1}{\sqrt{17}}} = 1.46$ \par
+\noindent Our rejection region based on the t-test: Reject $H_{0}$ given $\alpha = 0.05$ if ($t > 1.746$) \par
+\noindent There is insufficient evidence the population mean is greater than 9.
+
+\section*{6.3 $H_{0}: \mu_{1} \geq \mu_{2} - 2.3$, $H_{1}: \mu_{1} < \mu_{2} - 2.3$, $\alpha = 0.1$}
+\end{document}

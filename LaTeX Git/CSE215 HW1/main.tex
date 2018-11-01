@@ -1,0 +1,155 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\title{CSE215 HW1}
+\author{David S. Li (110328771)}
+\date{September 21, 2016}
+
+\begin{document}
+
+\maketitle
+
+\section{Propositional Logic}
+
+\subsection{Logic statements, connectives, etc.}
+
+1. (n $\wedge$ $\neg$ k) $\vee$ (k $\wedge$ $\neg$ n)
+
+2. a) h $\wedge$ (w$\textsubscript{1}$ $\wedge$ w$\textsubscript{2}$) \par\noindent
+
+   b) h $\wedge$ ($\neg$w$\textsubscript{1}$ $\wedge$ $\neg$w$\textsubscript{2}$) \par\noindent
+   
+   c) ($\neg$h $\wedge$ $\neg$w$\textsubscript{1}$) $\wedge$ w$\textsubscript{2}$ \par\noindent
+   
+   d) $\neg$w$\textsubscript{2}$ $\vee$ (h $\vee$ w$\textsubscript{1}$) \par\noindent
+   
+   e) w$\textsubscript{2}$ $\vee$ ($\neg$h $\wedge$ $\neg$w$\textsubscript{1}$) \par\noindent
+   
+   f) $\neg$w$\textsubscript{2}$ $\vee$ (w$\textsubscript{2}$ $\wedge$ h) \par\noindent
+   
+   g) w$\textsubscript{2}$ $\vee$ $\neg$h \par\noindent
+   
+   
+\subsection{Truth tables}
+
+    a) Let our implication be p $\Rightarrow$ q\par
+    
+    \begin{center}
+    \begin{tabular}{||c c c c||}
+    \hline
+    p & q & p $\Rightarrow$ q & q $\Rightarrow$ p \\
+    \hline \hline
+    
+         T & T & T & T \\
+         \hline
+         F & T & T & F \\ 
+         \hline
+         T & F & F & T \\
+         \hline
+         F & F & T & T \\
+         \hline
+         
+         
+    \end{tabular}
+    \end{center}
+    
+    As shown above, p $\Rightarrow$ q and its converse are NOT EQUAL.\par\par
+    
+    \noindent
+    b)
+    
+    \begin{center}
+    \begin{tabular} {|| c c c c c c c c ||}
+    \hline
+    p & q & r & (p $\vee$ q) & (p $\vee$ q) $\Rightarrow$ r & p $\Rightarrow$ r & q $\Rightarrow$ r & (p $\Rightarrow$ r) $\wedge$ (q $\Rightarrow$ r) \\
+    \hline \hline
+    
+    T & T & T & T & T & T & T & T \\
+    \hline
+    T & T & F & T & F & F & F & F \\
+    \hline
+    T & F & T & T & T & T & T & T \\
+    \hline
+    T & F & F & T & F & F & T & F \\
+    \hline
+    F & T & T & T & T & T & T & T \\
+    \hline
+    F & T & F & T & F & T & F & F \\
+    \hline
+    F & F & T & F & T & T & T & T \\
+    \hline
+    F & F & F & F & T & T & T & T \\
+    \hline
+    \end{tabular}
+    \end{center}
+    
+    As shown in the table above, p $\vee$ q $\Rightarrow$ r and (p $\Rightarrow$ r) $\wedge$ (q $\Rightarrow$ r) are logically equivalent. \par\par
+    
+    
+\subsection{Showing valid arguments}
+    1) Let p be "Daniel solves the problem correctly" and q be "Daniel gets 2 more points" \par
+    
+    p $\Rightarrow$ q \par
+    q \par
+    $\therefore$ p \par\par
+    \noindent
+    
+    2) Let p be "I start watching Game of Thrones", q be "I will not be able to study", and r be "I will fail the course" \par
+    p $\Rightarrow$ q \par
+    q $\Rightarrow$ r \par
+    
+    $\therefore$ p $\Rightarrow$ r \par\par
+    \noindent
+    3) Let p be "Samantha knows Java" and q be "Samantha knows C++"\par
+    p $\wedge$ q \par
+    q \par
+    $\therefore$ p \par
+    \noindent
+    4) Let p be "I do yoga" and q be "I am healthy"\par
+    p $\Rightarrow$ q\par
+    $\neg$q \par
+    $\therefore$ $\neg$ p
+    \noindent
+    5) Let p be "I threw the ball in the air", q be "I threw the ball off the cliff", and r be "The ball drops"\par
+    p $\Rightarrow$ r\par
+    q $\Rightarrow$ r\par
+    $\therefore$ r\par
+    \noindent
+    
+\section{Predicate Calculus}
+
+\subsection{}
+    The truth set can be denoted as $\{$(x, y) $\in$ $\mathbb{R}$ $\mid$ $\mid$x$\mid$  \textless  $\mid$y$\mid$$\}$ \par\par
+    \noindent
+    \noindent
+    $\mathbb{R}$ includes negative numbers, so we use absolute values for x and y so if y were more negative compared to x, Q(x, y) would still return true.  For positive values, a value x \textless y would also return true.
+\subsection{}
+    Set m = 27 and n = 9 (so n$\textsuperscript{2}$ = 81)\par
+    \noindent
+    m would be a factor of n$\textsuperscript{2}$, as 27 * 3 = 81.  However m, does not divide evenly into $n$ (9 / 27 = $\frac{1}{3}$) so the below statement is true\par
+    \noindent
+    $\exists$ (m, n) $\in$ Z such that $\neg$P(m, n)
+\subsection{Counterexamples}
+    a) Assume x = 1 and plug that value in for x\par
+    \noindent
+    1 $\ngtr$ $\frac{1}{1}$, since those two are EQUAL, but one is not greater than the other\par
+    
+    \noindent
+    b) Assume m = 2, n = 4\par
+    \noindent
+    2.4 $\ngeq$ 2 + 4 so 2.4 $\ngeq$ 6
+    \noindent
+    c) Assume x = 3\par
+    \noindent
+    (3)$\textsuperscript{2}$ = 9 $\neq$ 2\par\noindent
+    *Note that the square root of 2 is an irrational number as it is not a perfect square, so that can automatically imply there is no solution*\par\noindent
+    d)Assume x = 10 and y = 5\par\noindent
+    10 \textgreater  5, however 10 - 5 $\nless$ 5 (10 - 5 = 5 instead) \par\noindent
+    e) 2 is a prime number, but unlike other prime numbers, it is even, making the statement false
+    
+\subsection{Formal symbolic statements}
+    a) Let N be the set of things that can go up and P(x) mean coming down\par\noindent
+    $\forall$x $\in$ N, P(x)\par\noindent
+    b) Let A be the set of objects for this problem and P(x, y) be the function where x likes y\par\noindent
+    $\forall$ x $\in$ A, $\exists$ y $\in$ A such that P(x, y) $\wedge$ $\neg$P(y, x) $\wedge$ $\exists$ z such that P(z, x)\par\noindent
+\end{document}

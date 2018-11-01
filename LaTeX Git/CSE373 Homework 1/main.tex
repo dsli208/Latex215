@@ -1,0 +1,114 @@
+\documentclass[16pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin = 0.5in]{geometry}
+
+\title{CSE373 Homework 1}
+\author{David S. Li (110328771) and Thomas Prudden (SBUID)}
+\date{September 26, 2017}
+
+\begin{document}
+
+\maketitle
+\section*{1}
+\subsection*{1-17}
+\noindent Each tree graph starts with one vertex (the root) and no edges \par
+\noindent Adding a child to a tree adds one vertex and one connecting edge.  Removing a child takes the vertex and edge away. \par
+\noindent No matter how many children in the tree are added or removed, because the root never had its own starting edge, there will always be one fewer edge than vertices
+\subsection*{1-19}
+\noindent No, I don't own nearly that many books.  If we assume the average book contains 250 pages, and that the library has 2.1 million books, it has approximately 500 million pages of material.
+\section*{2}
+\subsection*{1-20}
+\noindent
+~15 words/line * ~30 lines/page * 700 pages = ~400,000 words in this textbook
+\subsection*{1-22}
+\noindent
+It is impossible to get an exact count, but a rough guess is there would be roughly 10,000 towns and cities in the United States.
+
+\section*{3}
+\subsection*{2-7a}
+
+\noindent Yes, as $2^{n + 1}$
+
+\subsection*{2-7b}
+\noindent No, if $2^{2n} = O(2^{n})$, it would mean for n beyond $n_{c}$, $2^{2n} \leq c2^{n}$, or that $2^{n} \leq c$.  No such c exists, so $2^{2n} \neq O(2^{n})$
+\subsection*{2-8a}
+\noindent $f(n) = \theta(g(n))$ because $logn^{2} = 2logn$, and it dominates $log(n) + 5$.  Also, $log(n) + 5$ can dominate $2logn$ when multiplied by a multiple greater than two.
+\subsection*{2-8b}
+\noindent $f(n) = \omega(g(n))$, as $\sqrt{n}$ functions dominate $log(n)$ ones.
+\subsection*{2-8c}
+\noindent $f(n) = \omega(g(n))$, as $log^{2}n$ dominates $logn$
+\subsection*{2-8d}
+\noindent $f(n) = \omega(g(n))$, as $n$ dominates $log^{2}n)$
+\subsection*{2-8e}
+\noindent $f(n) = \omega(g(n))$, as $nlogn$ dominates $logn$
+\subsection*{2-8f}
+\noindent $f(n) = \omega(g(n))$, as 10 is greater than $log10$
+\subsection*{2-8g}
+\noindent $f(n) = \omega(g(n))$, as exponential functions dominate quadratic functions
+\subsection*{2-8h}
+\noindent $f(n) = O(g(n))$, as $3^{n}$ grows faster than $2^{n}$
+
+\section*{4}
+\subsection*{2-19}
+\noindent 6, $(\frac{1}{3})^{n}$, $log(logn)$, $logn$, $nlogn$, $(logn)^{2}$, $n^{\frac{1}{3}} + logn$, $\frac{n}{logn}$, $\sqrt{n}$, $n$, $n^{2}$, $n^{2} + logn$ + $n^{3}$, $n - n^{3} + 7n^{5}$, $(\frac{3}{2})^{5}$, $2^{n}$, $n!$
+
+\section*{5}
+\subsection*{2-21}
+\noindent a) True b) False c) True d) False e) True f) False g) False
+\subsection*{2-22a}
+\noindent $f(n) = \omega(g(n))$, as $n^{2}$ dominates linear
+\subsection*{2-22b}
+\noindent $f(n) = \omega(g(n))$, as $n^{2}$ dominates $n^{1.5}$
+\subsection*{2-22c}
+\noindent $f(n) = \omega(g(n))$, as exponential functions dominate fourth-order functions
+\subsection*{2-23a, b}
+\noindent Yes.  $O(n^{2}$ is merely an upper bound.  Times of $O(n)$ can still result
+\subsection*{2-23c}
+\noindent Yes. $\theta(n^{2})$ is merely worst case, so some scenarios can be $O(n)$
+\subsection*{2-23d}
+\noindent No - in accordance with $\theta(n^{2})$, not every case can be $O(n)$
+\subsection*{2-23e}
+\noindent Yes, as both of these functions have $\theta(n^{2})$
+\subsection*{2-24a}
+\noindent No. $3^{n}$ grows much faster compared to $2^{n}$.
+\subsection*{2-24b}
+\noindent Yes. $log(c^{n}) = nlogc$.  So there is a constant c that allows $log2^{n}$ to dominate $log3^{n}$
+\subsection*{2-24c}
+\noindent Yes.  Same reasoning as in a.
+\subsection*{2-24d}
+\noindent Yes.  There is a constant c that will allow $log2^{n}$ to grow slower than $log3^{n}$
+
+\section*{6}
+\subsection*{3-2}
+
+\noindent node currentNode1 = null \par
+\noindent node currentNode2 = head \par
+\noindent while currentNode1 != null \&\& currentNode2 != null: \par
+\hspace{5mm} node temp = currentNode2.next \par
+\hspace{5mm} currentNode2.next = currentNode1 \par
+\hspace{5mm} currentNode1 = currentNode2 \par
+\hspace{5mm} currentNode2 = temp
+
+\section*{7}
+\subsection*{3-4}
+\noindent The data structure incorporates the list itself, along with a corresponding array of n boolean values (index n - 1 refers to the nth element in the array).  All values initialized as false, inserting a number x makes the element in the boolean at x - 1 true, removing it sets that index to false.  Searching means looking up index x - 1 and returning the corresponding boolean value.
+
+\section*{8}
+\subsection*{3-10}
+\noindent Each of the bins is placed in a balanced search tree.  When an object is added, it searches for a bin with enough space.  If one can't be found, a new bin with the space of the inserted object is removed.  Otherwise, the bin found is deleted and reinserted with the space subtracted.  When all the objects are added, all the nodes are counted. \par
+
+\noindent With the best fit heuristic, bins with the least space are prioritized.  Worst-case, those with the most space are prioritized.
+
+\section*{9}
+\subsection*{3-11a}
+\noindent Use a 2D matrix from $x_{i}$ to $x_{j}$.  Algorithm below: \par
+\noindent for i in range(len(array)): \par
+\hspace{5mm} temp = array[i] \par
+\hspace{5mm} for j in range(i, len(array)) \par
+\hspace{10mm} if array[j] < temp: \par
+\hspace{15mm} temp = array[j] \par
+\hspace{10mm} matrix[i][j] = temp \par
+
+\subsection*{3-11b}
+Use a binary search tree, containing $n$ nodes.  The amount of space taken depends on the amount of nodes, for $O(n)$ storage space.  For $O(logn)$ queries, a recursive binary search is done throughout the tree.  If the value in the node is equal to the search value $x$, then we can return that node.  If not, we will recursively search again in the children of the node (if $x$ < the value in the current node, use the left child, if $x$ > the value in the current node, use the right child).
+\end{document}

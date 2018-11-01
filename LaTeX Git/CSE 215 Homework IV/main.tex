@@ -1,0 +1,194 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, total = {140mm,260mm}, left = 20mm, top = 20mm, right = 20mm, bottom = 20mm}
+\title{CSE 215 Homework IV}
+\author{David S. Li (SBU ID: 110328771)}
+\date{December 5, 2016}
+
+\begin{document}
+
+\maketitle
+
+\section{Functions}
+\subsection{(1. Given a set $S$ and a set $A$, where $A \subseteq S$, the characteristic function of A $\chi_{A}(u)$ for an element u is 1 when $u \in A$ and 0 otherwise.  Prove the following:)}
+
+Using element theory, suppose we have an element u. \par\vspace{0.5cm}
+
+
+\subsubsection{(1a. $\chi_{A\cap B}(u)$ = $\chi_{A}(u) * \chi_{B}(u)$)}
+
+Suppose u $\in$ A $\cap$ B, thus by definition of intersection u $\in$ A and u $\in$ B \par\vspace{0.5cm}
+
+\noindent Thereby $\chi_{A}(u)$ = 1 because u $\in$ A and $\chi_{B}(u)$  = 1 because u $\in$ B, so $\chi_{A\cap B}(u)$ = $\chi_{A}(u) * \chi_{B}(u)$ = 1 * 1 = 1 in this case \par\vspace{0.5cm}
+
+\noindent Now what if u $\notin$ A $\cap$ B? \par\vspace{0.5cm}
+
+\noindent If u $\notin$ A $\cap$ B, we can say u $\in$ $(A \cap B)^{C}$ by the definition of complement \par\vspace{0.5cm}
+
+\noindent Then, by DeMorgan's Laws, we can say $u \in A^{C} \cup B^{C}$, meaning by definition of union that $u \in A^{C}$ or $u \in B^{C}$ \par\vspace{0.5cm}
+
+\noindent Again using the definition of complement, we can change the two above statements to $u \notin A$ or $u \notin B$  \par\vspace{0.5cm}
+
+\noindent Regardless of which one of these statements is true, we know what one of these statements has to be true (meaning u is not in A or u is not in B).  So by definition of the characteristic function either at least $\chi_{A}(u) = 0$ or $\chi_{B}(u) = 0$. \par\vspace{0.5cm}
+
+\noindent Therefore, $\chi_{A}(u) * \chi_{B}(u)$ = 0 * 1 or 0 * 0 = 0 (depending on which set u is NOT in).  Therefore, we have proved that $\chi_{A\cap B}(u)$ = $\chi_{A}(u) * \chi_{B}(u)$
+
+\subsubsection{(1b. $\chi_{A\cup B}(u) = \chi_{A}(u) + \chi_{B}(u) - \chi_{A}(u) * \chi_{B}(u)$)}
+
+\noindent Suppose u $\in A \cup B$.  By definition of union, $u \in A$ or $u \in B$ \par\vspace{0.5cm}
+
+\noindent So let's break this further down into subcases.  What if u was only in ONE set, BUT NOT THE OTHER? \par\vspace{0.5cm}
+
+\noindent So suppose u $\in$ A and u $\notin$ B.  Thereby, given the definition of a characteristic function, $\chi_{A}(u) = 1$ and $\chi_{B}(u) = 0$ \par\vspace{0.5cm}
+
+\noindent Thereby, $\chi_{A\cup B}(u) = \chi_{A}(u) + \chi_{B}(u) - \chi_{A}(u) * \chi_{B}(u) = 1 + 0 - 1 * 0 = 1$  \par\vspace{0.5cm}
+
+\noindent Now suppose u is in BOTH A AND B, meaning u $\in$ A and u $\in$ B.  Thereby, by definition of the characteristic function, $\chi_{A}(u) = 1$ and $\chi_{B}(u) = 1$\par\vspace{0.5cm}
+
+\noindent Thereby, $\chi_{A\cup B}(u) = \chi_{A}(u) + \chi_{B}(u) - \chi_{A}(u) * \chi_{B}(u) = 1 + 1 - 1 * 1 = 1$  \par\vspace{0.5cm}
+
+\noindent Now that we have proven the case for u $\in A \cup B$, let's now suppose u $\notin A \cup B$, meaning by definition of complement that u $\in (A \cup B)^{C}$ \par\vspace{0.5cm}
+
+\noindent Thereby, u $\in A^{C} \cap B^{C}$ by DeMorgan's Laws, meaning that u $\in A^{C}$ and u $\in B^{C}$ by definition of intersection.  Using the definition of complement again, we get u $\notin$ A and u $\notin$ B. \par\vspace{0.5cm}
+
+\noindent So by definition of a characteristic function, $\chi_{A}(u) = 0$ and $\chi{B}(u) = 0$.  Thereby $\chi_{A\cup B}(u) = \chi_{A}(u) + \chi_{B}(u) - \chi_{A}(u) * \chi_{B}(u)$ = 0 + 0 - 0 * 0 = 0 \par\vspace{0.5cm}
+
+\noindent Therefore, we have proven that $\chi_{A\cup B}(u) = \chi_{A}(u) + \chi_{B}(u) - \chi_{A}(u) * \chi_{B}(u)$
+
+\subsection{(2. If f: X$\rightarrow$ Y is injective, show $\forall$ A $\subseteq$ X, $f^{-1}$(f(A)) = A)}
+f: X $\rightarrow$ Y is injective, meaning that if f($x_{1}$) = f($x_{2}$), $x_{1} = x_{2}$ \par\vspace{0.5cm}
+
+\noindent Show by definition of equal sets that $f^{1}$(f(A)) $\subset$ A AND that A $\subset f^{-1}(f(A))$ \par\vspace{0.5cm}
+
+\noindent First, show A $\subset$ $f^{-1}$(f(A))  \par\vspace{0.5cm}
+
+\noindent Suppose an element x $\in$ A.  By definition of subset (since A $\subseteq$ X), x $\in$ X \par\vspace{0.5cm}
+
+\noindent Then because x $\in$ X and X $\rightarrow$ Y (or the set X maps to the set Y as per function $f$), remembering that x $\in$ A, we can say that $f(x) \in f(A)$.  Then, negating that same statement, we can say x $\in$ $f^{-1}(f(A))$ and because we know x $\in$ A, we can say A $\subset f^{-1}(f(A))$ \par\vspace{0.5cm}
+
+\noindent Now, show $f^{-1}(f(A)) \subset$ A \par\vspace{0.5cm}
+\noindent Suppose $x \in f^{-1}(f(A))$.  That would mean $f(x) \in f(A)$ by negation of the original statement. \par\vspace{0.5cm}
+
+\noindent So prove that we can negate $f(x) \in f(A)$ to show that x $\in$ A \par\vspace{0.5cm}
+
+\noindent So to prove by contradiction, suppose $x \notin A$, but that $f(x) \in f(A)$ is still a true statement.  If we negated it then, we would get $x \in A$, a contradiction to our original supposition. \par\vspace{0.5cm}
+
+\noindent Therefore, $f^{-1}(f(A)) \subset A$.  And because A $\subset f^{-1}(f(A))$ and $f^{-1}(f(A)) \subset A$, we can say that by definition of equal sets, $A = f^{-1}(f(A))$
+
+\subsection{(3. Injection Proofs)}
+
+Remember that by definition of injective functions, if f($x_{1}$) = f($x_{2}$), $x_{1} = x_{2}$ meaning that function is injective or one-to-one
+
+\subsubsection{(3a. $f(x) = \frac{x + 1}{x}$  $\forall$ x $\in$ R  where x $\neq$ 0)}
+
+\noindent Start with two variables $x_{1}$ and $x_{2}$.  Then to use the definition of an injective function, set $f(x_{1}) = f(x_{2})$ \par\vspace{0.5cm}
+
+\noindent As per the above equation, $\frac{x_{1} + 1}{x_{1}} = \frac{x_{2} + 1}{x_{2}}$.  We can simplify that to $1 + \frac{1}{x_{1}} = 1 + \frac{1}{x_{2}}$ \par\vspace{0.5cm}
+
+\noindent After subtracting 1 from both sides, we are left with $\frac{1}{x_{1}} = \frac{1}{x_{2}}$.  We can simply multiply by both sides to get $x_{1} = x{2}$, thereby proving $f(x) = \frac{x + 1}{x}$ an injective function by its respective definition.
+
+\subsubsection{(3b. f(x) = $\frac{x + 1}{x - 1}$ $\forall$ x where x $\in$ R and x $\neq$ 1)}
+
+\noindent f($x_{1}$) = f($x_{2}$), so $\frac{x_{1} + 1}{x_{1} - 1} = \frac{x_{2} + 1}{x_{2} - 1}$.  Cross-multiply, and we get  $(x_{1} - 1)(x_{2} + 1) = (x_{1} + 1)(x_{2} - 1)$.  Double-distributing, we get  $x_{1}x_{2} + x_{1} - x_{2} - 1 = x_{1}x_{2} - x_{1} + x_{2} - 1$ \par\vspace{0.5cm}
+
+\noindent After cancelling out the -1's and $x_{1}x_{2}$'s, we are left with $x_{1} - x_{2} = -x_{1} + x_{2}$ \par\noindent
+Adding $x_{1} + x_{2}$ to both sides, we get $2x_{1} = 2x_{2}$.  Divide that equation by 2 on both sides, we get $x_{1} = x_{2}$, thereby proving that this is an injective function
+
+\subsection{(4. Given $f: W \rightarrow X, g: X \rightarrow Y, h: Y \rightarrow Z$, prove $h \circ (g \circ f) = (h \circ g) \circ f$ by associativity)}
+
+\noindent So start with variables, $w_{1}$ and $w_{2}$.  We can rewrite the original function above as $h \circ (g \circ f (w_{1})) = ((h \circ g) \circ f) (w_{2})$ \par\vspace{0.5cm}
+
+\noindent So $h \circ (g(f(w_{1}))) = ((h \circ g)(f(w_{2}))$, and $h(g(f(w_{1}))) = h \circ g(f(w_{2}))$, thus $h(g(f(w_{1}))) = h(g(f(w_{2})))$
+
+\subsection{(5. A = $\{x \in R \mid 0 < x < 1\}$, B = $\{x \in R \mid 1 < x < 5\}$.  Show A and B have the same cardinality)}
+
+Consider a function $C$, from A to B, where C(x) = 4x + 1 (The "4x" first increases the range $0 < x < 4$, before the "+1" shifts it to $1 < x < 5$) \par\vspace{0.5cm}
+
+\noindent First, show $C(x)$ is injective (one-to-one): $4x_{1} + 1 = 4x_{2} + 1$, subtracting 1 from both sides we get $4x_{1} = 4x_{2}$.  Dividing both sides by 4, we get $x_{1} = x_{2}$, so $C(x)$ is injective \par\vspace{0.5cm}
+
+\noindent Then, to show $C$ is surjective (onto), we would have $y = 4x + 1$, for a $y \in B$ where $y \in R$.  To get in terms of x, we simply need to rearrange the above equation in order to get x as an (inverse) function of y.  We get, after rearranging the equation (subtract 1 from both sides, before multiplying by $\frac{1}{4}$ on both sides), that $x = \frac{1}{4} (y - 1)$.  Because an x exists for each value of y inputted into this rearranged equation, by definition $C$ is surjective. \par\vspace{0.5cm}
+
+\noindent Therefore, because $C$ is injective and surjective, meaning this is a bijective function, by definition of cardinality A and B have the same cardinality
+
+\section{Relations}
+
+\subsection{(1. Prove/disprove reflexive, symmetric, and transitive)}
+
+\subsubsection{(1a. X = {a, b, c} and P(X) is the powerset of X. The relation $R$ is defined as $\forall A, B \in P(X)$, $A R B$)}
+
+Reflexive: $ARA$ $\leftrightarrow$ $\mid$A$\mid$ $\leq$ $\mid$A$\mid$ \par\noindent
+For that to be true $\mid$A$\mid$ $\leq$ $\mid$A$\mid$.  This is true since we are comparing a set to itself, and $\mid$A$\mid$ = $\mid$A$\mid$.  Thus, $R$ is reflexive. \par\vspace{0.5cm}
+
+\noindent Symmetric: $ARB$ $\leftrightarrow$ $BRA$ \par\noindent
+This is not always true.  Suppose $A$ and $B$ had different numbers of elements, thereby meaning they had different cardinalities, like $\mid$A$\mid$ $<$ $\mid$B$\mid$.  In such a scenario, $A R B$ will be true because \par\noindent $\mid$A$\mid$ $\leq$ $\mid$B$\mid$.  But if $B R A$, that would be saying $\mid$B$\mid$ $\leq$ $\mid$A$\mid$.  That is not true  as $\mid$B$\mid$ $>$ $\mid$A$\mid$ for this example.  Therefore, $R$ is NOT symmetric. \par\vspace{0.5cm}
+
+\noindent Transitive: Let $C$ also be a set in $P(X)$.  ($ARB$ and $BRC$) $\rightarrow$ $ARC$ \par\noindent
+In terms of the original relation R, this effectively means that if $\mid$A$\mid$ $\leq$ $\mid$B$\mid$ and $\mid$B$\mid$ $\leq$ $\mid$C$\mid$, then $\mid$A$\mid$ $\leq$ $\mid$C$\mid$ \par\noindent
+If both of the initial conditions are true, then we have $\mid$A$\mid$ $\leq$ $\mid$B$\mid$ $\leq$ $\mid$C$\mid$.  By transitivity of inequalities, we simply get $\mid$A$\mid$ $\leq$ $\mid$C$\mid$, meaning that $ARC$ and therefore R is transitive.
+
+\subsubsection{(1b. $L$ is the set of all lines in a 2-dimensional plane.  The relation $R$ is defined on A as $\forall l_{1}, l_{2} \in A, l_{1} R l_{2} \leftrightarrow l_{1} \perp l_{2}$)}
+
+\noindent Reflexive: $l_{1}$ R $l_{1}$ $\leftrightarrow$ $l_{1} \perp l_{1}$ \par\noindent
+As we are comparing the same line, it can't be perpendicular to itself.  Therefore R is NOT reflexive. \par\vspace{0.5cm}
+
+\noindent Symmetric: $l_{1}$ R $l_{2}$ $\leftrightarrow$ $l_{2}$ R $l_{1}$.  This means $l_{1} \perp l_{2}$ $\leftrightarrow$ $l_{2} \perp l_{1}$  \par\noindent
+If a line $l_{1} \perp l_{2}$, then $l_{2} \perp l_{1}$ back (and vice versa).  Therefore R is symmetric. \par\vspace{0.5cm}
+
+\noindent Transitive: ($l_{1}$ R $l_{2}$ and $l_{2}$ R $l_{3}$) $\rightarrow$ $l_{1}$ R $l_{3}$.  This means that ($l_{1} \perp l_{2}$ and $l_{2} \perp l_{3}$) $\rightarrow$ $l_{1} \perp l_{3}$.\par\noindent
+But what if $l_{1}$ was the same line as $l_{3}$ or $l_{1} \parallel l_{3}$ ($l_{1}$ was parallel to $l_{3}$)?\par\noindent
+
+\noindent Then even if $l_{1} \perp l_{2}$ and $l_{2} \perp l_{3}$, $l_{1} \not\perp l_{3}$.  Meaning that R is NOT transitive. \par\vspace{1.5cm}
+
+\subsection{(2. Let R and S be relations on a set A)}
+Start by assuming $x \in A$ and that A maps to a set B, where $y \in B$
+\subsubsection{(2a. If R is symmetric, then R$\textsuperscript{-1}$ is also symmetric)}
+\noindent Given R is symmetric, we know that $xRy \leftrightarrow yRx$ (since it is symmetric).  The inverse of R, R$\textsuperscript{-1}$, is the relation starting with y, or $yRx$.  But since we previously stated $xRy \leftrightarrow yRx$, we know that becase $yRx$ (y relates to x), then $xRy$, meaning $yRx \leftrightarrow xRy$.  Thus if R is symmetric, R$\textsuperscript{-1}$ is symmetric.
+
+\subsubsection{(2b. If R is transitive, R$\textsuperscript{-1}$ is transitive)}
+
+Given R is transitive, we know if $xRy$ and $yRz$ then $xRz$.  To prove this for $R^{-1}$, we want to prove that if $zRy$ and $yRx$ then $zRx$.  Starting at $z$, we know the inverse relation in terms of $z$ is $zRy$.  For $y$, the inverse relation is $yRx$.  Since we know $zRy$ and $yRx$, by transitivity we know $zRx$, meaning R$\textsuperscript{-1}$ is transitive.
+
+\subsubsection{(2c. If R and S are symmetric then R $\cap$ S is symmetric)}
+
+R $\cap$ S means that if $xRy$ and $xSy$, then $x$ $R \cap S$ $y$ \par\noindent
+
+\noindent So given R and S are symmetric, we know that $xRy \leftrightarrow yRx$ and $xSy \leftrightarrow ySx$ \par\noindent
+But if $xRy$ and $xSy$, this means $x$ $R \cap S$ $y$.  Given that R and S are symmetric, this also means that $yRx$ and $ySx$, meaning that $y$ $R$ $\cap$ $S$ $x$.  By definition of reflexive, we can say that $R$ $\cap$ $S$ is a symmetric relation.
+
+\subsection{(3. Equivalence Relations)}
+\subsubsection{(3a. Relation R defined on set Z: $\forall (m, n) \in Z, m R n \leftrightarrow 3 \mid (m^{2} - n^{2})$)}
+
+First prove R is an equivalence relation: \par\vspace{0.5cm}
+
+\noindent Reflexive: $m R m \leftrightarrow 3 \mid (m^{2} - m^{2})$ \par\noindent
+$m^{2} - m^{2} = 0$, and $3 \mid 0$, meaning $m R m$, so R is reflexive \par\vspace{0.5cm}
+
+\noindent Symmetric: $m R n \leftrightarrow n R m$.  This means $3 \mid (m^{2} - n^{2}) \leftrightarrow 3 \mid (n^{2} - m^{2})$ \par\noindent
+Since, $(m^{2} - n^{2}) = -(n^{2} - m^{2})$, if $3 \mid (m^{2} - n^{2})$ then $3 \mid (n^{2} - m^{2})$.  Therefore R is symmetric. \par\vspace{0.5cm}
+
+\noindent Transitive: $m R n$ and $n R o$ $\rightarrow m R o$.  Meaning if $3 \mid (m^{2} - n^{2})$ and $3 \mid (n^{2} - o^{2})$, then $3 \mid (m^{2} - o^{2})$ \par\noindent Say $3 \mid (m^{2} - n^{2})$ and $3 \mid (n^{2} - o^{2})$.  Then by definition of divisibility, $\exists a \in Z$ such that $m^{2} - n^{2} = 3a$ and $\exists b \in Z$ such that $n^{2} - o^{2} = 3b$. \par\noindent To get $(m^{2} - o^{2})$, to show that $ 3 \mid (m^{2} - o^{2})$, simply add the two above expressions to each other: \par\noindent $(m^{2} - n^{2}) + (n^{2} - o^{2}) = (m^{2} - o^{2})$.
+To show $ 3 \mid (m^{2} - o^{2})$, we can express $(m^{2} - o^{2})$ in terms of $a$ and $b$. \par\noindent
+$(m^{2} - o^{2}) = (m^{2} - n^{2}) + (n^{2} - o^{2})$.  Substituting $3a$ and $3b$ for $(m^{2} - n^{2})$ and $(n^{2} - o^{2})$ respectively, we get $(m^{2} - o^{2}) = 3a + 3b = 3(a + b)$.  Rewriting $(a + b)$ as an integer $c$, we get can $(m^{2} - o^{2}) = 3c$ and therefore by definition of divisibility, $3 \mid (m^{2} - o^{2})$.  This means that $m R o$ and by definition of a transitive relation, R is transitive. \par\vspace{0.5cm}
+
+\noindent Since R is reflexive, symmetric, and transitive, it is an equivalence relation \par\vspace{0.5cm}
+\noindent Equivalence classes: [0] = $\{m \in Z \mid m = 3k, k \in Z\}$, [1] = $\{m \in Z \mid m = 3k + 1, k \in Z \}$ \par\noindent [2] = $\{m \in Z \mid m = 3k + 2, k \in Z\}$
+
+\subsubsection{(3b. $P$ on $R \times R$, $\forall (w, x), (y, z) \in R \times R, (w, x) P (y, z) \leftrightarrow w = y$)}
+
+\noindent First, we need to prove that $P$ is an equivalence relation \par\vspace{0.5cm}
+
+\noindent Reflexive: $(w, x)P(w, x)$ \par\noindent
+If we rewrite the original relation $P$ as this, we get $(w, x)P(w, x) \leftrightarrow w = w$.  $w = w$, therefore $(w, x)P(w, x)$ and $P$ is reflexive. \par\vspace{0.5cm}
+
+\noindent Symmetric: $(w, x)P(y, z) \leftrightarrow (y, z)P(w, x)$ \par\noindent
+$(w, x)P(y, z) \leftrightarrow (y, z)P(w, x) \leftrightarrow w = y \leftrightarrow y = w$ \par\noindent Because $w = y$ is commutative $(w, x)P(y, z) \leftrightarrow (y, z)P(w, x)$ is TRUE, therefore P is symmetric \par\vspace{0.5cm}
+
+\noindent Transitive: $\forall (a, b) \in Z, (w, x)P(y, z)$ and $(y, z)P(a, b) \rightarrow (w, x)P(a, b)$ \par\noindent Suppose that $(w, x)P(y, z)$ and $(y, z)P(a, b)$ are true relations.  This would mean $w = y$ and $y = a$. \par\noindent
+Substituting the second of those equations into the first, we get $w = a$, meaning that $(w, x)P(a, b)$ is a true relation, meaning that P is a transitive relation. \par\vspace{0.5cm}
+
+\noindent Since P is reflexive, symmetric, and transitive, P is an equivalence relation \par\vspace{0.5cm}
+
+\noindent Equivalence class: (in terms of the ordered pair $(w, x)$) [w] = $\{w \mid w = w'\}$
+
+\end{document}

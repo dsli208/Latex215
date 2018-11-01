@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{legalpaper, portrait, margin = 0.5in}
+\title{AMS 361 Homework 2}
+\author{David S. Li (SBUID: 110328771)}
+\date{February 10, 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem 2.1}
+\noindent Initial equation: $xy' - y = x^{7}$ $\rightarrow$ Rearranging to get this equation in the format of $y' + P(x)y = Q(x)$ (first order differential equation), we get: \par\noindent
+
+\noindent $y' + (\neg\frac{1}{x})y = x^{6}$, after having divided both sides of the equation by $x$, where $P(x) = \neg\frac{1}{x}$ and $Q(x) = x^{6}$ \par\vspace{0.25cm}
+\noindent Now find the integrating factor $\rho(x)$: $\rho(x) = e^{\int P(x)dx} = e^{\int \neg\frac{1}{x} dx} = e^{\neg\int \frac{1}{x} dx} = e^{\neg lnx} = \frac{1}{e^{lnx}} = \frac{1}{x}$ \par\vspace{0.25cm}
+
+\noindent Multiply both sides by this integrating factor: $\frac{1}{x}(y' - \frac{1}{x}*y) = \frac{1}{x}(x^{6})$, we get $\frac{1}{x}y' - \frac{1}{x^{2}}y = x^{5}$ \par
+\noindent  The above equation simplifies by the product rule to $\frac{d}{dx}(\frac{1}{x}y) = x^{5}$ \par\vspace{0.25cm}
+
+\noindent Now, integrate the above equation: $\frac{1}{x}y = \int x^{5} dx = \frac{x^{6}}{6} + C$.  We get $\frac{1}{x}y = \frac{x^{6}}{6} + C$ \par
+\noindent To get the general solution in terms of y, multiply both sides of the above equation by x to cancel out $\frac{1}{x}$: $x(\frac{1}{x}y) = x(\frac{x^{6}}{6} + C)$ \par\vspace{0.25cm}
+\noindent \textbf{Our final general solution: $y = \frac{x^{7}}{6} + xC$}
+
+\section{Problem 2.2}
+
+\noindent Initial equation: $xy' - y = y^{3}cos(7x)$.  Using the Bernoulli equation formula: $y' + P(x)y = Q(x)y^{n}$, we can rearrange the equation to get $y' - \frac{1}{x}y = \frac{y^{3}cos(7x)}{x}$ and see that $P(x) = -\frac{1}{x}$ and $Q(x) = cos(7x)$ \par\vspace{0.25cm}
+
+\noindent Dividing both sides by $y^{3}$, our equation becomes: $y'y^{-3} + (-\frac{1}{x})y^{-2} = \frac{cos(7x)}{x}$ \par\vspace{0.25cm}
+
+\noindent Let a term $u = y^{-2}$, and $u' = -2y'y^{-3}$.  Substituting $u$ back into our equation, we get: $\frac{u'}{-2} - \frac{1}{x}u = \frac{cos(7x)}{x}$\par
+\noindent To rearrange our equation so that $u'$ is by itself, multiply the whole equation by -2: $u' + \frac{2}{x}u = \frac{-2cos(7x)}{x}$  \par\vspace{0.25cm}
+
+\noindent Now our equation is in the form of a first order DE.  Saying $A(x) = \frac{2}{x}$ and $B(x) = \frac{-2cos(7x)}{x}$, let's find an integrating factor: $\rho(x) = e^{\int A(x)dx} = e^{\int \frac{2}{x} dx} = e^{2\int \frac{1}{x} dx} = e^{2lnx} = (e^{lnx})^{2} = x^{2}$ \par\vspace{0.25cm}
+
+\noindent Multiply both sides of the equation by $\rho(x)$: $x^{2}(u' + \frac{2}{x}u) = x^{2}(\frac{-2cos(7x)}{x})$, we get $u'x^{2} + 2ux = -2xcos(7x)$ \par
+\noindent Rearrange the left hand side by the product rule: $\frac{d}{dx}(x^{2}u) = -2xcos(7x)$ \par\vspace{0.25cm}
+
+\noindent Integrating, we get: $x^{2}u = -2\int xcos(7x) dx$.  The integral will be done by parts, so let variables $m = x$ and $dn = cos(7x)dx$ \par
+\noindent Deriving $m$ and integrating $dn$, we get $dm = dx$ and $n = \frac{sin(7x)}{7}$.  Now let's integrate by parts: $\int m dn = mn - \int n dm$ \par\vspace{0.25cm}
+
+\noindent So plugging in: $\int xcos(7x) dx = x(\frac{sin(7x)}{7}) - \frac{1}{7}\int \sin(7x) dx = \frac{xsin(7x)}{7} - \frac{1}{7} (\frac{-cos(7x)}{7}) = \frac{xsin(7x)}{7} + \frac{cos(7x)}{49}$ \par\vspace{0.25cm}
+
+\noindent Plugging in that value of $\int xcos(7x)dx$: $x^{2}u = -2(\frac{xsin(7x)}{7} + \frac{cos(7x)}{49})$, and $u = \frac{-2}{x^{2}}(\frac{xsin(7x)}{7} + \frac{cos(7x)}{49})$ \par\vspace{0.25cm}
+
+\noindent But we are not done yet!  We want a general solution in terms of $y$.  So now let's substitute $u$ in terms of $y$, remembering $u = y^{-2}$: $y^{-2} = \frac{-2}{x^{2}}(\frac{xsin(7x)}{7} + \frac{cos(7x)}{49})$ \textbf{(General solution in terms of y)}
+
+\section{Problem 2.3}
+
+Initial equation: $y' - x^{2}y = 7xy$.  Let's first rearrange this equation, adding $x^{2}y$ to both sides.  We get $y' = 7xy + x^{2}y$.  Factoring out $y$, we get $y' = (7x + x^{2})y$, which is a separable equation where $f(x) = 7x + x^{2}$ and $g(y) = y$ \par\vspace{0.25cm}
+
+\noindent We can now say $\frac{dy}{dx} = (7x + x^{2})y$.  Rearranging this, we get $\frac{dy}{y} = (7x + x^{2})dx$ \par\vspace{0.25cm}
+
+\noindent Now integrate both sides: $\int \frac{dy}{y} = \int (7x + x^{2}) dx$, resulting in the equation $lny = \frac{7x^{2}}{2} + \frac{x^{3}}{3} + C$.  Exponentiating both sides, we get: $e^{lny} = e^{\frac{7x^{2}}{2} + \frac{x^{3}}{3} + C}$.  We can rewrite this as $y = e^{\frac{7x^{2}}{2}}e^{\frac{x^{3}}{3}}e^{C}$.  We can rewrite $e^{C}$ as another arbitrary constant $A$, so we get $y = Ae^{\frac{7x^{2}}{2}}e^{\frac{x^{3}}{3}}$ (our \textbf{general} solution) \par\vspace{0.25cm}
+
+\noindent However, we want a \textbf{particular} solution where $y(1) = 1$.  So let's plug in accordingly, where $y = 1$ and $x = 1$ \par\vspace{0.25cm}
+
+\noindent So we have $1 = Ae^{\frac{7(1)^{2}}{2}}e^{\frac{(1)^{3}}{3}} = Ae^{\frac{7}{2} + \frac{1}{3}} = Ae^{\frac{21}{6} + \frac{2}{6}} = Ae^{\frac{23}{6}}$.  So $A = e^{-\frac{23}{6}}$. \par\vspace{0.25cm}
+
+\noindent \textbf{Therefore, our final particular solution: $y = e^{\frac{7x^{2}}{2} + \frac{x^{3}}{3}} - \frac{23}{6}$}
+
+\section{Problem 2.4}
+
+\noindent Initial equation: $y' = (xy' + y)y^{3}$.  Let's first find $\frac{dy}{dx}$: $y' = xy'y^{3} + y^{4}$, $y' - xy'y^{3} = y^{4}$, and $y'(1 - xy^{3}) = y^{4}$\par
+\noindent So $y' = \frac{dy}{dx} = \frac{y^{4}}{1 - xy^{3}}$.  But we recall that $y' = \frac{dy}{dx} = (\frac{dx}{dy})^{-1}$.  $\frac{dx}{dy} = \frac{1}{y'} = \frac{1 - xy^{3}}{y^{4}} = \frac{1}{y^{4}} - \frac{x}{y} = x'$ \par
+
+\noindent Rearranging the above equation, we get $\frac{1}{y^{4}} = x' + \frac{x}{y} = x' + (\frac{1}{y})x$ (a first order DE in terms of $x$, where $Q(y) = \frac{1}{y^{4}}$ and $P(y) = \frac{1}{y}$) \par\vspace{0.25cm}
+
+\noindent Now let's solve the above equation below: \par\vspace{0.25cm}
+
+\noindent First, we need to find the integrating factor $\rho(y)$: $\rho(y) = e^{\int P(y)dy} = e^{\int \frac{1}{y}dy} = e^{lny} = y$ \par\vspace{0.25cm}
+
+\noindent Now multiply both sides of the equation by that integrating factor: $y(\frac{1}{y^{4}}) = y(x' + \frac{1}{y}x)$ \par
+\noindent We get: $\frac{1}{y^{3}} = x'y + x = (xy)'$ (by the product rule) \par
+\noindent So $\frac{d}{dy}(xy) = \frac{1}{y^{3}}$.  Integrating we get: $\int d(xy) = \int \frac{1}{y^{3}} dy + C$, $xy = -\frac{1}{2y^{2}} + C$, and $xy^{3} = Cy^{2} - \frac{1}{2}$ \par\vspace{0.25cm}
+
+\noindent \textbf{Rearranging, we get our final general solution in terms of y: $y^{3} = \frac{Cy^{2}}{x} - \frac{1}{2x}$}
+
+\section{Problem 2.5}
+
+\noindent Initial equation: $xy'' + 3y' = 7x^{6}$.  Let's use a substitution variable $u = y' = \frac{dy}{dx}$.  Substituting, we get $xu' + 3u = 7x^{6}$ \par
+
+\noindent This is a first order DE where we have $u$ instead of $y$.  So after rearranging to get $u' + (\frac{3}{x})u = 7x^{6}$, $P(x) = \frac{3}{x}$ and $Q(x) = 7x^{6}$ \par\vspace{0.25cm}
+
+\noindent Let's find the integrating factor $\rho(x)$: $\rho(x) = e^{\int P(x)dx} = e^{\int \frac{3}{x}dx} = e^{3 \int \frac{1}{x}dx} = e^{3lnx} = (e^{lnx})^{3} = x^{3}$ \par\vspace{0.25cm}
+
+\noindent So multiply the rearranged equation by $\rho(x)$: $x^{3}(u' + (\frac{3}{x})u) = x^{3}(7x^{6})$, simplifying this we get $x^{3}u' + 3x^{2}u = 7x^{9}$ \par
+\noindent By the product rule for derivatives: $x^{3}u' + 3x^{2}u = (x^{3}u)' = \frac{d}{dx}(x^{3}u) = 7x^{9}$.  \par
+\noindent Integrating, we get $x^{3}u = \int 7x^{9}dx = 7\int x^{9}dx = 7[\frac{x^{10}}{10} + C] = \frac{7}{10}x^{10} + C$.  Dividing both sides by $x^{3}$, $u = \frac{7}{10}x^{7} + \frac{C}{x^{3}}$. \par\vspace{0.25cm}
+
+\noindent But we want a solution in terms of $y$, so substitute $u = y' = \frac{dy}{dx}$ into the above equation: $\frac{dy}{dx} = \frac{7}{10}x^{7} + \frac{C}{x^{3}}$ \par
+\noindent Multiply both sides by $dx$, and we get: $dy = (\frac{7}{10}x^{7} + \frac{C}{x^{3}})dx$.  Integrate this equation: $\int dy = \int (\frac{7}{10}x^{7} + \frac{C}{x^{3}}) dx$ \par
+\noindent We get $y = \int \frac{7}{10}x^{7}dx + \int \frac{C}{x^{3}} dx = \frac{7}{10}\int x^{7}dx + C\int \frac{1}{x^{3}}dx = \frac{7}{10}\int x^{7}dx + C\int x^{-3}dx = \frac{7}{10}[\frac{x^{8}}{8} +C_{1}] + C[\frac{x^{-2}}{-2} + C_{2}]$ \par
+\noindent The right-hand side multiplies out such that $y = \frac{7x^{8}}{80} + \frac{7C_{1}}{10} - \frac{C}{2x^{2}} + CC_{2}$. \par
+\noindent Let's rewrite our constants: $C = C_{A}$, $C_{1} = C_{B}$, and $CC_{2} = C_{C}$ \par\vspace{0.25cm}
+
+\noindent \textbf{So substituting those new constant variables back in, our final general solution: $y = \frac{7x^{8}}{80} + \frac{7}{10}C_{B} - \frac{C_{A}}{2x^{2}} + C_{C}$}
+\end{document}

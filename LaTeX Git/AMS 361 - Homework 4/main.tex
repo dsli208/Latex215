@@ -1,0 +1,153 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\geometry{legalpaper, portrait, margin = 0.5in}
+
+\title{AMS 361 - Homework 4}
+\author{David S. Li (SBUID 110328771)}
+\date{March 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem 4.1}
+
+$\frac{dy}{dx} = \frac{2x - y^{2}}{y - 2xy} \rightarrow$ Converting to exact form, $(y - 2xy)dy = (2x - y^{2})dx$, $(2x - y^{2})dx - (y - 2xy)dy = 0$ and \par
+\noindent $(2x - y^{2})dx + (2xy - y)dy = 0$ \par\vspace{0.25cm}
+
+\noindent $M = 2x - y^{2} = \frac{\delta F}{\delta x}$ and $N = 2xy - y = \frac{\delta F}{\delta x}$ \par\vspace{0.25cm}
+
+\noindent $M_{y} = \frac{dM}{dy} = -2y$ and $N_{x} = \frac{dN}{dx} = 2y$.  \textbf{This is not an exact equation, so we need to convert it to such an equation} \par\vspace{0.25cm}
+
+\noindent Find our integrating factor: $\rho (x) = e^{\int \frac{M_{y} - N_{x}}{N} dx} = e^{\int \frac{-4y}{2xy - y} dx} = e^{-4 \int \frac{y}{y(2x - 1)} dx} = e^{-4\frac{ln(2x - 1)}{2}} = e^{-2ln(2x - 1)} = \frac{1}{(2x - 1)^{2}}$ \par\vspace{0.25cm}
+
+\noindent Now multiply the original equation by the integrating factor $\frac{(2x - y^{2})}{(2x - 1)^{2}} dx + \frac{(2xy - y)}{(2x - 1)^{2}}dy = 0$ \par
+\noindent Now take the derivatives of our new terms $\bar{M}$ and $\bar{N}$: $\bar{M} = \frac{(2x - y^{2})}{(2x - 1)^{2}}$ and $\bar{N} = \frac{(2xy - y)}{(2x - 1)^{2}}$ \par
+\noindent $\frac{d\bar{M}}{dy} = \bar{M_{y}} = \frac{(2x - 1)^{2} -2y}{(2x - 1)^{4}} = \frac{-2y}{(2x - 1)^{2}}$ and $\frac{d\bar{N}}{dx} = \bar{N_{x}} = \frac{-2y}{(2x - 1)^{2}}$ \textbf{Our new equation is exact} \par\vspace{0.25cm}
+
+\noindent Integrate to get $F(x, y)$: $F(x, y) = \int \bar{N}(x, y)dy = \int \frac{y}{2x - 1}dy = [\frac{y^{2}}{2(2x - 1)}] + f(x) = [\frac{y^{2}}{4x - 2}] + f(x)$ \par\vspace{0.25cm}
+
+\noindent To find $f(x)$, derive back to get $\bar{M}(x, y)$: $\bar{M}(x, y) = \frac{2x - y^{2}}{(2x - 1)^{2}} = \frac{\delta}{\delta x}[\frac{y^{2}}{4x - 2} + f(x)] = \frac{-4y^{2}}{(4x - 2)^{2}} + f'(x)$ \par\vspace{0.25cm}
+
+\noindent We have $\frac{2x - y^{2}}{(2x - 1)^{2}} = \frac{-4y^{2}}{(4x - 2)^{2}} + f'(x)$.  Rearranging, $f'(x) = \frac{2x - y^{2}}{(2x - 1)^{2}} + \frac{4y^{2}}{(4x - 2)^{2}} = \frac{2x - y^{2}}{(2x - 1)^{2}} + \frac{4y^{2}}{2(2x - 1)^{2}} = \frac{2x - y^{2}}{(2x - 1)^{2}} + \frac{2y^{2}}{(2x - 1)^{2}}$ \par
+\noindent We finally get $f'(x) = \frac{2x + y^{2}}{(2x - 1)^{2}}$.  Integrate this to get $f(x)$: $f(x) = \int \frac{2x}{(2x - 1)^{2}} dx + \int \frac{y^{2}}{(2x - 1)^{2}}dx$ \par
+\noindent This simplifies to $\int \frac{2x + 1 - 1}{(2x - 1)^{2}}dx + y^{2} \int \frac{1}{(2x - 1)^{2}} = \int (\frac{1}{2x - 1} + \frac{1}{(2x - 1)^{2}})dx + y^{2} \int \frac{1}{(2x - 1)^{2}} = \frac{1}{2}ln(2x - 1) - \frac{1}{2} \frac{1}{2x - 1} + \frac{y^{2}}{2} \frac{1}{2x - 1}$ \par
+\noindent $f(x) = \frac{1}{2}[ln(2x - 1) + \frac{y^{2} - 1}{2x - 1}]$ \par\vspace{0.25cm}
+
+\noindent $F(x, y) =  \int \bar{N}(x, y)dy = \int \frac{y}{2x - 1}dy = [\frac{y^{2}}{2(2x - 1)}] + \frac{1}{2}[ln(2x - 1) + \frac{y^{2} - 1}{2x - 1}] = C \leftarrow$ \textbf{Our final general solution}
+
+\section{Problem 4.2}
+
+$y^{3} + (xy^{2} - 1)\frac{dy}{dx} = 0$ $\rightarrow$ $y^{3}dx + (xy^{2} - 1)dy = 0$ \par\vspace{0.25cm}
+
+\noindent $M_{y} = 3y^{2}$ and $N_{x} = y^{2} \leftarrow$ \textbf{Not an exact equation}
+
+\noindent Find the integrating factor $\rho$: $\rho (y) = e^{-\int \frac{M_{y} - N_{x}}{M}dy} = e^{-\int \frac{3y^{2} - y^{2}}{y^{3}}dy} = e^{-2\int \frac{y^{2}}{y^{3}}dy} = e^{-2 \int \frac{1}{y}dy} = e^{-2lny} = \frac{1}{y^{2}}$ \par
+
+\noindent Multiplying our equation by this integrating factor, we get $ydx + (x - \frac{1}{y^{2}})dy = 0$ \par
+
+\noindent $\bar{M} = y$ and $\bar{N} = x - \frac{1}{y^{2}}$, deriving in terms of $y$ and $x$ respectively, we get $\frac{d\bar{M}}{dy} = 1$ and $\frac{d\bar{N}}{dx} = 1$, \textbf{so this new equation is exact} \par\vspace{0.25cm}
+
+\noindent $F(x, y) = \int \bar{M}(x, y)dx = \int ydx = xy + g(y)$.  Deriving to get $\bar{N}(x, y)$: $\bar{N}(x, y) = \frac{\delta}{\delta y}[F(x, y)] = \frac{\delta}{\delta y}[xy + g(y)] = x - \frac{1}{y^{2}}$ \par
+\noindent We have $x + g'(y) = x - \frac{1}{y^{2}} \rightarrow$ $g'(y) = -\frac{1}{y^{2}}$ \par
+\noindent Integrating, $g(y) = \frac{1}{y}$ \par\vspace{0.25cm}
+
+\noindent $F(x, y) = xy + \frac{1}{y} = C \leftarrow$ \textbf{Our final general solution}
+
+\section{Problem 4.3}
+
+We have our initial values:
+$\begin{cases}
+    y'' = -\frac{GM}{(y + R)^{2}} \\
+    y(0) = 0 \\
+    y'(0) = v_{0}
+    \end{cases}$ \par\vspace{0.25cm}
+    
+\noindent $y''$ denotes acceleration, which can be written as $\frac{dv}{dt}$ or as $\frac{dv}{dy}\frac{dy}{dt} = v\frac{dv}{dy}$ \par
+\noindent $v\frac{dv}{dy} = -\frac{GM}{(y + R)^{2}}$.  This is a separable equation, so $vdv = -\frac{GM}{(y + R)^{2}}dy$.  Integrate this on both sides: \par
+\noindent The left hand side integral: $\int vdv = \frac{v^{2}}{2}$  Right hand side integral: $-GM\int (y + R)^{-2}dy = -GM[\frac{(y + R)^{-1}}{-1}] + C = \frac{GM}{y + R} + C$ \par
+
+\noindent $\frac{v^{2}}{2} = \frac{GM}{y + R} + C$.  Plugging in initial condition $y(0) = 0$ and $y'(0) = 0$, $\frac{v_{0}^{2}}{2} = \frac{GM}{R} + C$.  Rearranging, $C = \frac{v_{0}^{2}}{2} - \frac{GM}{R}$ \par
+\noindent Plugging in for $C$, $\frac{v^{2}}{2} = \frac{GM}{y + R} + \frac{v_{0}^{2}}{2} - \frac{GM}{R}$ \par\vspace{0.25cm}
+
+\noindent Now let's find $y_{max}$, the maximum height that the projectile reaches ($v = 0$ when this max. height is reached) \par
+
+\noindent $0 = \frac{GM}{(y_{max} + R)} + \frac{v_{0}^{2}}{2} - \frac{GM}{R}$.  \textbf{Rearranging this, we get our max. altitude is $y_{max} = \frac{GM}{\frac{GM}{R} - \frac{v_{0}^{2}}{2}} - R$} 
+
+\section{Problem 4.4}
+\subsection{4.4 - ACCELERATION, FIRST STOP SIGN}
+Initial cases:
+$\begin{cases}
+    m \frac{dv}{dt} = ma - \mu v \\
+    v(t = 0) = 0
+    \end{cases}$ \par\vspace{0.25cm}
+    
+\noindent Rearranging the first formula: $\frac{dv}{dt} = a - \frac{\mu v}{m} \leftarrow$ \textbf{a separable equation} \par
+\noindent $\frac{dv}{a - \frac{\mu v}{m}} = dt$, multiplying both sides by $\frac{1}{m}$ and integrating: $\int \frac{dv}{ma - \mu v} = \frac{1}{m} \int dt$ \par
+\noindent LHS comes out to $\int \frac{dv}{ma - \mu v} = -\frac{1}{\mu}ln(ma - \mu v)$, RHS comes out to $\frac{1}{m} \int dt = \frac{t}{m} + C$.  Rearranging further, $ln(ma - \mu v) = -\frac{\mu t}{m} + C$ \par
+\noindent Exponentiating both sides, $ma - \mu v = e^{-\frac{\mu t}{m}}e^{C}$, where we can rewrite $e^{C}$ as arbitrary constant $A$ \par
+\noindent $ma - \mu v = e^{-\frac{\mu t}{m}}A$, plugging in initial condition $v(t = 0) = 0$, $ma - 0 = Ae^{0}$, meaning $A = ma$ \par
+\noindent Plugging in for $A$, $ma - \mu v = mae^{-\frac{\mu t}{m}}$. \par
+\noindent Rearranging this new equation, we eventually get $v(t) = \frac{ma}{\mu}(1 - e^{-\frac{\mu t}{m}})$.  Let $v_{a} = \frac{ma}{\mu}$, simplifies to $v(t) = v_{a}(1 - e^{\frac{-a}{v_{a}} t})$ \par
+\noindent Set $v(t) = v_{m}$ (the maximum speed), $v_{m} = v_{a}(1 - e^{\frac{-a}{v_{a}} t})$.  Solving for $t_{m}$: $t_{m} = -\frac{v_{a}}{a}ln(1 - \frac{v_{m}}{v_{a}})$ \textbf{(time of acceleration)} \par\vspace{0.25cm}
+\subsection{4.4 - DECELERATION, FIRST STOP SIGN}
+\noindent Now to get the time for the deceleration phase - initial conditions for this phase: 
+$\begin{cases}
+    m \frac{dv}{dt} = -mb - \mu v \\
+    v(t = 0) = v_{m} \\
+    v(t = t_{f}) = 0
+    \end{cases}$ (Note $mb$ is in the NEGATIVE direction, since we are decelerating) \par\vspace{0.25cm}
+    
+\noindent The first equation is separable, so we can rearrange it to $\frac{dv}{-mb - \mu v} = \frac{1}{m}dt$.  Integrating, $\int\frac{dv}{-mb - \mu v} = \frac{1}{m}\int dt$. \par
+\noindent LHS: $\int\frac{dv}{-mb - \mu v} = -\frac{1}{\mu}ln(-mb - \mu v) + A$, RHS: $\frac{1}{m}\int dt = \frac{t}{m} + B$, so $-\frac{1}{\mu}ln(-mb - \mu v) = \frac{t}{m} + C$ ($A$ and $B$ are constants created from the LHS and RHS integrations, and $C$ is an arbitrary constant created from combining $A$ and $B$)\par
+\noindent Further rearranging, we get $ln(-mb - \mu v) = -\frac{\mu t}{m} + C$.  Exponentiating both sides: $-mb - \mu v = e^{-\frac{\mu t}{m}}e^{C}$ (we can rewrite $e^{C}$ as another constant $D$) \par\vspace{0.25cm}
+
+\noindent $-mb - \mu v = e^{-\frac{\mu t}{m}}D$.  Plugging in $v(t = 0) = v_{m}$, $-mb - \mu v_{m} = e^{0}D$, so $D = -mb - \mu v_{m}$ \par
+\noindent Plugging in for $D$ and rearranging the subsequent equation, $v(t) = -\frac{mb}{\mu} + (v_{m} + \frac{mb}{\mu})e^{-\frac{\mu t}{m}}$.  Let $v_{b} = \frac{mb}{\mu}$... \par
+\noindent $v(t) = -v_{b} + (v_{m} + v_{b})e^{-\frac{b}{v_{b}}t}$.  Now plug in initial condition $v(t = 0) = v_{m}$ and final condition (stopping speed $v(t) = 0$) \par
+\noindent $0 = -v_{b} + (v_{m} + v_{b})e^{-\frac{b}{v_{b}}t_{f}}$.  Rearranging, $t_{f} = \frac{v_{b}}{b}ln(1 + \frac{v_{m}}{v_{b}})$
+
+\noindent\textbf{Total travel time $T = t_{f} + t_{m}$ ($t_{m}$ is our solved value from the first part)}
+
+\subsection{4.4 - ACCELERATION, SECOND STOP SIGN}
+\noindent Initial conditions:
+$\begin{cases}
+    mv\frac{dv}{dx} = ma - \mu v \\
+    v(x = 0) = 0 \\
+    v(x = x_{m}) = v_{m}
+    \end{cases}$ \par\vspace{0.25cm}
+
+\noindent Separating the first equation in the above cases: $\frac{v}{ma - \mu v} dv = \frac{1}{m}dx$.  Integrating, $\int\frac{v}{ma - \mu v} dv = \int\frac{1}{m}dx$ \par
+\noindent LHS integral: $\int\frac{v}{ma - \mu v} dv = \frac{1}{\mu}\int\frac{\mu v + ma - ma}{ma - \mu v}dv = \frac{1}{\mu}\int\frac{-ma + \mu v}{ma - \mu v}dv + \int\frac{ma}{ma - \mu v}dv = -\frac{1}{\mu}\int dv - \frac{maln(ma - \mu v)}{\mu} = -\frac{v}{\mu} - \frac{maln(ma - \mu v)}{\mu}$ \par
+\noindent RHS integral: $\frac{1}{m}\int dx = \frac{1}{m}x + C$, where $C$ is an arbitrary constant.  So we have $ -\frac{v}{\mu} - \frac{ma ln(ma - \mu v)}{\mu} =  \frac{1}{m}x + C$ \par
+\noindent $v + ma ln(ma - \mu v) = -\frac{\mu x}{m} + C$.  Now plug in initial condition $v(x = 0) = 0$: $ma ln(ma - 0) = 0 + C$, $C = maln(ma)$ \par
+\noindent So we have $v + maln(ma - \mu v) = -\frac{\mu x}{m} + maln(ma)$.  Taking into account our earlier value $v_{a} = \frac{ma}{\mu}$, we can do some substituting: $v + ma ln(ma - \frac{ma}{v_{a}}v) = -\frac{a}{v_{a}}x + maln(ma)$.  This removes $\mu$ from the equation \par\vspace{0.25cm}
+
+\noindent Now plug in our second initial condition $v(x = x_{m}) = v_{m}$: $v_{m} + ma ln(ma - \frac{ma}{v_{a}}v_{m}) = -\frac{ax_{m}}{v_{a}} + ma ln(ma)$ \par
+\noindent We eventually get $v_{m} + v_{a}ln(\frac{v_{m}}{v_{a}} - 1) = -\frac{a}{v_{a}}x_{m}$
+
+\subsection{4.4 - DECELERATION, SECOND STOP SIGN}
+
+$\begin{cases}
+    mv\frac{dv}{dx} = -mb - \mu v \\
+    v(x = 0) = 0 \\
+    v(x = L - x_{m}) = 0
+    \end{cases}$ \par\vspace{0.25cm}
+    
+\noindent Solving the IVP will get us $v - v_{b}ln(v + v_{b}) = -\frac{b}{v_{b}}x + v_{m} - v_{b}ln(v_{m} + v_{b})$, simplifies to $(v - v_{m}) + v_{b}ln(\frac{v_{m} + v_{b}}{v + v_{b}}) = -\frac{b}{v_{b}}x$ \par
+\noindent Plug in second initial condition: $(0 - v_{m}) + + v_{b}ln(\frac{v_{m} + v_{b}}{0 + v_{b}}) = -\frac{b}{v_{b}}(L - x_{m})$, rearranging $v_{m} - v_{b}ln(\frac{v_{m}}{v_{b}} + 1) = \frac{b}{v_{b}}(L - x_{m})$ \par\vspace{0.25cm}
+\subsection{4.4 - FINAL PART}
+\noindent Solve the following two equations, subtracting them to cancel $v_{m}$:
+$\begin{cases}
+    v_{m} + v_{a}ln(\frac{v_{m}}{v_{a}} - 1) = -\frac{a}{v_{a}}x_{m}\\
+    v_{m} - v_{b}ln(\frac{v_{m}}{v_{b}} - 1) = \frac{b}{v_{b}}(L - x_{m})
+    \end{cases}$ \par\vspace{0.25cm}
+    
+\noindent We get $v_{a}ln(\frac{v_{m}}{v_{a}} - 1) + v_{b}ln(\frac{v_{m}}{v_{b}} + 1) = -\frac{a}{v_{a}}x_{m} - \frac{b}{v_{b}}(L - x_{m})$.  We can substitute in terms of $v_{a}$ and $v_{b}$ ($\frac{a}{v_{a}} = \frac{\mu}{m} = \frac{b}{v_{b}}$) \par\vspace{0.25cm}
+
+\noindent After substituting accordingly and exponentiating to get rid of the "$ln$", we get $(\frac{v_{m}}{v_{a}})^{a}(\frac{v_{m}}{v_{b}} + 1)^{b} = e^{-(\frac{\mu}{m})^{2}L}$ \par\vspace{0.25cm}
+
+\noindent $T = t_{m} + t_{f}$  Plug in values for $t_{m}$ and $t_{f}$, substituting for $v_{a}$ and $v_{b}$ in doing so, we get $T = -\frac{m}{\mu}ln(1 - \frac{v_{m}}{v_{a}}) + \frac{m}{\mu}(1 + \frac{v_{m}}{v_{a}})$
+\end{document}

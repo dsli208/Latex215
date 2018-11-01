@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\geometry{legalpaper, portrait, margin = 0.5in}
+
+\title{AMS 361 - Homework 5}
+\author{David S. Li, SBU ID: 110328771}
+\date{March 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem 5.1}
+
+Initial DE: $y" - 4y' - 5y = 0$. First, get our trial solution: $y = e^{rx}$, $y' = re^{rx}$, and $y" = r^{2}e^{rx}$ \par
+
+\noindent Plugging in for $y$, $y'$, and $y"$, our DE becomes: $r^{2}e^{rx} - 4re^{rx} - 5e^{rx} = e^{rx}(r^{2} - 4r - 5) = 0$ \par\vspace{0.25cm}
+
+\noindent From the above equation, we get $r^{2} - 4r - 5 = 0 = (r - 5)(r + 1)$.  Therefore, $r = {-1, 5}$.  We can set $r_{1} = -1$ and $r_{2} = 5$. \par\vspace{0.25cm}
+
+\noindent \textbf{Our composed G.S.: $y = C_{1}e^{r_{1}x} + C_{2}e^{r_{2}x} = C_{1}e^{-x} + C_{2}e^{5x}$}
+
+% Are we supposed to do the check part?
+
+\section{Problem 5.2}
+
+Initial DE: $y" - y' - 6y = 0$. First, get our trial solution: $y = e^{rx}$, $y' = re^{rx}$, and $y" = r^{2}e^{rx}$ \par
+
+\noindent Plugging in for $y$, $y'$, and $y"$, our DE becomes: $r^{2}e^{rx} - re^{rx} - 6e^{rx} = e^{rx}(r^{2} - r - 6) = 0$ \par\vspace{0.25cm}
+
+\noindent From the above equation, we get $r^{2} - r - 6 = 0 = (r - 3)(r + 2)$.  Therefore, $r = {-2, 3}$.  We can set $r_{1} = -2$ and $r_{2} = 3$. \par\vspace{0.25cm}
+
+\noindent \textbf{Our composed G.S.: $y = C_{1}e^{r_{1}x} + C_{2}e^{r_{2}x} = C_{1}e^{-2x} + C_{2}e^{3x}$}
+
+% Again, do we have to check our solution?
+
+\section{Problem 5.3}
+
+Initial DE: $x^{2}y" + 2xy' - 2y = 0$, a Cauchy-Euler DE.  Trial solution $y = x^{\Lambda}$, $y' = \Lambda x^{\Lambda - 1}$, $y" = \Lambda (\Lambda - 1)x^{\Lambda - 2}$ \par\vspace{0.25cm}
+
+\noindent Plugging the trial solution into the DE: $x^{2}\Lambda (\Lambda - 1)x^{\Lambda - 2} + 2x\Lambda x^{\Lambda - 1} - 2x^{\Lambda} = x^{\Lambda}((\Lambda ^{2} - \Lambda) + 2\Lambda - 2) = 0$ \par
+
+\noindent We get $x^{\Lambda}(\Lambda ^{2} + \Lambda - 2) = 0$.  Set $(\Lambda ^{2} + \Lambda - 2) = 0$, $(\Lambda + 2)(\Lambda - 1) = 0$, so our roots are $\Lambda_{1} = -2$ and $\Lambda_{2} = 1$ \par\vspace{0.25cm}
+
+\noindent \textbf{Our final general solution: $y(x) = C_{1}x^{-2} + C_{2}x$}
+
+\section{Problem 5.4}
+
+Initial DE: $(D - 2)^{3}(D - 1)^{2}(D^{2} - 6D - 7)y(x) = 0$, $D = \frac{d}{dx}$ and let $D = r$, trial solution $y = e^{rx}$ \par\vspace{0.25cm}
+
+\noindent $(r - 2)^{3}(r - 1)^{2}(r^{2} - 6r - 7) = 0 \rightarrow r_{1} = r_{2} = r_{3} = 2$, $r_{4} = r_{5} = 1$ \par
+\noindent $(r^{2} - 6r - 7) = (r - 7)(r + 1) = 0 \rightarrow r_{6} = 7$, $r_{7} = -1$ \par\vspace{0.25cm}
+
+\noindent Now that we have our roots, we can use them to construct our final general solution \par
+\noindent \textbf{Our final general solution: $y(x) = (C_{1} + C_{2} + C_{3})e^{2x} + (C_{4} + C_{5})e^{x} + C_{6}e^{7x} + C_{7}e^{-x}$}
+
+\section{Problem 5.5}
+
+Initial DE: $y''' + y'' + y' + y = 0$.  Trial solution $y = e^{rx}, y' = re^{rx}, y'' = r^{2}e^{rx}, y''' = r^{3}e^{rx}$ \par\vspace{0.25cm}
+
+\noindent Plugging our trial solution values into the initial DE: $r^{3}e^{rx} + r^{2}e^{rx} + re^{rx} + e^{rx} = e^{rx}(r^{3} + r^{2} + r + 1) = 0$ \par
+\noindent Set $r^{3} + r^{2} + r + 1 = 0$, and we get $r^{2}(r + 1) + (r + 1) = (r^{2} + 1)(r + 1) = 0$ \par
+\noindent $r^{2} + 1 = 0 \rightarrow r^{2} = -1 \rightarrow r_{1} = i, r_{2} = -i, r_{3} = -1$ \par\vspace{0.25cm}
+
+\noindent Let's break up our G.S. into separate parts, starting with the "imaginary exponents", where $y_{1} = c_{1}e^{ix}$ and $y_{2} = c_{2}e^{-ix}$ \par
+\noindent $y_{1} + y_{2} = c_{1}e^{ix} + c_{2}e^{-ix}$, and by Euler's formula, $e^{ix} = cosx + isinx$ \par
+\noindent $y_{1} + y_{2} = c_{1}(cosx + isinx) + c_{2}(cosx - isinx) = (c_{1} + c_{2})cosx + (c_{1} - c_{2})isinx$ \par
+\noindent Rewriting $c_{1} + c_{2} = C_{1}$ and $c_{1} - c_{2} = C_{2}$, we have $y_{1} + y_{2} = C_{1}cosx + C_{2}isinx$ \par\vspace{0.25cm}
+
+\noindent $y_{3} = C_{3}e^{-x}$, and $y(x) = y_{1} + y_{2} + y_{3}$ \par\vspace{0.25cm}
+
+\noindent \textbf{Therefore, our final general solution: $y(x) = C_{1}cosx + C_{2}isinx + C_{3}e^{-x}$}
+\end{document}
