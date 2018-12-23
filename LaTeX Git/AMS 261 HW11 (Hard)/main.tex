@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\geometry{legalpaper, portrait, margin = 0.5in}
+\rmfamily
+
+\title{AMS 261 HW11 (Hard)}
+\author{David S. Li (SBUID: 110328771)}
+\date{November 30, 2018}
+
+\begin{document}
+
+\maketitle
+
+\section{15.2.2 - Describe how reversing the orientation of a curve $C$ affects $\int_{C}\textbf{F}\cdot d\textbf{r}$}
+
+\par\noindent\Large Just with reversing the interval of a one-dimensional integral, reversing the orientation of a curve will produce the \textbf{negative} of the associated line integral (i.e., reversing the orientation of $C$ will yield $-\int_{C}\textbf{F}\cdot d\textbf{r}$).
+
+\section{15.3.2 (Independence of Path) - What does it mean for a line integral to be independent of path?  State the method for determining whether a line integral is independent of path.}
+
+\par\noindent\Large As per Theorem 15.6 in the textbook, a line integral is independent of path if the following two conditions are satisfied: (i) The vector $\textbf{F}$ must be \textbf{continuous on an open connected region}, and (ii) $\textbf{F}$ must also be \textbf{conservative}.\vspace{0.25cm}
+
+\par\noindent\Large If the first condition holds, to find that $\textbf{F}$ is conservative, we are given the following:
+\par\noindent\Large $f(x, y) = \int_{C}\textbf{F}\cdot d\textbf{r} = \int_{C}Mdx + Ndy$.  Remember that $\textbf{F}$ is conservative when $\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$, or alternatively, $f_{x} = f_{y}$.
+
+\section{15.4.44 - The figure shows a region $R$ bounded by a piecewise smooth simple closed path $C$.}
+\subsection{(a) - Is $R$ simply connected?  Explain.}
+
+\par\noindent\Large Yes, because \textbf{$R$ is a single closed region with no holes}.
+
+\subsection{(b) - Explain why $\int_{C}f(x)dx + g(y)dy = 0$ where $f$ and $g$ are differentiable functions.}
+
+\par\noindent\Large Assuming we are talking about the same region as stated in the original problem, remember that $C$ represents a \textbf{closed} path, where $\int_{C}\textbf{F}\cdot d\textbf{r} = 0$, as per Theorem 15.7 in the textbook.
+
+\section{15.5.44 - Determine how the graph of the surface $s(u, v) = ucos(v)\textbf{i} + u^{2}\textbf{j} + usin(v)\textbf{k}$ differs from the graph of $r(u, v) = ucos(v)\textbf{i} + usin(v)\textbf{j} + u^{2}\textbf{k}$, where $0 \leq u \leq 2$ and $0 \leq v \leq 2\pi$, as shown in the figure.  (It is not necessary to graph $s$.)}
+
+\par\noindent\Large The "elliptical cross section" of the shape will now be facing in the $+y$-direction, as opposed to the $+z$-direction in the original graph.  In other words, the graph, when going outwards, will go on and revolve around the $+y$-axis, as opposed to the $+z$-axis.
+
+\end{document}

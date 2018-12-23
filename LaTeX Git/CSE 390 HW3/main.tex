@@ -1,0 +1,152 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\geometry{legalpaper, portrait, margin = 0.5in}
+\rmfamily
+
+\title{CSE 390 HW3}
+\author{David S. Li (SBUID: 110328771)}
+\date{November 21, 2018}
+
+\begin{document}
+
+\maketitle
+
+\section{For a random variable $X$, suppose $E(X) = 2$, $Var(X) = 9$, $E(Y) = 0$, $Var(Y) = 4$, and $Corr(X, Y) = 0.25$}
+\subsection{(a) $Var(X + Y)$}
+\par\noindent\Large $Var(X + Y) = Var(X) + Var(Y) + 2Cov(X, Y)$, given variables are \textbf{dependent}.
+\par\noindent\Large $Cov(X, Y) = Corr(X, Y)\sqrt{Var(A)Var(B)}$\vspace{0.25cm}
+
+\par\noindent\Large Therefore, $Var(X + Y) = Var(X) + Var(Y) + 2Corr(X, Y)\sqrt{Var(X)Var(Y)} =\linebreak 9 + 4 + 2(0.25)\sqrt{(9)(4)} = 13 + 0.5\sqrt{36} = 16$
+
+\subsection{(b) $Corr(X + Y, X - Y)$}
+\par\noindent\Large $Corr(X + Y, X - Y) = \rho_{X + Y, X - Y} = \frac{Cov(X + Y, X - Y)}{\sqrt{Var(X + Y)Var(X - Y)}}$\vspace{0.25cm}
+
+\par\noindent\Large $Cov(X + Y, X - Y) = E((X + Y)(X - Y)) - E(X + Y)E(X - Y) =\linebreak E(X^{2} - Y^{2}) - (E(X) + E(Y))(E(X) - E(Y)) = E(X^{2}) - E(Y^{2}) - (2 + 0)(2 - 0) = E(X^{2}) - E(Y^{2}) - 4$
+\par\noindent\Large Remember that $Var(X) = E(X^{2}) - E(X)^{2}$.  This becomes $E(X^{2}) = Var(X) + E(X)^{2}$.
+\par\noindent\Large We therefore get $Cov(X + Y, X - Y) = Var(X) + E(X)^{2} - Var(Y) - E(Y)^{2} - 4 = 9 + (2)^{2} - 4 - (0)^{2} - 4 = 5$\vspace{0.25cm}
+
+\par\noindent\Large Remember that in this case, we cannot assume $X$ and $Y$ are independent, as this was not given to us.  $Var(X + Y) = Var(X) + Var(Y) + 2Corr(X, Y)\sqrt{Var(X)Var(Y)}$, as previously derived in part (a).\vspace{0.25cm}
+
+\par\noindent\Large $Var(X - Y) = E((X - Y)^{2}) - (E(X - Y))^{2} = E(X^{2} - 2XY + Y^{2}) - (E(X) - E(Y))^{2} = E(X^{2} - 2XY + Y^{2}) - (E(X)^{2} - 2E(X)E(Y) + E(Y)^{2}) = E(X^{2}) - 2E(XY) + E(Y^{2}) - E(X)^{2} + 2E(X)E(Y) - E(Y)^{2}$\vspace{0.25cm}
+
+\par\noindent\Large $E(XY) = Cov(X, Y) + E(X)E(Y) = 3 + (2)(0) = 3$ (from part 1a).  $E(X^{2}) = Var(X) + E(X)^{2} = 9 + (2)^{2} = 13$, and similarly $E(Y^{2}) = Var(Y) + E(Y)^{2} = 4 + (0)^{2} = 4$.\vspace{0.25cm}
+
+\par\noindent\Large $Var(X - Y) = E(X^{2}) - 2E(XY) + E(Y^{2}) - E(X)^{2} + 2E(X)E(Y) - E(Y)^{2} =\linebreak 13 - 2(3) + 4 - (2)^{2} + 2(2)(0) - (0)^{2} = 7$\vspace{0.25cm}
+
+\par\noindent\Large We therefore get $\sqrt{Var(X + Y)Var(X - Y)} = \sqrt{(16)(7)} = \sqrt{112}$, and therefore, $\linebreak\rho_{X + Y, X - Y} = \frac{5}{\sqrt{112}}$
+
+\section{If $X$ and $Y$ are two dependent random variables with $Var(X) = Var(Y)$, find $Cov(X + Y, X - Y)$}
+\par\noindent\Large From our answer in part 1b, we know that $Cov(X + Y, X - Y) = E((X + Y)(X - Y)) - E(X + Y)E(X - Y) = E(X^{2} - Y^{2}) - (E(X) + E(Y))(E(X) - E(Y)) = E(X^{2}) - E(Y^{2}) - (E(X)^{2} - E(Y)^{2}) = E(X^{2}) - E(Y^{2}) - E(X)^{2} + E(Y)^{2} = Var(X) + E(X)^{2} - Var(Y) - E(Y)^{2} - E(X)^{2} + E(Y)^{2}$ after plugging our derivations from that part.\vspace{0.25cm}
+
+\par\noindent\Large Now, given $Var(X) = Var(Y)$, we can substitute accordingly: $Cov(X + Y, X - Y) = Var(X) + E(X)^{2} - Var(X) - E(Y)^{2} - E(X)^{2} + E(Y)^{2} = 0$ %(correct?)
+
+\section{Let $x_{t}$ be a process with zero mean and the lag-$l$ autocovariance given by $\gamma_{l}$.  Consider the series $y_{t} = 5 + 2t + x_{t}$.}
+
+\subsection{What is the mean of the $y_{t}$ process?}
+
+\par\noindent\Large Assuming no stationarity in this part, $E(y_{t}) = \phi_{0} + \phi_{1}E(y_{t - 1}) + E(x_{t})$.  Substituting accordingly, $E(y_{t}) = 5 + 2E(y_{t - 1}) + E(x_{t}) = 5 + 2E(t)$ ($E(x_{t}) = 0$)\vspace{0.25cm}
+
+%y_{t - 1} = t?
+
+%\par\noindent\Large We thereby get mean $\mu = -5$ (correct?)
+
+\subsection{What is the lag-$l$ ACF for the $y_{t}$ process?}
+
+\par\noindent\Large $ACF = \rho_{l} = \frac{\gamma_l}{\gamma_0} = \frac{Cov(y_{t}, y_{t - l})}{Var(y_{t})} = \frac{Cov(5 + 2t + x_{t}, 5 + 2(t - l), x_{t - l})}{Var(y_{t})}$
+
+%\par\noindent\Large Formula for lag-$l$ ACF: $\rho_{l} = \phi_{1}\rho_{l - 1} = \phi_{1}^{l} \forall l \geq 0$\vspace{0.25cm}
+
+%\par\noindent\Large Plugging in for $\phi_{1}$, we get $\rho_{l} = 2^{l}$ (higher orders of $\phi$ are ignored as they are not given in the initial equation for $y_{t}$). (Correct?)
+
+\subsection{If $x_{t}$ is stationary, is $y_{t}$ a stationary process as well?  Justify your answer with a formal/mathematical proof.}
+\par\noindent\Large Assuming we are still using the original $y_{t}$ series given above, we know this fact: When stationary, the mean evaluates to a constant $\mu$.  Let $E(x_{t}) = \mu_{x}$, a constant.\vspace{0.25cm}
+
+\par\noindent\Large So $E(y_{t}) = 5 + 2E(y_{t - 1}) + \mu_{x} = 5 + 2E(y_{t - 1})$ ($\mu_{x} = 0$ as $x_{t}$ is considered \textit{white noise} in terms of the $y_{t}$ series).\vspace{0.25cm}
+
+\par\noindent\Large We cannot go any further, as $y_{t}$ would need to be stationary for us to make any further assumptions (especially with regards to $E(y_{t - 1})$), and since $x_{t}$ is only considered white noise, whether it is stationary or not has no bearing on the stationarity of $y_{t}$ since when evaluating $E(y_{t})$, $\mu_{x} = 0$.
+
+\section{Show that when $\theta_{1}$ is replaced by $\frac{1}{\theta_{1}}$, the autocorrelation function for an MA(1) process does not change.}
+
+\par\noindent\Large The lag-$l$ autocorrelation function (ACF) for a MA(1) process is as follows:
+
+\[\rho_{l} = \begin{cases} 
+      1 & l = 0 \\
+      -\frac{\theta_{1}}{1 + \theta_{1}^{2}} & l = 1 \\
+      0 & l > 1 
+   \end{cases}
+\]
+\par\noindent\Large The only case where $\theta_{1}$ matters is the case where $l = 1$.  In this original case:
+\par\noindent\huge $\rho_{1} = -\frac{\theta_{1}}{\frac{\theta_{1}^{2}+\theta_{1}^{4}}{\theta_{1}^{2}}} = -\frac{\theta_{1}^{3}}{\theta_{1}^{2} + \theta_{1}^{4}} = -\frac{\theta_{1}^{3}}{\theta_{1}^{2}(1 + \theta_{1}^{2})} = -\frac{\theta_{1}}{1 + \theta_{1}^{2}}$
+
+\par\noindent\Large Suppose in this case we replace $\theta_{1}$ with $\frac{1}{\theta_{1}}$. 
+\par\noindent\huge$\rho_{1} = -\frac{\frac{1}{\theta_{1}}}{1 + \frac{1}{\theta_{1}^{2}}} = -\frac{\frac{1}{\theta_{1}}}{\frac{\theta_{1}^{2} + 1}{\theta_{1}^{2}}} = -\frac{\theta_{1}}{\theta_{1}^{2} + 1} = -\frac{\theta_{1}}{1 + \theta_{1}^{2}}$
+
+\par\noindent\Large In this case, both values of $\rho_{1}$ are \textbf{equal to each other}, and therefore replacing $\theta_{1}$ with $\frac{1}{\theta_{1}}$ will yield the same result for an ACF of an MA(1) process.
+
+\section{Consider the autoregressive process of order 1, AR(1) given by $r_{t} = \phi r_{t - 1} + a_{t}$, where $\abs{\phi} < 1$.  Next, consider the \textit{difference} process that models how $r_{t}$ changes with respect to its previous value, given by $w_{t} = r_{t} - r_{t - 1}$.}
+\subsection{Show that the variance of $w_{t}$ is given by $Var(w_{t}) = \frac{2\sigma_{a}^{2}}{1 + \phi}$}
+
+\par\noindent\Large $Var(w_{t}) = Var(r_{t}) - Var(r_{t - 1}) = Var(r_{t} - r_{t - 1})$.  $r_{t} = \phi r_{t - 1} + a_{t}$, plugging this into the equation above gives us $Var(w_{t}) = Var(\phi r_{t - 1} + a_{t} - r_{t - 1}) = Var((\phi - 1)r_{t - 1} + a_{t}) = (\phi - 1)^{2}Var(r_{t - 1}) + Var(a_{t}) = (\phi - 1)^{2}Var(r_{t - 1}) + \sigma_{a}^{2} = (\phi - 1)^{2}(Var(r_{t - 1})) + \sigma_{a}^{2}$\vspace{0.25cm}
+
+\par\noindent\Large Because the process is \textbf{weakly stationary}, as $\abs{\phi} < 1$, we can say $Var(r_{t}) = Var(r_{t - 1})$.  Therefore, we have $Var(w_{t}) = (\phi - 1)^{2}(Var(r_{t})) + \sigma_{a}^{2} = (\phi - 1)^{2}(\frac{\sigma_{a}^{2}}{1 - \phi^{2}}) + \sigma_{a}^{2} = \linebreak (\phi - 1)^{2}(\frac{\sigma_{a}^{2}}{(1 + \phi)(1 - \phi)}) + \sigma_{a}^{2} = (\phi - 1)(-\frac{\sigma_{a}^{2}}{1 + \phi}) + \sigma_{a}^{2} = (-\phi + 1)(\frac{\sigma_{a}^{2}}{1 + \phi}) + \sigma_{a}^{2}(\frac{1 + \phi}{1 + \phi}) = \linebreak (-\phi + 1)(\frac{\sigma_{a}^{2}}{1 + \phi}) + (\frac{\sigma_{a}^{2}}{1 + \phi})(1 + \phi) = \frac{2\sigma_{a}^{2}}{1 + \phi}$
+
+% Textbook, deriving variance, Tsay Chapter
+% $w_{t} = \phi + a_{t}$
+\subsection{Derive the autocovariance function for $w_{t}$ in terms of $\phi$ and $\sigma_{a}^{2}$}
+
+% Auto covariance, page 31 or so of text
+%\par\noindent\Large Autocovariance function $\gamma = Cov(w_{t}, w_{t - l}) = Cov($\vspace{0.25cm}
+\par\noindent\Large For AR(1) models, autocovariance $\gamma_{l}$ for lag-$l$ is as follows (note in this case there is only one $\phi$):
+\[\gamma_{l} = \begin{cases}
+    \phi\gamma_{1} + \sigma_{a}^{2} & if l = 0 \\
+    \phi\gamma_{l - 1} & if l > 0
+\end{cases}\]
+
+\par\noindent\Large If $l = 0$, then clearly $\gamma_{0} = \phi\gamma_{1} + \sigma_{a}^{2} = Var(w_{t}) = Var(r_{t} - r_{t - 1}) = Var(\phi r_{t - 1} + a_{t} - r_{t - 1}) = Var(\phi r_{t - 1} - r_{t - 1}) + Var(a_{t}) = Var((\phi - 1)r_{t - 1}) + Var(a_{t}) = (\phi - 1)^{2}Var(r_{t - 1}) + \sigma_{a}^{2}$
+\par\noindent\Large When $l = 1$, $\gamma_{1} = \phi\gamma_{0} = \phi^{1}(\phi - 1)^{2}Var(r_{t - 1}) + \sigma_{a}^{2}$.
+\par\noindent\Large Therefore, the autocovariance function $\gamma_{l} = \phi{l}(\phi - 1)^{2}Var(r_{t - 1}) + \sigma_{a}^{2}$.
+
+\section{Let ${a_{t}}$ be a Gaussian white noise process with zero mean and unit variance.  Consider a process defined recursively as follows (below).  Calculate the mean of the process.}
+
+\[r_{t} = \begin{cases} 
+      c_{1}a_{0} & t = 0 \\
+      c_{2}r_{t - 1} + a_{1} & t = 1 \\
+      \phi_{1}r_{t - 1} + \phi_{2}r_{t - 2} + a_{t} &\forall t > 1 
+   \end{cases}
+\]
+
+\par\noindent\Large $E(r_{0}) = E(c_{1}a_{0}) = 0$, as we are taking the expected value of a constant and white noise.
+\par\noindent\Large $E(r_{1}) = c_{2}E(r_{0}) + E(a_{t}) = 0$, $E(r_{t}) = 0$ and $E(a_{t}) = 0$ because it is white noise.
+\par\noindent\Large $\forall t > 1$, $r_{t} = \phi_{1} r_{t - 1} + \phi_{2}r_{t - 2} + a_{t}$.  Eventually, $r_{t - 1}$ and/or $r_{t - 2}$ will return 0 as a result of being $r_{1}$ and $r_{0}$ when $E(r_{t})$ is evaluated, so this will also become 0.\vspace{0.25cm}
+
+\par\noindent\Large Therefore, $E(r_{t}) = 0 \forall t$.
+
+\section{Let $\{r_{t}\}$ be a time series in which we are interested.  However, because the data collection and observation process is not perfect, we actually observe $y_{t} = r_{t} + a_{t}$.  We assume $\{r_{t}\}$ and $\{a_{t}\}$ are independent processes.}
+\subsection{If $r_{t}$ is stationary with lag-$l$ autocorrelation function $\rho_{l}$, show the $y_{t}$ is also stationary and that its lag-$l$ autocorrelation function is given by $\omega_{l} = \frac{\rho_{l}}{1 + \frac{\sigma_{a}^{2}}{\sigma_{r}^{2}}}$ where $\sigma_{a}^{2}$ and $\sigma_{r}^{2}$ are the variances of the error process $a_{t}$ and the original time series $r_{t}$ respectively.}
+
+\par\noindent\Large Given $r_{t}$ is stationary, we can set $E(r_{t}) = \mu$, a constant, then try to take the expectation of $y_{t}$: $E(y_{t}) = E(r_{t} + a_{t}) = E(r_{t}) + E(a_{t})$.  $E(a_{t}) = 0$ because it is the expectation of white noise, leaving us with $E(y_{t}) = E(r_{t}) = \mu$.  Because $E(y_{t})$ is equal to that same constant, we can therefore say $y_{t}$ is stationary.\vspace{0.25cm}
+
+\par\noindent\Large To find the lag-$l$ ACF $\omega_{l}$, remember the formula for an ACF is of the following format: $\omega_{l} = \phi_{1}\omega_{l - 1} = \frac{Cov(y_{t}, y_{t - l})}{Var(y_{t})} = \frac{\gamma_{l}}{\gamma_{0}}$.\vspace{0.25cm}
+
+\par\noindent\Large $Cov(y_{t}, y_{t - l}) = Cov(r_{t} + a_{t}, r_{t - l} + a_{t - l})$.  Expanding, we get $Cov(y_{t}, y_{t - l}) = Cov(r_{t}, r_{t - l}) + Cov(r_{t}, a_{t - l}) + Cov(a_{t}, r_{t - l}), + Cov(a_{t}, a_{t - l}) = Cov(r_{t}, r_{t - l}) + Cov(a_{t}, a_{t - l}) = Cov(r_{t}, r_{t - 1})$ (all other series were eliminated because of independence or white noise).  We eventually get $Cov(y_{t}, y_{y - 1}) = Var(r_{t})\rho_{l} = \sigma_{r}^{2}\rho_{l}$\vspace{0.25cm}
+
+% See covariance page, mathworld.wolfram.com
+%\par\noindent\Large Because we proved that $E(y_{t}) = E(r_{t}) = \mu$, $Cov(r_{t}, r_{t - l}) = \gamma_{l} = Cov(y_{t}, y_{t - l})$
+
+%\par\noindent\Large $Cov(y_{t}, y_{t - 1}) = E(y_{t}y_{t - 1}) - E(y_{t})E(y_{t - 1})$.  Because $y_{t}$ is stationary, as from earlier in this problem, $E_{y} = E(y_{t - 1}) = \mu$, so $Cov(y_{t}, y_{t - 1}) = E(y_{t}y_{t - 1}) - \mu^{2}$.\vspace{0.25cm}
+
+\par\noindent\Large $Var(y_{t}) = Var(r_{t} + a_{t}) = Var(r_{t}) + Var(a_{t}) = \sigma_{r}^{2} + \sigma_{a}^{2}$.  Rearranging this will give $Var(y_{t}) = (\sigma_{r}^{2})(1 + \frac{\sigma_{a}^{2}}{\sigma_{r}^{2}})$\vspace{0.25cm}
+
+\par\noindent\Large Therefore, \huge$\omega_{l} = \frac{\sigma_{r}^{2}\rho_{l}}{(\sigma_{r}^{2})(1 + \frac{\sigma_{a}^{2}}{\sigma_{r}^{2}})} = \frac{\rho_{l}}{1 + \frac{\sigma_{a}^{2}}{\sigma_{r}^{2}}}$
+
+\subsection{The ratio $\frac{\sigma_{a}^{2}}{\sigma_{r}^{2}}$ is called the \textit{signal-to-noise ratio} (SNR).  Explain briefly how the correlation between $\rho_{l}$ and $\omega_{l}$ changes as the SNR changes.  A non-mathematical argument is sufficient, as long as you are able to justify your view using part (a).}
+
+\par\noindent\Large Remember that \huge$\omega_{l} = \frac{\rho_{l}}{1 + \frac{\sigma_{a}^{2}}{\sigma_{r}^{2}}}$.\Large If the SNR increases or decreases, then the whole denominator of the fraction on the right-hand side will increase or decrease as well.  We can rearrange the equation to get $(\omega_{l})(1 + \frac{\sigma_{a}^{2}}{\sigma_{r}^{2}})= \rho_{l}$.  We can clearly see that an \textbf{increase in the SNR results in an increase of $\omega_{l}$} and that similarly, a \textbf{decrease in the SNR results in a decrease of $\omega_{l}$}.
+
+\end{document}

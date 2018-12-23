@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\geometry{legalpaper, portrait, margin = 0.5in}
+\rmfamily
+
+\title{AMS 261 Chapter 15 Challenge Problem 1}
+\author{David S. Li (SBUID: 110328771)}
+\date{December 7, 2018}
+
+\begin{document}
+
+\maketitle
+
+\section{The force field $\textbf{F}(x, y) = (x + 2y)\textbf{i} + (x^{2} + 1)\textbf{j}$ acts on an object traveling from (0, 0) to (0, 1).  The object moves along the path $x = c(y - y^{2})$ with $0 \leq y \leq 1$.  Determine the value of $c$ that minimizes the work done on the object by the force field.}
+
+\par\noindent\Large Work $W = \int_{C}\textbf{F}\cdot d\textbf{r} = \int_{a}^{b}\textbf{F}(x(t), y(t))\cdot \textbf{r}'(t)dt$.  We can set $y(t) = t$ and $x(t) = c(t - t^{2})$, giving us $\textbf{F}(x(t), y(t)) = [c(t - t^{2}) + 2t]\textbf{i} + [c^{2}(t - t^{2})^{2} + 1]\textbf{j}$.\vspace{0.25cm}
+
+\par\noindent\Large Given $\textbf{r}(t) = x(t)\textbf{i} + y(t)\textbf{j}$, we get $\textbf{r}(t) = c(t - t^{2})\textbf{i} + t\textbf{j}$.  Deriving this in terms of $t$ gives us $\textbf{r}'(t) = c(1 - 2t)\textbf{i} + \textbf{j}$.\vspace{0.25cm}
+
+\par\noindent\Large We therefore get $W = \int_{0}^{1}[[c(t - t^{2}) + 2t]\textbf{i} + [c^{2}(t - t^{2})^{2} + 1]\textbf{j}]\cdot [c(1 - 2t)\textbf{i} + \textbf{j}]dt = \int_{0}^{1}[(c(t - t^{2}) + 2t)(c(1 - 2t)) + (c^{2}(t - t^{2})^{2} + 1)(1)]dt$.\vspace{0.25cm}
+
+\par\noindent\Large $(c(t - t^{2}) + 2t)(c(1 - 2t)) = (ct - ct^{2} + 2t)(c - 2ct) = c^{2}t - 2c^{2}t^{2} - c^{2}t^{2} + 2c^{2}t^{3} + 2ct - 4ct^{2} = c^{2}t - 3c^{2}t^{2} + 2c^{2}t^{3} + 2ct - 4ct^{2}$\vspace{0.25cm}
+
+\par\noindent $c^{2}(t - t^{2})^{2} + 1 = c^{2}(t^{2} - 2t^{3} + t^{4}) = c^{2}t^{2} - 2c^{2}t^{3} + c^{2}t^{4} + 1$\vspace{0.25cm}
+
+\par\noindent Therefore, $\textbf{F} \cdot d\textbf{r} = \textbf{F}(x(t), y(t)) \cdot \textbf{r}'(t) dt = (c^{2}t - 3c^{2}t^{2} + 2c^{2}t^{3} + 2ct - 4ct^{2} + c^{2}t^{2} - 2c^{2}t^{3} + c^{2}t^{4})dt = (c^{2}t - 2c^{2}t^{2} + 2ct - 4ct^{2} + c^{2}t^{4} + 1)dt$
+
+\par\noindent $\int_{0}^{1}\textbf{F}(x(t), y(t))\cdot d\textbf{r} = \int_{0}^{1}(c^{2}t - 2c^{2}t^{2} + 2ct - 4ct^{2} + c^{2}t^{4} + 1)dt = [\frac{c^{2}t^{2}}{2} - \frac{2c^{2}t^{3}}{3} + ct^{2} - \frac{4ct^{3}}{3} + \frac{c^{2}t^{5}}{5} + t]_{0}^{1}\linebreak = \frac{c^{2}}{2} - \frac{2c^{2}}{3} + c - \frac{4c}{3} + \frac{c^{2}}{5} + 1$\vspace{0.25cm}
+
+\par\noindent Work is \textit{minimized}, or \textit{at least at an extrema}, when its derivative is set equal to 0.
+\par\noindent $\frac{dW}{dC} = c - \frac{4}{3}c + 1 - \frac{4}{3} + \frac{2}{5}c = \frac{15}{15}c - \frac{20}{15} + 1 - \frac{4}{3} + \frac{6}{15}c = \frac{1}{15}c - \frac{1}{3} = 0$
+\par\noindent Rearranging this gives us that $\frac{1}{15}c = \frac{1}{3}$, and that $c = 5$.\vspace{0.25cm}
+
+\par\noindent\Large To make sure that $c = 5$ will lead to a minimal amount of work being done by the force field, use a first derivatives test to check:
+\par\noindent\Large $d_{1} = W'(6) = \frac{6}{15} - \frac{1}{3} = \frac{1}{15}$ and $d_{2} = W'(4) = \frac{4}{15} - \frac{1}{3} = -\frac{1}{15}$.\vspace{0.25cm}
+
+\par\noindent\Large We can conclude from this test that for values of $c$ less than 5, the graph of the work function is going downwards and for values greater than 5, the graph goes back up.  Therefore, we have a minimum for work at $c = 5$.
+
+%\par\noindent\Large To get a value of $W$ that we can use to help solve for $c$, we can integrate the $\textbf{F}(x, y)$ function, essentially a "gradient", to get a function $f(x, y)$: $\int (x + 2y)dx = \frac{x^{2}}{2} + 2xy + C_{y}$ and $\int (x^{2} + 1)dy = x^{2}y + y + C_{x}$
+
+%\par\noindent\Large To get a value of $W$ that we can use to help solve for $c$, we can also evaluate the integral using \textit{Green's Theorem}.  $W = \int_{C}Mdx + Ndy = \iint_{R}(\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y})dA = \iint_{R}$
+
+%\par\noindent\Large To simplify the expression, we can set each term to have a common denominator of 6, and thus $W = \frac{6c + 3c^{2}}{6} + \frac{8c - 6c^{2}}{6} + \frac{3c^{2}}{6} = \frac{6c + 3c^{2} + 8c - 6c^{2} + 3c^{2}}{6} = \frac{6c^{2} + 8c}{6} = \frac{2(3c^{2} + 4c)}{6} = \frac{3c^{2} + 4c}{3}$
+
+% When you're done with that, F(x, y) is the \textbf{GRADIENT}
+
+\subsection{Suppose the work on the object did not depend on $c$.  What would this imply about the force field?}
+
+\par\noindent\Large This would suggest that the work is \textbf{path-independent}, and that the vector field is therefore \textbf{conservative}.
+\end{document}
